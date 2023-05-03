@@ -6,8 +6,9 @@ import registrationInformationService from "../../services/registrationInformati
 export default {
   data() {
     return {
-      id: this.$route.params.id,
+     // id: this.$route.params.id,
       listMedicalSupplies: [],
+      id: this.$route.params,
       data: {
         prescription: null,
         service: "",
@@ -25,6 +26,17 @@ export default {
     };
   },
   methods: {
+    async getInfo(id) {
+            try {
+               const result = await PrescriptionService.getAll();
+               this.data = result.filter(e => e._id == id)[0];
+                console.log(this.data);
+
+            } catch (error) {
+                console.log(error);
+                console.log(this.Prescription);
+            }
+        },
     async retrieveList() {
       this.listMedicalSupplies = await MedicalSuppliesService.getAll();
       this.info = await registrationInformationService.getById(this.id);
@@ -96,13 +108,14 @@ export default {
   },
   created() {
     this.retrieveList();
+    this.getInfo(this.$route.params.id);
   },
 };
 </script>
 <template>
   <div class="my-3 py-3 bg-white">
     <div class="d-flex justify-content-between flex-row">
-      <h5 class="fw-bold text-uppercase">Kê đơn thuốc</h5>
+      <h5 class="fw-bold text-uppercase">Chỉnh sửa đơn thuốc</h5>
       <button class="btn btn-primary p-2 bg-primary" @click="addMedical">
         Thêm
       </button>
@@ -204,7 +217,7 @@ export default {
           <th>Giá</th>
           <th>Sáng</th>
           <th>Trưa</th>
-          <th>Chiều</th>
+          <th>Tối</th>
           <th>Thành tiền</th>
         </thead>
         <tbody>
@@ -216,7 +229,6 @@ export default {
             <td>{{ medical.slSang }}</td>
             <td>{{ medical.slTrua }}</td>
             <td>{{ medical.slChieu }}</td>
-            <td>{{ medical.gia }}</td>
             <td>
               <button @click="deleteMedical(index)">x</button>
             </td>
@@ -224,15 +236,7 @@ export default {
         </tbody>
       </table>
       <div>
-        <p>Tổng tiền: {{
-                    new Intl.NumberFormat("it-IT", {
-                      style: "currency",
-                      currency: "VND",
-                    })
-                      .format(this.sum)
-                      .replace("VND", "")
-                  }}</p>
-        
+        <p>Tổng tiền: {{ this.sum }}</p>
       </div>
       <div>
         <!-- <button class="btn btn-primary" @click="handleSubmit">Hoàn tất</button> -->

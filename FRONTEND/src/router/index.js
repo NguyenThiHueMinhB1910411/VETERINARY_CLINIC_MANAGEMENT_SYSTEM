@@ -268,6 +268,12 @@ const routes = [
       params : true
      },
      {
+      path: 'EditMedical/:id',
+      name: 'EditMedical',
+      component: () => import ("@/views/Doctor/EditMedical.vue"),
+      params : true
+     },
+     {
       path: 'MedicalRe',
       name: 'MedicalRe',
       component: () => import("@/views/doctor/MedicalRe.vue"),

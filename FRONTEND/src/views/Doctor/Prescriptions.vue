@@ -58,7 +58,7 @@
                 try {
                     this.listPrescription = await PrescriptionService.getAll();
                     this.listPrescription = this.listPrescription.filter((i) => i.info1.TenBacSi != null);
-                    // this.listPrescription = this.listPrescription.filter((e) => e.info1.TrangThaiKhamBenh == "Đã khám" )
+                    this.listPrescription = this.listPrescription.filter((e) => e.info1.TrangThaiKhamBenh == "Đã khám" )
                     this.listPrescription = this.listPrescription.filter((e) => e.info1.TenLoaiDichVu == "Khám bệnh")
                     this.listMedicalSupplies = await MedicalSuppliesService.getAll();
 

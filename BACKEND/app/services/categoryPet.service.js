@@ -4,7 +4,7 @@ class CategoryPetService {
   extractCategoryPetData(payload) {
     const categoryPet = {
       MaLoaiVatNuoi: payload.MaLoaiVatNuoi,
-      TenLoaiVatNuoi: payload.TenNhanVien,
+      TenLoaiVatNuoi: payload.TenLoaiVatNuoi,
      
     };
     Object.keys(categoryPet).forEach(

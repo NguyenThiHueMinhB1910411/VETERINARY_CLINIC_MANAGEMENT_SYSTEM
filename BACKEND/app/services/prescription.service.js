@@ -50,7 +50,7 @@ class PrescriptionService {
           as: 'info1',
         },
       },
-      {$unwind:'$info1'}
+        {$unwind:'$info1'}
       
     ])
     return await rs.toArray()

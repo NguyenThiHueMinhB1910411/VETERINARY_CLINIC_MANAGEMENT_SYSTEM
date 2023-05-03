@@ -62,6 +62,7 @@ export default {
                 this.listPrescription =await PrescriptionService.getAll();
                 console.log(this.listPrescription);
                 this.listPrescription = this.listPrescription.filter((e) => e.info1.TenLoaiDichVu == "Khám bệnh");
+                this.listPrescription = this.listPrescription.filter((e) => e.info1.TrangThaiKhamBenh == "Đã khám" )
                 this.listMedicalRecord = await MedicalRecordService.getAll();
                
                
@@ -75,6 +76,10 @@ export default {
             this.filtered = this.listPrescription.filter(e => e.TenLoaiDichVu == filter);
 
         },
+        filteredStatus(filter) {
+                this.filtered = this.listPrescription.filter(e => e.TrangThaiKhamBenh == filter)
+              
+            },
 
     },
 

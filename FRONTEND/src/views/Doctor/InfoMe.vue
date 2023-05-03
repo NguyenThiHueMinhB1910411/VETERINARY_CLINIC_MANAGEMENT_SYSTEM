@@ -266,7 +266,6 @@ export default {
 </script>
 <template>
 <main>
-    doctor
     <div class="row" style="font-size: 16px">
         <div class="col mt-4 mx-2 p-4" style="
           box-shadow: '0px 5px 15px rgba(0, 0, 0, 0.25)';
