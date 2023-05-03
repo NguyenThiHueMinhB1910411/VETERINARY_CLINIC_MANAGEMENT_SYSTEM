@@ -1,0 +1,28 @@
+[
+    {
+        "TenAccount":"HueMinh",
+        "Password":"HueMinh",
+        "Gmail":"hueminh@gmail.com"
+    },
+    {
+        "TenAccount":"staff",
+        "Password":"staff",
+        "Gmail":"staff@gmail.com"
+    }
+    ,
+    {
+        "TenAccount":"doctor",
+        "Password":"doctor",
+        "Gmail":"doctor@gmail.com"
+    },
+    {
+
+        "TenAccount":"admin",
+        "Password":"admin",
+        "Gmail":"admin@gmail.com"
+    }
+    
+    
+
+
+]

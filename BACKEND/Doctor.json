@@ -1,0 +1,20 @@
+[
+    {
+        "MaBacSi":"BS01",
+        "TenBacSi":"Nguyễn Thị Huế Minh",
+        "SoDienThoai":"0389943552",
+        "Gmail":"minh@gmail.com",
+        "DiaChi":"Vĩnh Long",
+        "ChucVu":"Bác sĩ",
+        "GioiTinh":"Nữ"
+    },
+    {
+        "MaBacSi":"BS02",
+        "TenBacSi":"Nguyễn Thị Huế Hương",
+        "SoDienThoai":"0389943553",
+        "Gmail":"huong@gmail.com",
+        "DiaChi":"Vĩnh Long",
+        "ChucVu":"Bác sĩ",
+        "GioiTinh":"Nữ"
+    }
+]

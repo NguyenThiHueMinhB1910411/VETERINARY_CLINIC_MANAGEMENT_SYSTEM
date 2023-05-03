@@ -1,0 +1,73 @@
+.use-colorr {
+    background-color: #dae9f3;
+}
+
+.use-color {
+    background-color: #eef9ff;
+}
+
+.button-1 {
+    background-color: #3872b2;
+    border: 1px solid #80b5d7;
+}
+
+.table th,
+.table td,
+.table tr,
+.table thead tr th,
+.table tbody tr td {
+    border: 1px solid #19a7ff;
+}
+
+.bg-form {
+    background-color: #3456b4;
+}
+
+main {
+    background-color: white;
+    font-size: 1rem;
+}
+
+table {
+    background-color: white;
+}
+.modal-title{
+  width: 100%;
+  text-align: center;
+  color: #0c225e;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.time-booking{
+  
+    text-align: center;
+}
+.label-name{
+    font-size:3rem;
+}
+.form-check {
+    margin-right: 10px;
+}
+
+.form-group input {
+    margin-bottom: 10px ;
+    margin-top: -10px;
+}
+
+.title-right {
+    font-weight:bold;
+   
+    font-family: 'ici-pbl';
+    font-size: 25px;
+    color: #055b72;
+    text-transform: uppercase;
+    font-weight: normal;
+    padding-bottom: 10px;
+}
+.attention{
+    font-size: 1.8rem;
+    color: #0c225e;
+    text-shadow: #80b5d7;
+    text-decoration: underline ;
+}
+

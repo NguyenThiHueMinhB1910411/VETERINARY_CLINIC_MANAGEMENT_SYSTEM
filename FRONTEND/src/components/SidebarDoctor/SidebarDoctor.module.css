@@ -1,0 +1,32 @@
+
+/* .sidebars {
+  position: sticky;
+
+  height: 1800px;
+} */
+
+
+.sidebars a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .navbar {
+    font-size: 25px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .title-name{
+    letter-spacing: 0.1cm;
+  }
+  
+  .bg{
+    background-color: #e2e0fd;
+  
+   
+  }
+  .style_title{
+    color: #CC4D26;
+  }
+  

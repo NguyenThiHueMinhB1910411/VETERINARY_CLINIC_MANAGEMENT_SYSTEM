@@ -1,0 +1,84 @@
+.use-colorr {
+    background-color: #dae9f3;
+}
+
+.use-color {
+    background-color: #eef9ff;
+}
+
+.button-1 {
+    background-color: #3872b2;
+    border: 1px solid #80b5d7;
+}
+
+.table th,
+.table td,
+.table tr,
+.table thead tr th,
+.table tbody tr td {
+    border: 1px solid #19a7ff;
+}
+
+.bg-form {
+    background-color: #3456b4;
+}
+
+main {
+    background-color: white;
+}
+
+table {
+    background-color: white;
+}
+.modal-title{
+  width: 100%;
+  text-align: center;
+  color: #0c225e;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.time-booking{
+  
+    text-align: center;
+}
+.label-name{
+    font-size:3rem;
+}
+.form-check {
+    margin-right: 10px;
+}
+
+.form-group input {
+    margin-bottom: 10px ;
+    margin-top: -10px;
+}
+.status-hotel{
+    border-radius: 25px;
+}
+.title-hotel{
+    color: #0c225e;
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 5px;
+    
+}
+.price-list{
+ 
+    opacity: 0.9;
+    margin: 0% 15%;
+    margin-top: 5%;
+}
+.table th,
+.table td,
+.table tr,
+.table thead tr th,
+.table tbody tr td {
+    border:2px solid rgb(204, 201, 201);
+    font-size: 1.2rem;
+}
+.set-bg{
+    background-color: #144f77;
+}
+
+

@@ -1,0 +1,632 @@
+[{
+  "_id": {
+    "$oid": "644ac5eeeca0a4b560630606"
+  },
+  "TenThuoc": "Thuốc hạ sốt cho chó Hi-Dexa inj",
+  "SoLuongSang": "1",
+  "SoLuongTrua": 1,
+  "SoLuongChieu": 1,
+  "SoLuong": "13",
+  "UsernameVatNuoi": "Lu",
+  "MaDangKy": {
+    "$oid": "644ac5d5eca0a4b560630605"
+  },
+  "GhiChu": "hoo",
+  "TrangThaiThanhToan": "Chưa thanh toán",
+  "TrangThaiKeDon": "Đã kê đơn thuốc",
+  "NgayKeDon": "01:58:54 28/4/2023",
+  "SoDienThoai": "0389943552"
+},{
+  "_id": {
+    "$oid": "644ac60feca0a4b560630609"
+  },
+  "TenThuoc": " Thuốc Meloxicam Tablets 1mg ",
+  "SoLuong": "7",
+  "UsernameVatNuoi": "Lu",
+  "MaDangKy": {
+    "$oid": "644ac601eca0a4b560630608"
+  },
+  "TrangThaiThanhToan": "Chưa thanh toán",
+  "TrangThaiKeDon": "Đã kê đơn thuốc",
+  "NgayKeDon": "01:59:27 28/4/2023",
+  "SoDienThoai": "0389943552"
+},{
+  "_id": {
+    "$oid": "644aca4ec4dea6c1058adfc8"
+  },
+  "TenThuoc": " Thuốc Meloxicam Tablets 1mg ",
+  "SoLuong": "70",
+  "UsernameVatNuoi": "susu",
+  "MaDangKy": {
+    "$oid": "644ac9e4f3bccfefcbe72065"
+  },
+  "TrangThaiThanhToan": "Chưa thanh toán",
+  "TrangThaiKeDon": "Đã kê đơn thuốc",
+  "NgayKeDon": "02:17:34 28/4/2023",
+  "SoDienThoai": "0367765534"
+},{
+  "_id": {
+    "$oid": "644ad0111733ac4e52d88b48"
+  },
+  "TenThuoc": " Thuốc Meloxicam Tablets 1mg ",
+  "SoLuongSang": "1",
+  "SoLuongTrua": 1,
+  "SoLuongChieu": 1,
+  "SoLuong": "20",
+  "UsernameVatNuoi": "mitom",
+  "MaDangKy": {
+    "$oid": "644acc757f5bd11d404ee58b"
+  },
+  "GhiChu": "Sau khi ăn",
+  "TrangThaiThanhToan": "Chưa thanh toán",
+  "TrangThaiKeDon": "Đã kê đơn thuốc",
+  "NgayKeDon": "02:42:09 28/4/2023",
+  "SoDienThoai": "0367765534",
+  "ChuanDoan": "Biếng Ăn",
+  "thanhtien": 3800000,
+  "create_at": {
+    "$date": "2023-04-27T19:42:09.787Z"
+  },
+  "update_at": ""
+},{
+  "_id": "644bb0c2928d06f5e7076bae",
+  "TenKhachHang": "Phan Thanh Ngân",
+  "SoDienThoai": "0376651234",
+  "ChiTiet": [
+    {
+      "service": "Thuốc hạ sốt cho chó Hi-Dexa inj",
+      "soluong": "2",
+      "gia": 400000,
+      "slSang": "1",
+      "slChieu": 0
+    },
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": "10",
+      "gia": 1800000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 0
+    }
+  ],
+  "ChanDoan": "sốt quá cao",
+  "GhiChu": "uống sau khi ăn no",
+  "ThanhTien": 2200000,
+  "create_at": {
+    "$date": "2023-04-28T11:46:53.822Z"
+  },
+  "update_at": ""
+},{
+  "_id": {
+    "$oid": "644bb78f0bc3410f773815de"
+  },
+  "TenKhachHang": "Phan Thanh Ngân",
+  "SoDienThoai": "0376651234",
+  "UsernameVatNuoi": "cà phê",
+  "ChanDoan": "",
+  "ThanhTien": 0,
+  "ChiTiet": [
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": 0,
+      "gia": 0,
+      "slSang": 0,
+      "slChieu": 0
+    },
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": 0,
+      "gia": 0,
+      "slSang": 0,
+      "slChieu": 0,
+      "slToi": 0
+    }
+  ],
+  "MaDangKy": "644bb0c2928d06f5e7076bae",
+  "GhiChu": "",
+  "create_at": {
+    "$date": "2023-04-28T12:09:51.939Z"
+  },
+  "update_at": ""
+},{
+  "_id": {
+    "$oid": "644be95d0e622f1e0177c327"
+  },
+  "TenKhachHang": "0376651234",
+  "SoDienThoai": "Phan Thanh Ngân",
+  "UsernameVatNuoi": "cà phê",
+  "ChanDoan": "Ăn nhiều, nên cho n....",
+  "ThanhTien": 960000,
+  "ChiTiet": [
+    {
+      "service": "Thuốc hạ sốt cho chó Hi-Dexa inj",
+      "soluong": "1",
+      "gia": 200000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    },
+    {
+      "service": " Thuốc Meloxicam Tablets 1mg ",
+      "soluong": "2",
+      "gia": 380000,
+      "slSang": 0,
+      "slChieu": 0,
+      "slToi": 0
+    },
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": "1",
+      "gia": 180000,
+      "slSang": 0,
+      "slChieu": 0,
+      "slToi": 0
+    }
+  ],
+  "MaDangKy": "644bb0c2928d06f5e7076bae",
+  "GhiChu": "okk",
+  "create_at": {
+    "$date": "2023-04-28T15:42:21.430Z"
+  },
+  "update_at": ""
+},{
+  "_id": {
+    "$oid": "644be9c42db06d4909a27802"
+  },
+  "TenKhachHang": "0376651234",
+  "SoDienThoai": "Phan Thanh Ngân",
+  "UsernameVatNuoi": "cà phê",
+  "ChanDoan": "Ăn nhiều, nên cho n....",
+  "ThanhTien": 960000,
+  "ChiTiet": [
+    {
+      "service": "Thuốc hạ sốt cho chó Hi-Dexa inj",
+      "soluong": "1",
+      "gia": 200000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    },
+    {
+      "service": " Thuốc Meloxicam Tablets 1mg ",
+      "soluong": "2",
+      "gia": 380000,
+      "slSang": 0,
+      "slChieu": 0,
+      "slToi": 0
+    },
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": "1",
+      "gia": 180000,
+      "slSang": 0,
+      "slChieu": 0,
+      "slToi": 0
+    }
+  ],
+  "MaDangKy": "644bb0c2928d06f5e7076bae",
+  "GhiChu": "okk",
+  "create_at": {
+    "$date": "2023-04-28T15:44:04.968Z"
+  },
+  "update_at": ""
+},{
+  "_id": {
+    "$oid": "644be9ce2db06d4909a27803"
+  },
+  "TenKhachHang": "0376651234",
+  "SoDienThoai": "Phan Thanh Ngân",
+  "UsernameVatNuoi": "cà phê",
+  "ChanDoan": "Ăn nhiều, nên cho n....",
+  "ThanhTien": 960000,
+  "ChiTiet": [
+    {
+      "service": "Thuốc hạ sốt cho chó Hi-Dexa inj",
+      "soluong": "1",
+      "gia": 200000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    },
+    {
+      "service": " Thuốc Meloxicam Tablets 1mg ",
+      "soluong": "2",
+      "gia": 380000,
+      "slSang": 0,
+      "slChieu": 0,
+      "slToi": 0
+    },
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": "1",
+      "gia": 180000,
+      "slSang": 0,
+      "slChieu": 0,
+      "slToi": 0
+    }
+  ],
+  "MaDangKy": "644bb0c2928d06f5e7076bae",
+  "GhiChu": "okk",
+  "create_at": {
+    "$date": "2023-04-28T15:44:14.752Z"
+  },
+  "update_at": ""
+},{
+  "_id": {
+    "$oid": "644beabbfba5b4ae7a85112b"
+  },
+  "TenKhachHang": "0376651234",
+  "SoDienThoai": "Phan Thanh Ngân",
+  "UsernameVatNuoi": "cà phê",
+  "ChanDoan": "Béo ",
+  "ThanhTien": 380000,
+  "ChiTiet": [
+    {
+      "service": "Thuốc hạ sốt cho chó Hi-Dexa inj",
+      "soluong": "1",
+      "gia": 200000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    },
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": "1",
+      "gia": 180000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    }
+  ],
+  "MaDangKy": "644bb0c2928d06f5e7076bae",
+  "GhiChu": "không cho ăn nhiều",
+  "create_at": {
+    "$date": "2023-04-28T15:48:11.500Z"
+  },
+  "update_at": ""
+},{
+  "_id": {
+    "$oid": "644beaf3fba5b4ae7a85112c"
+  },
+  "TenKhachHang": "0376651234",
+  "SoDienThoai": "Phan Thanh Ngân",
+  "UsernameVatNuoi": "cà phê",
+  "ChanDoan": "Béo",
+  "ThanhTien": 190000,
+  "ChiTiet": [
+    {
+      "service": " Thuốc Meloxicam Tablets 1mg ",
+      "soluong": "1",
+      "gia": 190000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    }
+  ],
+  "MaDangKy": "644bb0c2928d06f5e7076bae",
+  "GhiChu": "Hạn chế Ăn nhiều",
+  "create_at": {
+    "$date": "2023-04-28T15:49:07.893Z"
+  },
+  "update_at": ""
+},{
+  "_id": {
+    "$oid": "644beb37fba5b4ae7a85112d"
+  },
+  "TenKhachHang": "0376651234",
+  "SoDienThoai": "Phan Thanh Ngân",
+  "UsernameVatNuoi": "cà phê",
+  "ChanDoan": "",
+  "ThanhTien": 0,
+  "ChiTiet": [],
+  "MaDangKy": "644bb0c2928d06f5e7076bae",
+  "GhiChu": "",
+  "create_at": {
+    "$date": "2023-04-28T15:50:15.433Z"
+  },
+  "update_at": ""
+},{
+  "_id": {
+    "$oid": "644beb39fba5b4ae7a85112e"
+  },
+  "TenKhachHang": "0376651234",
+  "SoDienThoai": "Phan Thanh Ngân",
+  "UsernameVatNuoi": "cà phê",
+  "ChanDoan": "",
+  "ThanhTien": 190000,
+  "ChiTiet": [
+    {
+      "service": " Thuốc Meloxicam Tablets 1mg ",
+      "soluong": "1",
+      "gia": 190000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    }
+  ],
+  "MaDangKy": "644bb0c2928d06f5e7076bae",
+  "GhiChu": "",
+  "create_at": {
+    "$date": "2023-04-28T15:50:17.483Z"
+  },
+  "update_at": ""
+},{
+  "_id": {
+    "$oid": "644beb558fe6f50f4335d966"
+  },
+  "TenKhachHang": "0376651234",
+  "SoDienThoai": "Phan Thanh Ngân",
+  "UsernameVatNuoi": "cà phê",
+  "ChanDoan": "12",
+  "ThanhTien": 190000,
+  "ChiTiet": [
+    {
+      "service": " Thuốc Meloxicam Tablets 1mg ",
+      "soluong": "1",
+      "gia": 190000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    }
+  ],
+  "MaDangKy": "644bb0c2928d06f5e7076bae",
+  "GhiChu": "12",
+  "create_at": {
+    "$date": "2023-04-28T15:50:45.199Z"
+  },
+  "update_at": ""
+},{
+  "_id": {
+    "$oid": "644beb9b8fe6f50f4335d967"
+  },
+  "TenKhachHang": "0376651234",
+  "SoDienThoai": "Phan Thanh Ngân",
+  "UsernameVatNuoi": "cà phê",
+  "ChanDoan": "",
+  "ThanhTien": 190000,
+  "ChiTiet": [
+    {
+      "service": " Thuốc Meloxicam Tablets 1mg ",
+      "soluong": "1",
+      "gia": 190000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    }
+  ],
+  "MaDangKy": "644bb0c2928d06f5e7076bae",
+  "GhiChu": "",
+  "create_at": {
+    "$date": "2023-04-28T15:51:55.659Z"
+  },
+  "update_at": ""
+},{
+  "_id": {
+    "$oid": "644beccbceece6002c006198"
+  },
+  "TenKhachHang": "Phan Thanh Ngân",
+  "SoDienThoai": "0376651234",
+  "UsernameVatNuoi": "cà phê",
+  "ChanDoan": "",
+  "ThanhTien": 360000,
+  "ChiTiet": [
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": "1",
+      "gia": 180000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    },
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": "1",
+      "gia": 180000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    }
+  ],
+  "MaDangKy": "644bb0c2928d06f5e7076bae",
+  "GhiChu": "",
+  "create_at": {
+    "$date": "2023-04-28T15:56:59.173Z"
+  },
+  "update_at": ""
+},{
+  "_id": {
+    "$oid": "644bed23ae4c4059e7d02eea"
+  },
+  "TenKhachHang": "Phan Thanh Ngân",
+  "SoDienThoai": "0376651234",
+  "UsernameVatNuoi": "cà phê",
+  "ChanDoan": "",
+  "ThanhTien": 360000,
+  "ChiTiet": [
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": "1",
+      "gia": 180000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    },
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": "1",
+      "gia": 180000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    }
+  ],
+  "MaDangKy": {
+    "$oid": "644bb0c2928d06f5e7076bae"
+  },
+  "GhiChu": "",
+  "create_at": {
+    "$date": "2023-04-28T15:58:27.049Z"
+  },
+  "update_at": ""
+},{
+  "_id": {
+    "$oid": "644bed345492a32cfedca7d2"
+  },
+  "TenKhachHang": "Phan Thanh Ngân",
+  "SoDienThoai": "0376651234",
+  "UsernameVatNuoi": "cà phê",
+  "ChanDoan": "",
+  "ThanhTien": 360000,
+  "ChiTiet": [
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": "1",
+      "gia": 180000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    },
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": "1",
+      "gia": 180000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    }
+  ],
+  "MaDangKy": {
+    "$oid": "644bb0c2928d06f5e7076bae"
+  },
+  "GhiChu": "",
+  "create_at": {
+    "$date": "2023-04-28T15:58:44.276Z"
+  },
+  "update_at": ""
+},{
+  "_id": {
+    "$oid": "644bed46b0c6f145cbbd7e44"
+  },
+  "TenKhachHang": "Phan Thanh Ngân",
+  "SoDienThoai": "0376651234",
+  "UsernameVatNuoi": "cà phê",
+  "ChanDoan": "",
+  "ThanhTien": 360000,
+  "ChiTiet": [
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": "1",
+      "gia": 180000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    },
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": "1",
+      "gia": 180000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    }
+  ],
+  "MaDangKy": "644bb0c2928d06f5e7076bae",
+  "GhiChu": "",
+  "create_at": {
+    "$date": "2023-04-28T15:59:02.908Z"
+  },
+  "update_at": ""
+},{
+  "_id": {
+    "$oid": "644bed6789ead723b929c3c0"
+  },
+  "TenKhachHang": "Phan Thanh Ngân",
+  "SoDienThoai": "0376651234",
+  "UsernameVatNuoi": "cà phê",
+  "ChanDoan": "",
+  "ThanhTien": 360000,
+  "ChiTiet": [
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": "1",
+      "gia": 180000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    },
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": "1",
+      "gia": 180000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    }
+  ],
+  "MaDangKy": "644bb0c2928d06f5e7076bae",
+  "GhiChu": "",
+  "create_at": {
+    "$date": "2023-04-28T15:59:35.634Z"
+  },
+  "update_at": ""
+},{
+  "_id": {
+    "$oid": "644bee24dac094c3e499b43d"
+  },
+  "TenKhachHang": "Phan Thanh Ngân",
+  "SoDienThoai": "0376651234",
+  "UsernameVatNuoi": "cà phê",
+  "ChanDoan": "",
+  "ThanhTien": 360000,
+  "ChiTiet": [
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": "1",
+      "gia": 180000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    },
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": "1",
+      "gia": 180000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    }
+  ],
+  "MaDangKy": "644bb0c2928d06f5e7076bae",
+  "GhiChu": "",
+  "create_at": {
+    "$date": "2023-04-28T16:02:44.700Z"
+  },
+  "update_at": ""
+},{
+  "_id": {
+    "$oid": "644bfad4dd6b2e0169f6cbd2"
+  },
+  "TenKhachHang": "Phan Thanh Ngân",
+  "SoDienThoai": "0376651234",
+  "UsernameVatNuoi": "cà phê",
+  "ChanDoan": "",
+  "ThanhTien": 180000,
+  "ChiTiet": [
+    {
+      "service": "Thuốc tiêm Hạ sốt Bio Anazin C 20ml",
+      "soluong": "1",
+      "gia": 180000,
+      "slSang": "1",
+      "slChieu": 0,
+      "slToi": 1
+    }
+  ],
+  "MaDangKy": {
+    "$oid": "644bb0c2928d06f5e7076bae"
+  },
+  "GhiChu": "",
+  "create_at": {
+    "$date": "2023-04-28T16:56:52.456Z"
+  },
+  "update_at": ""
+}]

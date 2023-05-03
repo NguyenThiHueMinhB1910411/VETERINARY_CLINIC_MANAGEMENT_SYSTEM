@@ -1,0 +1,28 @@
+.name-login{
+    background-color: #CC4D26;
+    color: white;
+    padding: 5px 30px;
+    border-radius: 8px;
+    font-size: large;
+    font-weight: 500;
+
+}
+.logout-style{
+    background-color: #B73E35;
+    color: white;
+    padding: 5px 15px;
+    margin-left: 5px;
+  
+    border-radius: 8px;
+}
+.title-navbar{
+    color: #153A64;
+    font-size: 25px;
+    font-weight: 700;
+}
+.title-before-login{
+    color: #CC4D26;
+    font-size: 18px;
+    font-weight: 700;
+
+}

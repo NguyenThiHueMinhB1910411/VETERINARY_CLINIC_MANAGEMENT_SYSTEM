@@ -1,0 +1,103 @@
+[
+    {
+        "MaDichVu":"DV11",
+        "TenDichVu":"Nguyên ngày",
+        "GiaCoVua":288000,
+        "GiaCoLon":480000,
+        "ChiPhiTheoGioVua":12000,
+        "ChiPhiTheoGioLon":20000,
+        "SoNgayGui":"",
+         
+        "MaLoaiDichVu":"DV1"
+    },
+    {
+        "MaDichVu":"DV12",
+        "TenDichVu":"Nửa sáng",
+        "GiaCoVua":60000,
+        "GiaCoLon":100000,
+        "ChiPhiTheoGioVua":12000,
+        "ChiPhiTheoGioLon":20000,
+         
+        "MaLoaiDichVu":"DV1"
+    },
+    {
+        "MaDichVu":"DV13",
+        "TenDichVu":"Nửa chiều",
+        "GiaCoVua":120000,
+        "GiaCoLon":200000,
+        "ChiPhiTheoGioVua":12000,
+        "ChiPhiTheoGioLon":20000,
+         
+        "MaLoaiDichVu":"DV1"
+    },
+    {
+        "MaDichVu":"DV21",
+        "TenDichVu":"Cắt móng- mài móng",
+        "GiaCoVua":50000,
+        "GiaCoLon":70000,
+         
+        "MaLoaiDichVu":"DV2"
+    },
+    {
+        "MaDichVu":"DV22",
+        "TenDichVu":"Cạo vệ sinh",
+        "GiaCoVua":60000,
+        "GiaCoLon":80000,
+         
+        "MaLoaiDichVu":"DV2"
+    },
+    {
+        "MaDichVu":"DV23",
+        "TenDichVu":"Cắt tỉa mặt",
+        "GiaCoVua":50000,
+        "GiaCoLon":50000,
+
+        "MaLoaiDichVu":"DV2"
+    },
+    {
+        "MaDichVu":"DV24",
+        "TenDichVu":"Cắt tỉa mông",
+        "GiaCoVua":50000,
+        "GiaCoLon":50000,
+         
+        "MaLoaiDichVu":"DV2"
+    },
+    {
+        "MaDichVu":"DV25",
+        "TenDichVu":"Nhuộm 2 tai",
+        "GiaCoVua":250000,
+        "GiaCoLon":350000,
+         
+        "MaLoaiDichVu":"DV2"
+    },
+    {
+        "MaDichVu":"DV26",
+        "TenDichVu":"Nhuộm đuôi",
+        "GiaCoVua":100000,
+        "GiaCoLon":150000,
+         
+        "MaLoaiDichVu":"DV2"
+    },
+    {
+        "MaDichVu":"DV27",
+        "TenDichVu":"Nhuộm 2 tai- đuôi ",
+        "GiaCoVua":300000,
+        "GiaCoLon":450000,
+         
+        "MaLoaiDichVu":"DV2"
+    },
+    {
+        "MaDichVu":"DV31",
+        "TenDichVu":"Kiểm tra sức khỏe",
+        "Gia":"",
+         
+        "MaLoaiDichVu":"DV03"
+    },
+    {
+        "MaDichVu":"DV32",
+        "TenDichVu":"Tiêm ngừa",
+        "Gia":"",
+         
+        "MaLoaiDichVu":"DV03"
+    }
+]

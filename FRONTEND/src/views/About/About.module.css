@@ -1,0 +1,94 @@
+.bg-ss1 {
+    background-color: white;
+    border: solid 1px gray;
+  }
+  
+  .title-page {
+    color: rgb(5, 5, 77) !important;
+  }
+  .card-text {
+    font-size: 1.2rem;
+  }
+  .sick-title {
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin: auto;
+    color: black;
+  }
+  .sick-title:hover {
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin: auto;
+    color: rgb(65, 64, 64);
+  }
+  .sick-content,
+  .branch-position {
+    font-size: 1.1rem;
+  }
+  .title {
+    
+    font-weight: 700;
+    margin-top: 10%;
+    color: white;
+    text-shadow: 4px 4px 3px #000000;
+  }
+  .title-relate {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-top: 45px;
+  }
+ 
+  .button-style {
+    padding: 10px 20px;
+    font-weight: 500;
+    border-radius: 25px;
+  }
+  .about-detail {
+    background-image: url("../../assets/images/pupple-dog.jpg");
+  }
+  li {
+    padding-top: 20px;
+    font-size: 400;
+  }
+  main {
+    font-size: 1rem;
+  }
+  .detail {
+    color: white;
+    font-size: 1.2rem;
+  }
+  .detail:hover {
+    color: rgb(173, 7, 7);
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .aboutus-detail{
+    font-size: 1.2rem;
+  }
+  /* .caption-img{
+    font-size: 1.2rem;
+    color: #000000;
+    position: absolute;
+    top: 8%;
+    left: 16%;
+} */
+/* .about-content{
+  padding: 20px 60px;
+} */
+.pet:hover{
+  opacity: 0.9;
+}
+
+  
+ .banner{
+  background-image: url("../../assets/images/about-banner.jpg");
+  width: 100%;
+  height: 500px;
+}
+
+.banner__information {
+  width: 30%;
+  margin-left: 100px;
+  
+}
+
