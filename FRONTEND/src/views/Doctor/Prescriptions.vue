@@ -104,7 +104,6 @@
             // },
         },
         created() {
-           // this.retrieveRequire();
             this.retrievePrescription();
         }
     }
@@ -137,7 +136,7 @@
                                         <th>Trạng thái</th>
                                         
                                         <th>Chi tiết đơn đơn thuốc</th>
-                                        <th>Chỉnh sửa</th>
+                                        <!-- <th>Chỉnh sửa</th> -->
 
                                     </tr>
                                 </thead>
@@ -211,7 +210,7 @@
 
                                         </td>
                                  
-                                        <td>
+                                        <!-- <td>
                                             <font-awesome-icon icon="fa-solid fa-pen-to-square" class=" text-dark col" data-bs-toggle="modal" data-bs-target="#exampleModal5" @click="this.value = prescription " />
                                             <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel5" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
@@ -280,7 +279,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        </td>
+                                        </td> -->
 
                                     </tr>
 

@@ -148,18 +148,23 @@ export default {
     border-radius: 8px;
     opacity: 0.5;
 }
+.style-button {
+    background-color: #CC4D26;
+    color: white;
+}
 </style>
 
 <template>
 <main>
     <div>
         <div class="row d-flex pt-3 pl-4">
-            <div class="col-7" style="font-size: 16px">
-                <button class="btn btn-primary text-light px-2" @click="retrieveRequire">
-                    <font-awesome-icon icon="fa-solid fa-rotate-right" />
-                    Refresh
-                </button>
-            </div>
+            <div class="col-7" style="font-size: 16px" @click="retrieveRequire">
+          <button class="btn text-light px-2" style="background-color: #cc4d26">
+            <font-awesome-icon icon="fa-solid fa-rotate-right" />
+            Refresh
+          </button>
+         
+        </div>
             <div class="col-5">
                 <input type="search" placeholder="Search" class="form-control w-75 d-flex justify-content-right mr-0" />
             </div>
@@ -227,16 +232,16 @@ export default {
                                         </button>
                                     </td>
                                     <td>
-                                        <!-- <font-awesome-icon 
+                                        <font-awesome-icon 
                       icon="fa-solid fa-pen-to-square" 
-                      class=" text-dark col"
+                      class=" text-dark col px-2"
                       @click="
                           $router.push({
                             name: 'EditMedical',
                             params: { id: `${registrationInformation._id}` },
                           })"
                       
-                      /> -->
+                      />
                       <!-- <router-link :to="{ name: 'PreDetail', params: { id: prescription._id } }">
                                                 <font-awesome-icon icon="fa-solid fa-pen-to-square" class="text-dark" />
                                             </router-link> -->
