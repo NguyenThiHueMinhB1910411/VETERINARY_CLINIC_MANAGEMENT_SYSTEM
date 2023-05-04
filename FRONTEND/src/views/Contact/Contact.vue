@@ -1,15 +1,43 @@
 <script>
 import PublicFooters from "@/components/Footer/PublicFooter.vue";
 import HeaderPublic from "@/components/Header/PublicHeader.vue"
+import feedbackservice from "../../services/feedbackservice";
+import categoryService from "../../services/categoryService.service";
 export default {
-  components: {
-    PublicFooters,
-    HeaderPublic
-  },
+    components: {
+        PublicFooters,
+        HeaderPublic,
+        categoryService,
+    },
+    data(){
+        return{
+            data:{},
+            service:[],
+            
+
+        }
+    },
+    methods: {
+        async retriveService(){
+            try {
+                this.service = await categoryService.getAll();
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        async handleSubmit() {
+            const rs = await feedbackservice.create(this.data);
+
+        },
+        created() {
+        this.retriveService();
+    },
+
+    }
 };
 </script>
 <template>
-    <HeaderPublic/>
+<HeaderPublic />
 <main class="container-fluid">
     <!--  ABOUT US -->
     <div class="container">
@@ -38,22 +66,54 @@ export default {
                 <div class="">
                     <form class=" p-5 border border-dark frame-contact">
                         <div class="mb-3">
-                            <input type="email" class="form-control  bg-light" id="exampleInputEmail1" aria-describedby="" placeholder="TÊN*" />
+                            <input type="text" class="form-control  bg-light" id="exampleInputEmail1" aria-describedby="" placeholder="TÊN*" v-model="this.data.TenKhachHang" />
                         </div>
                         <div class="mb-3">
-                            <input type="email" class="form-control  bg-light" id="exampleInputEmail1" aria-describedby="" placeholder="EMAIL*" />
+                            <input type="email" class="form-control  bg-light" id="exampleInputEmail1" aria-describedby="" placeholder="EMAIL*"  v-model="this.data.Gmail"/>
                         </div>
                         <div class="mb-3">
-                            <input type="tel" id="phone" name="phone" placeholder="SỐ ĐIỆN THOẠI*" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-                            <!-- <input type="phone" class="form-controlbg-light" id="exampleInputEmail1" aria-describedby="" placeholder="PHONE*" /> -->
+                            <!-- <input type="tel" id="phone" name="phone" placeholder="SỐ ĐIỆN THOẠI*" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" v-model="this.data.SoDienThoai"> -->
+                            <input class="form-control" type="tel" id="phone" name="phone" placeholder="SỐ ĐIỆN THOẠI*"  v-model="this.data.SoDienThoai">
                         </div>
+                        <!-- <div class="mb-3">Tên loại dịch vụ:
+                            <select v-model="this.data.TenLoaiDichVu">
+                            <option 
+                              v-for="(service, index) in this.service" 
+                            >
+                              {{service.TenLoaiDichVu }}
+                            </option>
+                          </select>
+                            </div> -->
+
 
                         <div class="mb-3">
-                            <textarea rows="4" cols="50" name="comment" form="usrform" placeholder="LỜI NHẮN...">
+                            <textarea class="form-control" rows="4" cols="50" name="comment" form="usrform" placeholder="LỜI NHẮN..." v-model="this.data.PhanHoi">
 </textarea>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn text-light button-submit  px-4">Submit</button>
+                            <!-- <button type="submit" class="btn text-light button-submit  px-4" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="handleSubmit">Submit</button> -->
+                            
+<button type="button" class="btn text-light button-submit  px-4" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="handleSubmit">
+  Submit
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="font-size: 15px;">
+        Cảm ơn bạn đã đánh giá dịch vụ của chúng tôi!
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" >Close</button> -->
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
 
                         </div>
 
@@ -109,8 +169,7 @@ export default {
         <hr />
     </div> -->
 </main>
-<PublicFooters/>
-
+<PublicFooters />
 </template>
 
 <style>

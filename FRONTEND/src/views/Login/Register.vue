@@ -54,7 +54,7 @@ export default {
                         <h2 class="text-center login-title">Đăng ký</h2>
                         <div class="justify-content-center">
                             <div class="form-group">
-                                <label for="mssv " class="">Tên Tài khoản:</label>
+                                <label for=" " class="">Tên Tài khoản:</label>
                                 <input type="text" class="form-control" id="TenKhachHang " placeholder="Nhập vào tên tài khoản " v-model="this.data.TenAccount" required />
                             </div>
                             <div class="form-group">

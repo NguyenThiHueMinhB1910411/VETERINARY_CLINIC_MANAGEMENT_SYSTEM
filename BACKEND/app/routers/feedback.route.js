@@ -1,11 +1,13 @@
 const express = require("express");
-const infoService = require("../controllers/infoService.controller");
+const feedback = require("../controllers/feedback.controller");
 
 const router = express.Router();
 
 router
     .route("/")
-    .get(infoService.findAll);
+    .get(feedback.findAll)
+    .post(feedback.create);
 
+   
 module.exports = router;
    

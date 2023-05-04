@@ -11,22 +11,6 @@ export default {
 <template>
     <HeaderPublic/>
 <main >
-    <!-- 
-    <div class="w-100">
-          <img  
-          class="w-100 d-block"
-            alt='Logo' 
-            src="https://www.vippetcare.com/wp-content/uploads/2020/10/VIP_Homepage_Hero_1500w-tinypanda.jpg">
-            <p class="carousel-caption caption-img">Some text here.. </p>
-        </div> -->
-
-    <!-- <div class="w-100">
-          <img  
-          class="w-100 d-block"
-            alt='Logo' 
-            src="https://www.vippetcare.com/wp-content/uploads/2020/10/VIP_Homepage_Hero_1500w-tinypanda.jpg">
-            <p class="carousel-caption caption-img">Some text here.. </p>
-        </div> -->
 
     <div class="banner">
         <div class="banner__information ">
@@ -43,43 +27,7 @@ Cho dù bạn nuôi chó, mèo hay cả hai, các chuyên gia của chúng tôi 
     </div>
 
    
-    <div class=" ">
-        <!-- <h4 class="fw-700 text-center pt-3" style="font-size: 40px;">Library</h4>
-        <div class="pt-4 ">
-            <div class="row">
-
-                <div class="col-3 card-1 ">
-                    <img src="../../assets/images/about-pet1.jpg" class="pet img-fluid image" width="100%" alt="">
-                 
-                </div>
-                <div class="col-3 ">
-                    <img src="../../assets/images/about-pet2.jpg" class="pet img-fluid" alt="">
-                </div>
-                <div class="col-3 ">
-                    <img src="../../assets/images/about-pet3.jpg" class="pet img-fluid" alt="">
-                </div>
-                <div class="col-3 ">
-                    <img src="../../assets/images/about-pet2.jpg" class="pet img-fluid" alt="">
-                </div>
-            </div>
-
-            <div class="row pt-4">
-
-                <div class="col-3 ">
-                    <img src="../../assets/images/about-pet1.jpg" class="pet img-fluid" alt="">
-                </div>
-                <div class="col-3 ">
-                    <img src="../../assets/images/about-pet2.jpg" class="pet img-fluid" alt="">
-                </div>
-                <div class="col-3 ">
-                    <img src="../../assets/images/about-pet1.jpg" class="pet img-fluid" alt="">
-                </div>
-                <div class="col-3 ">
-                    <img src="../../assets/images/about-pet2.jpg" class="pet img-fluid" alt="">
-                </div>
-            </div>
-        </div> -->
-
+    <div >
         <div class="mt-5">
             <div class="row">
                 <div class="col-4 about-detail pt-4 pl-2">
@@ -131,9 +79,6 @@ Cho dù bạn nuôi chó, mèo hay cả hai, các chuyên gia của chúng tôi 
     <div class="col">
         <div class="ss1">
             <div class="my-5">
-                <!-- <h3 class="text-center w-25 bg-dark text-white py-2 fw-bold mx-auto">
-                    LIÊN QUAN
-                </h3> -->
                 <h3 class=" relate text-center w-25 text-dark py-2 fw-bold mx-auto">
                     LIÊN QUAN
                 </h3>

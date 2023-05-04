@@ -16,7 +16,7 @@ const categoryPetRouter = require("./app/routers/categoryPet.route");
 const categoryServiceRouter = require("./app/routers/categoryService.route");
 const petRouter = require("./app/routers/pet.route");
 const serviceRouter = require("./app/routers/service.route");
-const infoServiceRouter = require("./app/routers/infoService.route");
+const feedbackRouter = require("./app/routers/feedback.route");
 const customerRouter = require("./app/routers/customer.route");
 const registrationInformationServiceRouter = require("./app/routers/registrationInformation.route");
 
@@ -35,7 +35,7 @@ app.use("/api/categoryPet",categoryPetRouter);
 app.use("/api/categoryService",categoryServiceRouter);
 app.use("/api/pet",petRouter);
 app.use("/api/service", serviceRouter);
-app.use("/api/infoService", infoServiceRouter);
+app.use("/api/feedback", feedbackRouter);
 app.use("/api/customer", customerRouter);
 app.use("/api/registrationInformation", registrationInformationServiceRouter);
 app.use("/api/medicalSupplies", medicalSuppliesRouter);
