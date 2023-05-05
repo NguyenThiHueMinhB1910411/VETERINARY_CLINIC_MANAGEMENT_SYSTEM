@@ -65,7 +65,7 @@ library.add(
 
     </div>
     <div class=" ms-4 pb-4">
-        <router-link :to="{ name:'MedicalSupplies' }">
+        <router-link :to="{ name:'Feedback' }">
         <font-awesome-icon icon="fa-solid fa-comment" class="px-2" />
         Quản feedback</router-link
       >

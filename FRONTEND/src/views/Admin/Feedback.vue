@@ -52,7 +52,7 @@ export default {
     },
     methods: {
         async handleSubmit(data) {
-            console.log(data);
+            
             await FeedbackService.update(data);
             this.retrieveFeedback();
             
@@ -96,9 +96,9 @@ export default {
                 </div>
 
             </div>
-            <div class="col-8">
-                <p class="title-page" style="">Danh sách tài khoản</p>
-            </div>
+            <!-- <div class="col-8">
+                <p class="title-page" style="">Phản hồi</p>
+            </div> -->
 
         </div>
 
@@ -110,12 +110,11 @@ export default {
                         <tr style="color: #CC4D26;">
                             <th>STT</th>
                             <th>Khách hàng</th>
+                            <th>SĐT</th>
                             <th>Gmail</th>
                             <th>Dịch vụ</th>
-                           
                             <th>Nội dung</th>
                             <th>Phản hồi</th>
-
                             <th>Thao tác</th>
                         </tr>
                     </thead>
@@ -123,11 +122,10 @@ export default {
 
                         <tr v-for="(feedback, index) in this.listFeedback">
                             <td>{{ index +1 }}</td>
-                            <td>{{ feedback.TenKhachHang }}</td>
+                            <td>{{ feedback.info.TenKhachHang }}</td>
+                            <td>{{ feedback.info.SoDienThoai }}</td>
                             <td>{{ feedback.Gmail }}</td>
-                            <td>{{ feedback.TenLoaiDichVu }}</td>
-                            <!-- <td>{{ feedback.info.TrangThaiDichVu }}</td> -->
-                            
+                            <td>{{ feedback.info.TenLoaiDichVu }}</td>
                             <td>{{ feedback.NoiDung }}</td>
                             <td>{{ feedback.TrangThai }}</td>
                             <td>

@@ -75,7 +75,7 @@ class FeedbackService {
         pass: "qvsdnjwzinyfpkph",
       },
     });
-    if (result.value.TrangThai == "Chưa phản hồi") {
+    if (result.value.TrangThai == "Đã phản hồi") {
       var mainOptions = {
         from: " VETERINARY CLINIC",
         to: ri.Gmail,
@@ -85,12 +85,12 @@ class FeedbackService {
 
           " <b>Xin chào </b>" +
           ri.TenKhachHang +
-          "<br/> Cảm ơn phản hồi của bạn về dịch vụ"  +
+          "<br/> Cảm ơn phản hồi của bạn về dịch vụ "  +
              ri.TenLoaiDichVu
            +
-          " của chúng tôi."+ "Chúng tôi sẽ dựa trên đánh giá của bạn để có thể cải thiện dịch vụ ngày càng tốt hơn nữa."+
+          " của chúng tôi."+ " <br/>Chúng tôi sẽ dựa trên đánh giá của bạn để có thể cải thiện dịch vụ ngày càng tốt hơn nữa."+
           
-          "<br/><small> Trân trọng cảm ơn </small>,",
+          "<br/> Trân trọng cảm ơn ,",
       };
       transporter.sendMail(mainOptions, function (err, info) {
         if (err) {
