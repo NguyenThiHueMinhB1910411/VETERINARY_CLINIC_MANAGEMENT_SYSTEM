@@ -7,7 +7,8 @@ class FeedbackService {
         SoDienThoai: payload.SoDienThoai,
         Gmail:payload.Gmail,
         TenLoaiDichVu: payload.TenLoaiDichVu,
-        PhanHoi:payload.PhanHoi,
+        NoiDung:payload.NoiDung,
+        NgayFeedback: payload.NgayFeedback,
 
         
     };
@@ -18,10 +19,27 @@ class FeedbackService {
   }
   constructor(client) {
     this.feedback = client.db().collection("feedback");
+    this.registrationInformation = client.db().collection("registrationInformation");
   }
   async getAll() {
     const curson = await this.feedback.find();
     return await curson.toArray();
+  }
+  async getAllInfo() {
+    const resultAll = await this.feedback.aggregate([
+      {
+        $lookup: {
+          from: "registrationInformation",
+          localField: "SoDienThoai",
+
+          foreignField: "SoDienThoai",
+
+          as: "info",
+        },
+      },
+      
+    ]);
+    return await resultAll.toArray();
   }
   async create(payload) {
     const data = this.extractFeedbackData(payload);

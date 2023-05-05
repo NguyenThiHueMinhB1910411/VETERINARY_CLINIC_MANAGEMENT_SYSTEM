@@ -7,7 +7,7 @@ exports.findAll = async (req, res, next) => {
 
   try {
     const feedbackService = new FeedbackService(MongoDB.client)
-    documents = await feedbackService.getAll()
+    documents = await feedbackService.getAllInfo()
     return res.send(documents)
   } catch (error) {
     return next(new ApiError(500, 'Lỗi truy xuất FeedbackService'))

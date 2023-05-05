@@ -1,20 +1,24 @@
 [
-    {
-        "MaBacSi":"BS01",
-        "TenBacSi":"Nguyễn Thị Huế Minh",
-        "SoDienThoai":"0389943552",
-        "Gmail":"minh@gmail.com",
-        "DiaChi":"Vĩnh Long",
-        "ChucVu":"Bác sĩ",
-        "GioiTinh":"Nữ"
-    },
-    {
-        "MaBacSi":"BS02",
-        "TenBacSi":"Nguyễn Thị Huế Hương",
-        "SoDienThoai":"0389943553",
-        "Gmail":"huong@gmail.com",
-        "DiaChi":"Vĩnh Long",
-        "ChucVu":"Bác sĩ",
-        "GioiTinh":"Nữ"
-    }
+  {
+    "MaBacSi": "BS01",
+    "TenBacSi": "Đặng Thị Xuân Duyênn",
+    "SoDienThoai": "0389943578",
+    "GioiTinh": "Nữ",
+    "DiaChi": "Vĩnh Long",
+    "ChucVu": "Bác sĩ ngoại khoa",
+    "Gmail": "duyen@gmail.com",
+    "HinhAnh": "avatar_doctor_female1.png",
+    "TenAccount": "duyen123"
+  },
+  {
+    "MaBacSi": "BS02",
+    "TenBacSi": "Nguyễn Văn An",
+    "SoDienThoai": "0389943550",
+    "GioiTinh": "Nam",
+    "DiaChi": "Vĩnh Long",
+    "ChucVu": "Bác sĩ khám bệnh",
+    "Gmail": "an@gmail.com",
+    "HinhAnh": "avatar_doctor_male1.png",
+    "TenAccount": "an123"
+  }
 ]
