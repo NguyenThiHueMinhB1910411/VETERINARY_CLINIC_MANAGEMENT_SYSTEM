@@ -37,6 +37,7 @@ class FeedbackService {
           as: "info",
         },
       },
+      { $unwind: "$info" },
       
     ]);
     return await resultAll.toArray();
@@ -45,6 +46,10 @@ class FeedbackService {
     const data = this.extractFeedbackData(payload);
     const result = await this.feedback.insertOne(data);
     return result.value;
+  }
+  async find(filter) {
+    const curson = await this.feedback.find(filter);
+    return await curson.toArray();
   }
 }
 module.exports = FeedbackService;

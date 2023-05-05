@@ -96,11 +96,7 @@ export default {
             <font-awesome-icon icon="fa-solid fa-rotate-right" />
             Refresh
           </button>
-          <!-- <font-awesome-icon icon=" fa-solid fa-arrow-left" class="fw-light text-dark" />
-
-                <router-link class="col text-dark " :to="{ name: 'Home' }">Trang chủ</router-link> /
-                <router-link class="col ml-0 text-dark" :to="{ name: '' }"> Staff</router-link> /
-                <router-link class="col text-dark" :to="{ name: '' }">Lịch bác sĩ</router-link> -->
+        
         </div>
         <div class="col-5">
           <form

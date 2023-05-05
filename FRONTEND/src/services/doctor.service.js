@@ -13,21 +13,21 @@ class DoctorService {
       })
     ).data
   }
-  async update(id, data) {
-    console.log(id, data)
-    return (await this.api.post(`/${id}`, data,{
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-
-    } )
-    ).data
-  }
-  
   // async update(id, data) {
   //   console.log(id, data)
-  //   return (await this.api.post(`/${id}`, data)).data
+  //   return (await this.api.post(`/${id}`, data,{
+  //     headers: {
+  //       'Content-Type': 'multipart/form-data',
+  //     },
+
+  //   } )
+  //   ).data
   // }
+  
+  async update(id, data) {
+    console.log(id, data)
+    return (await this.api.post(`/${id}`, data)).data
+  }
 
 
   async getAll() {

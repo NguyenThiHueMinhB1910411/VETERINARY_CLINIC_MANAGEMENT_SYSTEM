@@ -14,10 +14,10 @@ import HotelRoom from '@/views/Service/HotelRoom/HotelRoom.vue';
 import PhysicalExamination from '@/views/Service/PhysicalExamination/PhysicalExamination.vue';
 // admin
 import Admin from '@/views/Admin/Admin.vue';
-import DashBoard from '@/views/Admin/DashBoard.vue';
-import HRM from '@/views/Admin/HRM.vue';
-import AccountManager from '@/views/Admin/AccountManager.vue';
-
+// import DashBoard from '@/views/Admin/DashBoard.vue';
+// import HRM from '@/views/Admin/HRM.vue';
+// import AccountManager from '@/views/Admin/AccountManager.vue';
+// import FeedBack from '@/views/Admin/FeedBack.vue';
 //STAFF
 import Staff from '@/views/Staff/Staff.vue';
 
@@ -89,22 +89,26 @@ const routes = [
 
 
   // ADMIN
-  {
-    path: '/dashboard',
-    name: 'DashBoard',
-    component: DashBoard,
-  },
-  {
-    path: '/hrm',
-    name: 'HRM',
-    component: HRM,
-  },
-  {
-    path: '/accountManager',
-    name: 'AccountManager',
-    component: AccountManager,
-  },
-
+  // {
+  //   path: '/dashboard',
+  //   name: 'DashBoard',
+  //   component: DashBoard,
+  // },
+  // {
+  //   path: '/hrm',
+  //   name: 'HRM',
+  //   component: HRM,
+  // },
+  // {
+  //   path: '/accountManager',
+  //   name: 'AccountManager',
+  //   component: AccountManager,
+  // },
+  // {
+  //   path: 'FeedBack',
+  //   name: 'FeedBack',
+  //   component: FeedBack,
+  //  },
 
 
   {
@@ -138,10 +142,16 @@ const routes = [
       component: () => import("@/views/Admin/InfoDoctor.vue"),
      },
      {
+      path: 'Feedback',
+      name: 'Feedback',
+      component: () => import("@/views/Admin/Feedback.vue"),
+     },
+     {
       path: 'MedicalSupplies',
       name: 'MedicalSupplies',
       component: () => import("@/views/Admin/MedicalSupplies.vue"),
      },
+     
      {
       path: 'ex',
       name: 'ex',

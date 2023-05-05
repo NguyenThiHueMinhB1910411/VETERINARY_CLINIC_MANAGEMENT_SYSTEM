@@ -391,7 +391,7 @@ export default {
 
 }
 .title-page{
-    font-size: 31px; 
+    font-size: 30px; 
     font-weight:500; 
     color: #153A64;
 }

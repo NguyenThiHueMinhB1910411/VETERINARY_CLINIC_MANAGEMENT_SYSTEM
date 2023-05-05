@@ -10,6 +10,7 @@ import RegistrationInformationService from "../../../services/registrationInform
 import {
     userAccStore
 } from "@/Store/userStore";
+
 export default {
     components: {
         PublicFooters,
@@ -218,13 +219,13 @@ export default {
                                                     <span class="text-danger fw-bold">*</span>
                                                 </td>
                                                 <td>
-                                                    <input type="date" v-model="this.data.NgayKham" />
+                                                    <input type="date" id="demo" min="2023-05-05" max="2023-07-30" v-model="this.data.NgayKham" />
                                                 </td>
                                             </tr>
                                             <tr class="create-space">
                                                 <td>
 
-                                                    <label for="appt-time">Chọn giờ: </label>
+                                                    <label for="appt-time" >Chọn giờ: </label>
                                                 </td>
 
                                                 <td>
@@ -278,7 +279,7 @@ export default {
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal"  @click="handleSubmit">Gửi</button>
+                                        <button  class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal"  @click="handleSubmit">Gửi</button>
 <!-- 
                                         <button type="button" class="btn btn-primary" @click="handleSubmit" data-bs-dismiss="modal">
                                             Đăng ký

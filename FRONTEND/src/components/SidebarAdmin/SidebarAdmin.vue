@@ -13,6 +13,7 @@ import {
     faDog,
     faArrowDown,
     faSyringe,
+    faComment,
 } from "@fortawesome/free-solid-svg-icons";
 library.add(
     faHouse,
@@ -22,40 +23,21 @@ library.add(
     faDog,
     faArrowDown,
     faSyringe,
+    faComment,
 );
 </script>
 
 <template>
-<div class="col-3 bg-color-sidebars text-light " style="font-size: 18px;font-family: Sans-serif;">
+<div class="col-3  text-light text-light  bg" style="font-size: 18px;font-family: Sans-serif;">
    
     <div class="pt-4 ms-5">
         <a class="" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
-
-            <h4 class="text-uppercase text-center d-flex justify-content-center   px-3 py-2 border-dark style_title" style=" width: 50%; border-radius: 15px; background-color: white; color: black; font-weight: 600;">ADMIN</h4>
+            <h4 class="title-name text-uppercase text-center d-flex justify-content-center  px-3 style_title" style=" width: 50%;   font-weight: 700;">ADMIN</h4>
         </a>
     </div>
     <hr class="text-dark">
-    <!-- <div class="ms-4">
-        <p>
-            <a class="" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                <font-awesome-icon icon="fa-solid fa-user" />
-            <span class="ms-3">Quản tài khoản </span>
-            <font-awesome-icon icon="fa-solid fa-arrow-down " class="px-2"  />
-            </a>
-        </p>
-        <div class="collapse" id="collapseExample">
-            <div class="ms-4">Nhân viên
-                
-            </div>
-            <div class="pt-3 ms-4">Bác sĩ
-            </div>
-            <div class="pt-3 ms-4 pb-3">Khách hàng
-            </div>
-        </div>
-
-    </div> -->
-
-    <div class=" ms-3 pb-4">
+  
+    <div class=" ms-4 pb-4">
         <router-link :to="{ name: 'AccountManager' }">
         <font-awesome-icon icon="fa-solid fa-users" class="px-2" />
         Quản lý tài khoản</router-link
@@ -65,14 +47,14 @@ library.add(
     </div>
 
 
-    <div class=" ms-3 pb-4">
+    <div class=" ms-4 pb-4">
         <router-link :to="{ name: 'HRM' }">
         <font-awesome-icon icon="fa-solid fa-users" class="px-2" />
         Quản lý nhân sự</router-link
       >
     </div>
 
-    <div class=" ms-3 pb-4">
+    <div class=" ms-4 pb-4">
         <router-link :to="{ name: 'MedicalSupplies' }">
         <font-awesome-icon icon="fa-solid fa-solid fa-syringe" class="px-2" />
         Quản lý vật tư y tế</router-link
@@ -82,16 +64,24 @@ library.add(
         
 
     </div>
+    <div class=" ms-4 pb-4">
+        <router-link :to="{ name:'MedicalSupplies' }">
+        <font-awesome-icon icon="fa-solid fa-comment" class="px-2" />
+        Quản feedback</router-link
+      >
+        
 
+    </div>
 
-    <div class=" ms-3 pb-4">
+<!-- 
+    <div class=" ms-4 pb-4">
         <a class="" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
-            <font-awesome-icon icon="fa-solid fa-dog" class="px-2" />
-            <span class="px-2">Quản lý thú y</span>
+            <font-awesome-icon icon="fa-solid fa-comment"  class="px-2"/>
+            <span class="px-2">Quản feedback</span>
 
         </a>
-    </div>
-    <!-- <div class=" ms-3 pb-4">
+    </div> -->
+    <!-- <div class=" ms-4 pb-4">
         <a class="" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
 
             <font-awesome-icon icon="fa-solid fa-syringe" class="px-2" />
@@ -138,10 +128,12 @@ a{
     z-index: 1000;
 }
 
-.navbar {
-    font-size: 25px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+.title-name{
+  letter-spacing: 0.1cm;
+}
+.bg{
+  background-color: #e2e0fd;
+
+ 
 }
 </style>

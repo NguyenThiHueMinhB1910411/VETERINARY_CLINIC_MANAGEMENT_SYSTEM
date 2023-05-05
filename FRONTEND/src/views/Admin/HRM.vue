@@ -26,6 +26,7 @@ import {
     faPlus,
     faCircleInfo,
     faPenToSquare,
+    faRotateRight,
 } from "@fortawesome/free-solid-svg-icons";
 library.add(
     faHouse,
@@ -42,6 +43,7 @@ library.add(
     faPlus,
     faCircleInfo,
     faPenToSquare,
+    faRotateRight,
 );
 
 export default {
@@ -132,10 +134,10 @@ export default {
 
         // },
         async handleUpdateDoctor(id) {
-            var formData = new FormData();
-            formData.append('file', this.selectedFile);
+            // var formData = new FormData();
+            // formData.append('file', this.selectedFile);
 
-            this.buildFormData(formData, this.data)
+            // this.buildFormData(formData, this.data)
 
             if (window.confirm("Bạn có cập nhật doctor này ?")) {
                 await DoctorService.update(id, this.value);
@@ -166,428 +168,439 @@ export default {
 <template>
 <main>
     <div>
-        <div class="row">
-            <div>
-                <h3 class=" text-dark text-center pt-4">Danh sách nhân sự
-                </h3>
-                <div>
-                    <button type="button" class="btn text-light " style="background-color:#063555 ;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <font-awesome-icon icon="fa-solid fa-plus" />
-                        Thêm bác sĩ
-                    </button>
+        <div class="row my-3">
+            <div class="col-7 ">
+                <div class="d-flex">
+                    <div style="font-size: 16px" @click="retrieveDoctors">
+                        <button class="btn text-light px-2" style="background-color: #cc4d26">
+                            <font-awesome-icon icon="fa-solid fa-rotate-right" />
+                            Refresh
+                        </button>
 
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content ">
-                                <div class="modal-header">
-                                    <h5 class="modal-title text-center" id="exampleModalLabel">
-                                        <font-awesome-icon icon="fa-solid fa-user-doctor" /> Thêm bác sĩ</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body" style="font-size: 16px !important;">
-                                    <table class="table " style="font-size: 15px;">
-                                        <tr class="row">
-                                            <td class="col-4">
-                                                <p>Họ và tên: </p>
-                                                <input class="col form-control" type="text" placeholder="Nhập vào họ tên" v-model="this.data.TenBacSi" />
+                    </div>
+                <button type="button" class="btn text-light mx-2 px-4" style="background-color:#063555 ;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <font-awesome-icon icon="fa-solid fa-plus" />
+                    Bác sĩ
+                </button>
 
-                                            </td>
-                                            <td class="col-4">
-                                                <p>Số điện thoại: </p>
-                                                <input class="col form-control" type="text" placeholder="Nhập vào số điện thoại" v-model="this.data.SoDienThoai" />
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content ">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-center" id="exampleModalLabel">
+                                    <font-awesome-icon icon="fa-solid fa-user-doctor" /> Thêm bác sĩ</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" style="font-size: 16px !important;">
+                                <table class="table " style="font-size: 15px;">
+                                    <tr class="row">
+                                        <td class="col-4">
+                                            <p>Họ và tên: </p>
+                                            <input class="col form-control" type="text" placeholder="Nhập vào họ tên" v-model="this.data.TenBacSi" />
 
-                                            </td>
-                                            <td class="col-4">
-                                                <p>Mã bác sĩ: </p>
-                                                <input class="col form-control" type="text" placeholder="Nhập vào mã bác sĩ" v-model="this.data.MaBacSi" />
+                                        </td>
+                                        <td class="col-4">
+                                            <p>Số điện thoại: </p>
+                                            <input class="col form-control" type="text" placeholder="Nhập vào số điện thoại" v-model="this.data.SoDienThoai" />
 
-                                            </td>
+                                        </td>
+                                        <td class="col-4">
+                                            <p>Mã bác sĩ: </p>
+                                            <input class="col form-control" type="text" placeholder="Nhập vào mã bác sĩ" v-model="this.data.MaBacSi" />
 
-                                        </tr>
-                                        <tr class="row py-4">
-                                            <td class="col-4">
-                                                <p>Địa chỉ: </p>
-                                                <input class="col form-control" type="text" placeholder="Nhập vào địa chỉ" v-model="this.data.DiaChi" />
+                                        </td>
 
-                                            </td>
-                                            <td class="col-4">
+                                    </tr>
+                                    <tr class="row py-4">
+                                        <td class="col-4">
+                                            <p>Địa chỉ: </p>
+                                            <input class="col form-control" type="text" placeholder="Nhập vào địa chỉ" v-model="this.data.DiaChi" />
 
-                                            <td class="d-flex justify-content-start pb-4">
-                                                Giới tính:
-                                                <span class="text-danger fw-bold">*</span>
-                                            </td>
-                                            <td class="pr-2">
-                                                <div class="form-check">
+                                        </td>
+                                        <td class="col-4">
 
-                                                    <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Nam" v-model="this.data.GioiTinh" />
-                                                    <p class="form-check-label col" for="flexRadioDefault2">
-                                                        Nam
-                                                    </p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Nữ" v-model="this.data.GioiTinh" />
-                                                    <p class="form-check-label col" for="flexRadioDefault2">
-                                                        Nữ
-                                                    </p>
-                                                </div>
-                                            </td>
+                                        <td class="d-flex justify-content-start pb-4">
+                                            Giới tính:
+                                            <span class="text-danger fw-bold">*</span>
+                                        </td>
+                                        <td class="pr-2">
+                                            <div class="form-check">
 
-                                            </td>
-                                            <td class="col-4">
-                                                <p>Chức vụ: </p>
-                                                <input class="col form-control" type="text" placeholder="Nhập vào chức vụ" v-model="this.data.ChucVu" />
+                                                <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Nam" v-model="this.data.GioiTinh" />
+                                                <p class="form-check-label col" for="flexRadioDefault2">
+                                                    Nam
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Nữ" v-model="this.data.GioiTinh" />
+                                                <p class="form-check-label col" for="flexRadioDefault2">
+                                                    Nữ
+                                                </p>
+                                            </div>
+                                        </td>
 
-                                            </td>
-                                            <td class="col-4">
-                                                <p>Ảnh: </p>
-                                                <input type="file" id="avatar" name="avatar" @change="changeFile" accept="image/png, image/jpeg">
+                                        </td>
+                                        <td class="col-4">
+                                            <p>Chức vụ: </p>
+                                            <input class="col form-control" type="text" placeholder="Nhập vào chức vụ" v-model="this.data.ChucVu" />
 
-                                            </td>
+                                        </td>
+                                        <td class="col-4">
+                                            <p>Ảnh: </p>
+                                            <input type="file" id="avatar" name="avatar" @change="changeFile" accept="image/png, image/jpeg">
 
-                                        </tr>
-                                        <tr class="row py-2">
-                                            <td class="col-4">
-                                                <p>Gmail: </p>
-                                                <input class="col form-control" type="text" placeholder="Nhập vào gmail" v-model="this.data.Gmail" />
+                                        </td>
 
-                                            </td>
-                                            <!-- TẠO TÀI KHOẢN TỰ ĐỘNG -->
+                                    </tr>
+                                    <tr class="row py-2">
+                                        <td class="col-4">
+                                            <p>Gmail: </p>
+                                            <input class="col form-control" type="text" placeholder="Nhập vào gmail" v-model="this.data.Gmail" />
 
-                                            <td class="col-4">
-                                                <p>Tên tài khoản: </p>
-                                                <input class="col form-control" type="text" placeholder="Nhập vào tên tài khoản" v-model="this.data.TenAccount" />
+                                        </td>
+                                        <!-- TẠO TÀI KHOẢN TỰ ĐỘNG -->
 
-                                            </td>
+                                        <td class="col-4">
+                                            <p>Tên tài khoản: </p>
+                                            <input class="col form-control" type="text" placeholder="Nhập vào tên tài khoản" v-model="this.data.TenAccount" />
 
-                                            <td class="col-4">
-                                                <p>Password: </p>
-                                                <input class="col form-control" type="text" placeholder="Nhập vào mật khẩu" v-model="this.data.Password" />
+                                        </td>
 
-                                            </td>
+                                        <td class="col-4">
+                                            <p>Password: </p>
+                                            <input class="col form-control" type="text" placeholder="Nhập vào mật khẩu" v-model="this.data.Password" />
 
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="handleSubmit">Lưu</button>
-                                </div>
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="handleSubmit">Lưu</button>
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn text-light mx-3" style="background-color: #063555;" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                        <font-awesome-icon icon="fa-solid fa-plus" />
-                        Thêm nhân viên
-                    </button>
+                </div>
+                <button type="button" class="btn text-light ml-1" style="background-color: #063555;" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                    <font-awesome-icon icon="fa-solid fa-plus" />
+                    Nhân viên
+                </button>
 
-                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content ">
-                                <div class="modal-header">
-                                    <h5 class="modal-title text-center" id="exampleModalLabel1">
-                                        <font-awesome-icon icon="fa-solid fa-user-doctor" /> Thêm nhân viên</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body" style="font-size: 16px !important;">
-                                    <table class="table " style="font-size: 15px;">
-                                        <tr class="row">
-                                            <td class="col-4">
-                                                <p>Họ và tên: </p>
-                                                <input class="col form-control" type="text" placeholder="Nhập vào họ tên" v-model="this.data.TenNhanVien" />
+                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content ">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-center" id="exampleModalLabel1">
+                                    <font-awesome-icon icon="fa-solid fa-user-doctor" /> Thêm nhân viên</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" style="font-size: 16px !important;">
+                                <table class="table " style="font-size: 15px;">
+                                    <tr class="row">
+                                        <td class="col-4">
+                                            <p>Họ và tên: </p>
+                                            <input class="col form-control" type="text" placeholder="Nhập vào họ tên" v-model="this.data.TenNhanVien" />
 
-                                            </td>
-                                            <td class="col-4">
-                                                <p>Số điện thoại: </p>
-                                                <input class="col form-control" type="text" placeholder="Nhập vào số điện thoại" v-model="this.data.SoDienThoai" />
+                                        </td>
+                                        <td class="col-4">
+                                            <p>Số điện thoại: </p>
+                                            <input class="col form-control" type="text" placeholder="Nhập vào số điện thoại" v-model="this.data.SoDienThoai" />
 
-                                            </td>
-                                            <td class="col-4">
-                                                <p>Mã nhân viên </p>
-                                                <input class="col form-control" type="text" placeholder="Nhập vào mã nhân viên" v-model="this.data.MaNhanVien" />
+                                        </td>
+                                        <td class="col-4">
+                                            <p>Mã nhân viên </p>
+                                            <input class="col form-control" type="text" placeholder="Nhập vào mã nhân viên" v-model="this.data.MaNhanVien" />
 
-                                            </td>
+                                        </td>
 
-                                        </tr>
-                                        <tr class="row py-4">
-                                            <td class="col-4">
-                                                <p>Địa chỉ: </p>
-                                                <input class="col form-control" type="text" placeholder="Nhập vào địa chỉ" v-model="this.data.DiaChi" />
+                                    </tr>
+                                    <tr class="row py-4">
+                                        <td class="col-4">
+                                            <p>Địa chỉ: </p>
+                                            <input class="col form-control" type="text" placeholder="Nhập vào địa chỉ" v-model="this.data.DiaChi" />
 
-                                            </td>
-                                            <td class="col-4">
-                                                <!-- <p>Giới tính: </p>
+                                        </td>
+                                        <td class="col-4">
+                                            <!-- <p>Giới tính: </p>
                                 <input class="col form-control" type="text" placeholder="Nhập vào họ tên" /> -->
 
-                                            <td class="d-flex justify-content-start pb-4">
-                                                Giới tính:
-                                                <span class="text-danger fw-bold">*</span>
-                                            </td>
-                                            <td class="pr-2">
-                                                <div class="form-check">
-                                                    <!-- <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault2" v-model="this.data.GioiTinh" checked /> -->
-                                                    <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Nam" v-model="this.data.GioiTinh" />
-                                                    <p class="form-check-label col" for="flexRadioDefault2">
-                                                        Nam
-                                                    </p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Nữ" v-model="this.data.GioiTinh" />
-                                                    <p class="form-check-label col" for="flexRadioDefault2">
-                                                        Nữ
-                                                    </p>
-                                                </div>
-                                            </td>
+                                        <td class="d-flex justify-content-start pb-4">
+                                            Giới tính:
+                                            <span class="text-danger fw-bold">*</span>
+                                        </td>
+                                        <td class="pr-2">
+                                            <div class="form-check">
+                                                <!-- <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault2" v-model="this.data.GioiTinh" checked /> -->
+                                                <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Nam" v-model="this.data.GioiTinh" />
+                                                <p class="form-check-label col" for="flexRadioDefault2">
+                                                    Nam
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Nữ" v-model="this.data.GioiTinh" />
+                                                <p class="form-check-label col" for="flexRadioDefault2">
+                                                    Nữ
+                                                </p>
+                                            </div>
+                                        </td>
 
-                                            </td>
-                                            <td class="col-4">
-                                                <p>Chức vụ: </p>
-                                                <input class="col form-control" type="text" placeholder="Nhập vào chức vụ" v-model="this.data.ChucVu" />
+                                        </td>
+                                        <td class="col-4">
+                                            <p>Chức vụ: </p>
+                                            <input class="col form-control" type="text" placeholder="Nhập vào chức vụ" v-model="this.data.ChucVu" />
 
-                                            </td>
+                                        </td>
 
-                                        </tr>
-                                        <tr>
-                                            <td class="">
-                                                <p>Ảnh: </p>
-                                                <!-- <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"> -->
-                                                <input type="file" id="avatar" name="avatar" @change="changeFile" accept="image/png, image/jpeg">
+                                    </tr>
+                                    <tr>
+                                        <td class="">
+                                            <p>Ảnh: </p>
+                                            <!-- <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"> -->
+                                            <input type="file" id="avatar" name="avatar" @change="changeFile" accept="image/png, image/jpeg">
 
-                                            </td>
-                                        </tr>
-                                        <tr class="row py-4">
-                                            <td class="col-4">
-                                                <p>Địa chỉ email: </p>
-                                                <input class="col form-control" type="text" placeholder="Nhập vào dịa chỉ email" v-model="this.data.Gmail" />
+                                        </td>
+                                    </tr>
+                                    <tr class="row py-4">
+                                        <td class="col-4">
+                                            <p>Địa chỉ email: </p>
+                                            <input class="col form-control" type="text" placeholder="Nhập vào dịa chỉ email" v-model="this.data.Gmail" />
 
-                                            </td>
-                                            <td class="col-4">
-                                                <p>Tên tài khoản: </p>
-                                                <input class="col form-control" type="text" placeholder="Nhập vào dịa chỉ email" v-model="this.data.TenAccount" />
+                                        </td>
+                                        <td class="col-4">
+                                            <p>Tên tài khoản: </p>
+                                            <input class="col form-control" type="text" placeholder="Nhập vào dịa chỉ email" v-model="this.data.TenAccount" />
 
-                                            </td>
-                                            <td class="col-4">
-                                                <p>Password: </p>
-                                                <input class="col form-control" type="text" placeholder="Nhập vào mật khẩu" v-model="this.data.Password" />
+                                        </td>
+                                        <td class="col-4">
+                                            <p>Password: </p>
+                                            <input class="col form-control" type="text" placeholder="Nhập vào mật khẩu" v-model="this.data.Password" />
 
-                                            </td>
+                                        </td>
 
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                                    <button type="button" class="btn btn-primary" @click="handleCreateStaff" data-bs-dismiss="modal">Lưu</button>
-                                </div>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                                <button type="button" class="btn btn-primary" @click="handleCreateStaff" data-bs-dismiss="modal">Lưu</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row  mt-4">
-                    <table class="table table-hover text-center table-bordered table table-bordered " style="font-size: 15px;background-color: white;padding-bottom: 80%; box-shadow: 0px 5px 15px rgba(0,0,0,0.25);">
-                        <thead>
-                            <tr style="color: #063555;">
-                                <th>STT</th>
-                                <th>Mã</th>
-                                <th>Họ và tên</th>
-                                <th>Hình ảnh</th>
-                                <th>Số điện thoại</th>
-                                <th>Địa chỉ</th>
-                                <th>Chức vụ</th>
-                                <th>Quản lý</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-left">
-                            <tr v-for="(doctor, index) in this.listDoctor">
-                                <td>{{ index + 1 }}</td>
-                                <td>{{ doctor.MaBacSi }}</td>
-                                <td>{{ doctor.TenBacSi }}</td>
-                                <td style="width: 10%;">
-                                    <img :src="'/src/assets/images/'+doctor.HinhAnh" alt="" class="img-fluid ">
-                                </td>
-                                <td>{{ doctor.SoDienThoai }}</td>
-                                <td>{{ doctor.DiaChi }}</td>
-                                <td>{{ doctor.ChucVu }}</td>
-                                <td>
-                                    <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel5" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title text-dark" id="exampleModalLabel5">
-                                                        Thông tin
-                                                    </h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div>
-                                                        <div class="row">
-                                                            <div class="col-6 text-dark" style="margin: 0px">
-                                                                Tên bác sĩ:
-                                                            </div>
-                                                            <div class="col-6 text-dark">
-                                                                {{ this.value.TenBacSi }}
-                                                            </div>
-                                                        </div>
+                </div>
 
-                                                        <div class="row">
-                                                            <div class="col-6 text-dark" style="margin: 0px">
-                                                                Gmail:
-                                                            </div>
-                                                            <div class="col-6 text-dark">
-                                                                {{ this.value.Gmail }}
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-6 text-dark" style="margin: 0px">
-                                                                Số điện thoại:
-                                                            </div>
-                                                            <div class="col-6 text-dark">
-                                                                {{ this.value.SoDienThoai }}
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-6 text-dark" style="margin: 0px">
-                                                                Giới tính:
-                                                            </div>
-                                                            <div class="col-6 text-dark">
-                                                                {{ this.value.GioiTinh }}
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-6 text-dark" style="margin: 0px">
-                                                                Địa chỉ:
-                                                            </div>
-                                                            <div class="col-6 text-dark">
-                                                                {{ this.value.DiaChi }}
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-6 text-dark" style="margin: 0px">
-                                                                Chức vụ:
-                                                            </div>
-                                                            <div class="col-6 text-dark">
-                                                                {{ this.value.ChucVu }}
-                                                            </div>
-                                                        </div>
+                
+            </div>
 
+        </div>
+        <div>
+            <div class="  mt-4">
+                <table class="table table-hover text-center table-bordered table table-bordered " style="font-size: 15px;background-color: white;padding-bottom: 80%; box-shadow: 0px 5px 15px rgba(0,0,0,0.25);">
+                    <thead>
+                        <tr style="color: #063555;">
+                            <th>STT</th>
+                            <th>Mã</th>
+                            <th>Họ và tên</th>
+                            <th>Hình ảnh</th>
+                            <th>Số điện thoại</th>
+                            <th>Địa chỉ</th>
+                            <th>Chức vụ</th>
+                            <th>Quản lý</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-left">
+                        <tr v-for="(doctor, index) in this.listDoctor">
+                            <td>{{ index + 1 }}</td>
+                            <td>{{ doctor.MaBacSi }}</td>
+                            <td>{{ doctor.TenBacSi }}</td>
+                            <td style="width: 10%;">
+                                <img :src="'/src/assets/images/'+doctor.HinhAnh" alt="" class="img-fluid ">
+                            </td>
+                            <td>{{ doctor.SoDienThoai }}</td>
+                            <td>{{ doctor.DiaChi }}</td>
+                            <td>{{ doctor.ChucVu }}</td>
+                            <td>
+                                <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel5" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title text-dark" id="exampleModalLabel5">
+                                                    Thông tin
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-6 text-dark" style="margin: 0px">
+                                                            Tên bác sĩ:
+                                                        </div>
+                                                        <div class="col-6 text-dark">
+                                                            {{ this.value.TenBacSi }}
+                                                        </div>
                                                     </div>
+
+                                                    <div class="row">
+                                                        <div class="col-6 text-dark" style="margin: 0px">
+                                                            Gmail:
+                                                        </div>
+                                                        <div class="col-6 text-dark">
+                                                            {{ this.value.Gmail }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-6 text-dark" style="margin: 0px">
+                                                            Số điện thoại:
+                                                        </div>
+                                                        <div class="col-6 text-dark">
+                                                            {{ this.value.SoDienThoai }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-6 text-dark" style="margin: 0px">
+                                                            Giới tính:
+                                                        </div>
+                                                        <div class="col-6 text-dark">
+                                                            {{ this.value.GioiTinh }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-6 text-dark" style="margin: 0px">
+                                                            Địa chỉ:
+                                                        </div>
+                                                        <div class="col-6 text-dark">
+                                                            {{ this.value.DiaChi }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-6 text-dark" style="margin: 0px">
+                                                            Chức vụ:
+                                                        </div>
+                                                        <div class="col-6 text-dark">
+                                                            {{ this.value.ChucVu }}
+                                                        </div>
+                                                    </div>
+
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
-                                                        Đóng
-                                                    </button>
-                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                                                    Đóng
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <FontAwesomeIcon icon="fa-solid fa-pen-to-square" /> -->
-                                    <font-awesome-icon icon="fa-solid fa-pen-to-square" class=" text-warning col" data-bs-toggle="modal" data-bs-target="#exampleModal6" @click="this.value = doctor " />
-                                    <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel6" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content ">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title text-center" id="exampleModalLabel6">
-                                                        <font-awesome-icon icon="fa-solid fa-user-doctor" /> Chỉnh sửa thông tin bác sĩ</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body" style="font-size: 16px !important;">
-                                                    <table class="table " style="font-size: 15px;">
-                                                        <tr class="row">
-                                                            <td class="col-4">
-                                                                <p>Họ và tên: </p>
-                                                                <input class="col form-control" type="text" placeholder="Nhập vào họ tên" v-model="this.value.TenBacSi" />
+                                </div>
+                                <!-- <FontAwesomeIcon icon="fa-solid fa-pen-to-square" /> -->
+                                <font-awesome-icon icon="fa-solid fa-pen-to-square" class=" text-warning col" data-bs-toggle="modal" data-bs-target="#exampleModal6" @click="this.value = doctor " />
+                                <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel6" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content ">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title text-center" id="exampleModalLabel6">
+                                                    <font-awesome-icon icon="fa-solid fa-user-doctor" /> Chỉnh sửa thông tin bác sĩ</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body" style="font-size: 16px !important;">
+                                                <table class="table " style="font-size: 15px;">
+                                                    <tr class="row">
+                                                        <td class="col-4">
+                                                            <p>Họ và tên: </p>
+                                                            <input class="col form-control" type="text" placeholder="Nhập vào họ tên" v-model="this.value.TenBacSi" />
 
-                                                            </td>
-                                                            <td class="col-4">
-                                                                <p>Số điện thoại: </p>
-                                                                <input class="col form-control" type="text" placeholder="Nhập vào số điện thoại" v-model="this.value.SoDienThoai" />
+                                                        </td>
+                                                        <td class="col-4">
+                                                            <p>Số điện thoại: </p>
+                                                            <input class="col form-control" type="text" placeholder="Nhập vào số điện thoại" v-model="this.value.SoDienThoai" />
 
-                                                            </td>
-                                                            <td class="col-4">
-                                                                <p>Mã bác sĩ: </p>
-                                                                <input class="col form-control" type="text" placeholder="Nhập vào mã bác sĩ" v-model="this.value.MaBacSi" />
+                                                        </td>
+                                                        <td class="col-4">
+                                                            <p>Mã bác sĩ: </p>
+                                                            <input class="col form-control" type="text" placeholder="Nhập vào mã bác sĩ" v-model="this.value.MaBacSi" />
 
-                                                            </td>
+                                                        </td>
 
-                                                        </tr>
-                                                        <tr class="row py-4">
-                                                            <td class="col-4">
-                                                                <p>Địa chỉ: </p>
-                                                                <input class="col form-control" type="text" placeholder="Nhập vào địa chỉ" v-model="this.value.DiaChi" />
+                                                    </tr>
+                                                    <tr class="row py-4">
+                                                        <td class="col-4">
+                                                            <p>Địa chỉ: </p>
+                                                            <input class="col form-control" type="text" placeholder="Nhập vào địa chỉ" v-model="this.value.DiaChi" />
 
-                                                            </td>
-                                                            <td class="col-4">
+                                                        </td>
+                                                        <td class="col-4">
 
-                                                            <td class="d-flex justify-content-start pb-4">
-                                                                Giới tính:
-                                                                <span class="text-danger fw-bold">*</span>
-                                                            </td>
-                                                            <td class="pr-2">
-                                                                <div class="form-check">
+                                                        <td class="d-flex justify-content-start pb-4">
+                                                            Giới tính:
+                                                            <span class="text-danger fw-bold">*</span>
+                                                        </td>
+                                                        <td class="pr-2">
+                                                            <div class="form-check">
 
-                                                                    <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Nam" v-model="this.value.GioiTinh" />
-                                                                    <p class="form-check-label col" for="flexRadioDefault2">
-                                                                        Nam
-                                                                    </p>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Nữ" v-model="this.value.GioiTinh" />
-                                                                    <p class="form-check-label col" for="flexRadioDefault2">
-                                                                        Nữ
-                                                                    </p>
-                                                                </div>
-                                                            </td>
+                                                                <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Nam" v-model="this.value.GioiTinh" />
+                                                                <p class="form-check-label col" for="flexRadioDefault2">
+                                                                    Nam
+                                                                </p>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Nữ" v-model="this.value.GioiTinh" />
+                                                                <p class="form-check-label col" for="flexRadioDefault2">
+                                                                    Nữ
+                                                                </p>
+                                                            </div>
+                                                        </td>
 
-                                </td>
-                                <td class="col-4">
-                                    <p>Chức vụ: </p>
-                                    <input class="col form-control" type="text" placeholder="Nhập vào chức vụ" v-model="this.value.ChucVu" />
+                            </td>
+                            <td class="col-4">
+                                <p>Chức vụ: </p>
+                                <input class="col form-control" type="text" placeholder="Nhập vào chức vụ" v-model="this.value.ChucVu" />
 
-                                </td>
-                                <td class="col-4">
-                                    <p>Ảnh: </p>
-                                    <input type="file" id="avatar" name="avatar" @change="changeFile" accept="image/png, image/jpeg">
+                            </td>
+                            <td class="col-4">
+                                <p>Ảnh: </p>
+                                <input type="file" id="avatar" name="avatar" @change="changeFile" accept="image/png, image/jpeg">
 
-                                </td>
+                            </td>
 
-                            </tr>
-                            <tr class="row py-2">
-                                <td class="col-4">
-                                    <p>Gmail: </p>
-                                    <input class="col form-control" type="text" placeholder="Nhập vào gmail" v-model="this.value.Gmail" />
+                        </tr>
+                        <tr class="row py-2">
+                            <td class="col-4">
+                                <p>Gmail: </p>
+                                <input class="col form-control" type="text" placeholder="Nhập vào gmail" v-model="this.value.Gmail" />
 
-                                </td>
-                                <!-- TẠO TÀI KHOẢN TỰ ĐỘNG -->
+                            </td>
+                            <!-- TẠO TÀI KHOẢN TỰ ĐỘNG -->
 
-                                <td class="col-4">
-                                    <p>Tên tài khoản: </p>
-                                    <input class="col form-control" type="text" placeholder="Nhập vào tên tài khoản" v-model="this.value.TenAccount" />
+                            <td class="col-4">
+                                <p>Tên tài khoản: </p>
+                                <input class="col form-control" type="text" placeholder="Nhập vào tên tài khoản" v-model="this.value.TenAccount" />
 
-                                </td>
+                            </td>
 
-                                <td class="col-4">
-                                    <p>Password: </p>
-                                    <input class="col form-control" type="text" placeholder="Nhập vào mật khẩu" v-model="this.value.Password" />
+                            <td class="col-4">
+                                <p>Password: </p>
+                                <input class="col form-control" type="text" placeholder="Nhập vào mật khẩu" v-model="this.value.Password" />
 
-                                </td>
+                            </td>
 
-                            </tr>
-                    </table>
+                        </tr>
+                </table>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <!-- <button type="button" class="btn btn-primary text-light "  @click="handleUpdateDoctor(doctor.MaBacSi)" data-bs-dismiss="modal">Lưu</button> -->
-                    <button type="button" class="btn btn-primary text-light " @click="handleUpdateDoctor(doctor._id)" data-bs-dismiss="modal">Cập nhật</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                <!-- <button type="button" class="btn btn-primary text-light "  @click="handleUpdateDoctor(doctor.MaBacSi)" data-bs-dismiss="modal">Lưu</button> -->
+                <button type="button" class="btn btn-primary text-light " @click="handleUpdateDoctor(doctor._id)" data-bs-dismiss="modal">Cập nhật</button>
             </div>
         </div>
+    </div>
 
     </div>
     <font-awesome-icon icon="fa-solid fa-trash" class=" text-danger col" @click="handleDeleteDoctor(doctor.MaBacSi)" />
@@ -693,9 +706,9 @@ export default {
     </div>
 
     </div>
-    </div>
 
     </div>
+
 </main>
 </template>
 
