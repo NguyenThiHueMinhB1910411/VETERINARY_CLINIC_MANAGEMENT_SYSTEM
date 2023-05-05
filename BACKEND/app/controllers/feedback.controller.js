@@ -27,5 +27,28 @@ exports.create = async (req, res, next) => {
     )
   }
 }
+exports.update = async (req, res, next) => {
+  if (Object.keys(req.body).length === 0) {
+    return next(new ApiError(400, 'Dữ liệu không thể rỗng'))
+  }
+  try {
+    const feedbackService = new FeedbackService(
+      MongoDB.client,
+    )
+    const document = await feedbackService.update(
+      req.params.id,
+      req.body,
+    )
+    console.log(req.body)
+    if (!document) {
+      return next(
+        new ApiError(404, 'Không thể tìm thấy feedbackService'),
+      )
+    }
+    return res.send({ message: 'feedbackService Thông tin đăng ký đã cập nhật thành công' })
+  } catch (error) {
+    return next(new ApiError(500, `Lỗi cập nhật với id=${req.params.id}`))
+  }
+}
 
 

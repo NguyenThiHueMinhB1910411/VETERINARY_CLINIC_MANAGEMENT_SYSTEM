@@ -11,6 +11,9 @@ class FeedbackService {
   async create(data) {
     return (await this.api.post('/', data)).data;
   }
+  async update(data) {
+    return (await this.api.put(`/${data._id}`, data)).data
+  }
   
 
 }

@@ -8,6 +8,12 @@ router
     .get(feedback.findAll)
     .post(feedback.create);
 
+    
+router
+    .route("/:id")
+
+    .put(feedback.update)
+
    
 module.exports = router;
    

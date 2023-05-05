@@ -9,7 +9,8 @@ class FeedbackService {
         TenLoaiDichVu: payload.TenLoaiDichVu,
         NoiDung:payload.NoiDung,
         NgayFeedback: payload.NgayFeedback,
-
+        
+      TrangThai: payload.TrangThai??"Chưa phản hồi",
         
     };
     Object.keys(feedback).forEach(
@@ -51,5 +52,58 @@ class FeedbackService {
     const curson = await this.feedback.find(filter);
     return await curson.toArray();
   }
+
+  async update(id, payload) {
+    console.log(payload);
+    const update = this.extractFeedbackData(payload);
+    const result = await this.feedback.findOneAndUpdate(
+      { _id: ObjectId.isValid(id) ? new ObjectId(id) : null },
+      { $set: update },
+      { returnDocument: "after" }
+    );
+
+    const ri = await this.feedback.findOne({
+      SoDienThoai: result.value.SoDienThoai,
+    });
+    // console.log(ri);
+    const nodemailer = require("nodemailer");
+    var transporter = nodemailer.createTransport({
+      // config mail server
+      service: "Gmail",
+      auth: {
+        user: "minhb1910411@student.ctu.edu.vn",
+        pass: "qvsdnjwzinyfpkph",
+      },
+    });
+    if (result.value.TrangThai == "Chưa phản hồi") {
+      var mainOptions = {
+        from: " VETERINARY CLINIC",
+        to: ri.Gmail,
+        subject: "PHẢN HỒI FEEDBACK",
+        text: "Bạn đã nhận tin nhắn đến từ  VETERINARY CLINIC",
+        html:
+
+          " <b>Xin chào </b>" +
+          ri.TenKhachHang +
+          "<br/> Cảm ơn phản hồi của bạn về dịch vụ"  +
+             ri.TenLoaiDichVu
+           +
+          " của chúng tôi."+ "Chúng tôi sẽ dựa trên đánh giá của bạn để có thể cải thiện dịch vụ ngày càng tốt hơn nữa."+
+          
+          "<br/><small> Trân trọng cảm ơn </small>,",
+      };
+      transporter.sendMail(mainOptions, function (err, info) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("Message sent: " + info.response);
+        }
+      });
+    } 
+
+    console.log(nodemailer.getTestMessageUrl(mainOptions));
+    return result.value;
+  }
+
 }
 module.exports = FeedbackService;

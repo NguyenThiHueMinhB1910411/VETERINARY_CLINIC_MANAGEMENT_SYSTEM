@@ -110,9 +110,6 @@ class RegistrationInformationService {
       { $set: update },
       { returnDocument: "after" }
     );
-    // console.log(result.value);
-    // return result.value;
-
 
     const ri = await this.registrationInformation.findOne({
       SoDienThoai: result.value.SoDienThoai,

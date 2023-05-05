@@ -23,6 +23,7 @@ import {
     faEyeSlash,
     faEye,
     faRotateRight,
+    faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 library.add(
     faHouse,
@@ -39,6 +40,7 @@ library.add(
     faPlus,
     faEye,
     faRotateRight,
+    faHeart,
 );
 
 export default {
@@ -49,7 +51,13 @@ export default {
         }
     },
     methods: {
-      
+        async handleSubmit(data) {
+            console.log(data);
+            await FeedbackService.update(data);
+            this.retrieveFeedback();
+            
+        },
+
         async retrieveFeedback() {
             try {
                 this.listFeedback = await FeedbackService.getAll();
@@ -62,18 +70,17 @@ export default {
             this.filtered = this.listFeedback.filter(e => e.TrangThaiDichVu == filter);
 
         },
-       
 
     },
-   
+
     created() {
-       
+
         this.retrieveFeedback();
     },
 }
 </script>
 <template>
-<main >
+<main>
     <div>
         <div class="row my-3">
             <div class="col-4 ">
@@ -90,8 +97,8 @@ export default {
 
             </div>
             <div class="col-8">
-                        <p class="title-page" style="">Danh sách tài khoản</p>
-                    </div>
+                <p class="title-page" style="">Danh sách tài khoản</p>
+            </div>
 
         </div>
 
@@ -105,8 +112,10 @@ export default {
                             <th>Khách hàng</th>
                             <th>Gmail</th>
                             <th>Dịch vụ</th>
-                            <th>Feedback</th>
-                            <th>Trạng thái</th>
+                           
+                            <th>Nội dung</th>
+                            <th>Phản hồi</th>
+
                             <th>Thao tác</th>
                         </tr>
                     </thead>
@@ -117,11 +126,42 @@ export default {
                             <td>{{ feedback.TenKhachHang }}</td>
                             <td>{{ feedback.Gmail }}</td>
                             <td>{{ feedback.TenLoaiDichVu }}</td>
-                            <td>{{ feedback.info.TrangThaiDichVu }}</td>
-                            <td>{{ feedback.PhanHoi }}</td>
-                            <td></td>
+                            <!-- <td>{{ feedback.info.TrangThaiDichVu }}</td> -->
+                            
+                            <td>{{ feedback.NoiDung }}</td>
+                            <td>{{ feedback.TrangThai }}</td>
+                            <td>
+                                <a 
+                                :class="` col-6 ${feedback.TrangThai== 'Đã phản hồi'?'disable':'active'}` "
+                        
+                  @click="handleSubmit({
+                      ...feedback,
+                      TrangThai: 'Đã phản hồi',
+                    })
+                  "
+                                >
+                                    <font-awesome-icon icon="fa-solid fa-heart " />
 
-                           
+                                </a>
+                               
+
+                                <!-- <button
+                        type="button"
+                        :class="`text-light ${registrationInformation.TrangThaiKhamBenh== 'Đã khám'?'disable':'active'}` "
+
+                        :disabled="registrationInformation.TrangThaiKhamBenh== 'Đã khám'"
+                        @click="
+                          handleStatus({
+                            ...registrationInformation,
+                            TrangThaiKhamBenh: 'Đã khám',
+                          })
+                        "
+                      >
+                        Kê đơn thuốc
+                      </button> -->
+
+                            </td>
+
                         </tr>
 
                     </tbody>
@@ -135,18 +175,29 @@ export default {
 </template>
 
 <style scoped>
-.style-button{
+.style-button {
     background-color: #CC4D26;
     color: white;
 }
-.style-button-add{
+
+.style-button-add {
     background-color: #153A64;
     color: white;
 
 }
-.title-page{
-    font-size: 30px; 
-    font-weight:500; 
+
+.title-page {
+    font-size: 30px;
+    font-weight: 500;
     color: #153A64;
+}
+
+.active {
+    color: #000;
+}
+
+.disable {
+    color: rgb(153, 6, 6);
+   
 }
 </style>
