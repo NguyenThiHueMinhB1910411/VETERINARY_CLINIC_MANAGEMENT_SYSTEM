@@ -46,6 +46,7 @@ class RegistrationInformationService {
   constructor(client) {
     this.registrationInformation = client.db().collection('registrationInformation');
     this.service = client.db().collection('service');
+    this.account = client.db().collection('account');
     
   
   }
@@ -63,6 +64,18 @@ class RegistrationInformationService {
         },
       },
       { $unwind: "$info3" },
+      {
+        $lookup: {
+          from: "account",
+          localField: "SoDienThoai",
+
+          foreignField: "SoDienThoai",
+
+          as: "info4",
+        },
+      },
+      { $unwind: "$info4" },
+      
      
     ]);
     return await rs.toArray();

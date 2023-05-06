@@ -5,8 +5,7 @@ import ServiceService from "../../../services/service.service";
 import CategoryService from "../../../services/categoryService.service";
 import DoctorService from "../../../services/doctor.service";
 import RegistrationInformationService from "../../../services/registrationInformation.service";
-
-// import { userAccStore} from "../../../Store/userStore"
+import accountService from "../../../services/account.service";
 import {
     userAccStore
 } from "@/Store/userStore";
@@ -17,7 +16,8 @@ export default {
         HeaderPublic,
         CategoryService,
 
-        ServiceService
+        ServiceService,
+        accountService,
     },
     data() {
 
@@ -32,24 +32,32 @@ export default {
             categoryService: [],
             value: {},
             data: {},
-            doctor:{},
+            doctor: {},
             account,
         }
     },
     methods: {
+        async checkLogin() {
+            if (!userStore.user.TenAccount != "Login") {
+                this.$router.push({
+                    name: "Login"
+                });
+            }
+        },
+
         async retrieveService() {
             try {
                 this.service = await ServiceService.getAll();
                 this.categoryService = await CategoryService.getAll();
                 // this.listDoctor = await listDoctor.getAll();
-        //         this.listDoctor = this.listDoctor.filter(
-        //   (e) => e.TenBacSi != null
-        // );
+                //         this.listDoctor = this.listDoctor.filter(
+                //   (e) => e.TenBacSi != null
+                // );
             } catch (error) {
                 console.log(error);
             }
         },
-        async retriveDoctor(){
+        async retriveDoctor() {
             try {
                 this.doctor = await DoctorService.getAll();
             } catch (error) {
@@ -185,23 +193,18 @@ export default {
                                                 </td>
                                             </tr>
                                             <tr class="create-space">
-                        <td>
-                          Tên bác sĩ:
-                          <span class="text-danger fw-bold">*</span>
-                        </td>
-                        <td>
-                          <select v-model="this.data.TenBacSi">
-                            <option
-                              v-for="(doctor, index) in this.doctor"
-                              :value="doctor.TenBacSi"
-                            >
-                              {{ doctor.TenBacSi }}
-                            </option>
-                          </select>
-                        </td>
-                      </tr>
-                                            
-
+                                                <td>
+                                                    Tên bác sĩ:
+                                                    <span class="text-danger fw-bold">*</span>
+                                                </td>
+                                                <td>
+                                                    <select v-model="this.data.TenBacSi">
+                                                        <option v-for="(doctor, index) in this.doctor" :value="doctor.TenBacSi">
+                                                            {{ doctor.TenBacSi }}
+                                                        </option>
+                                                    </select>
+                                                </td>
+                                            </tr>
 
                                             <tr>
                                                 <td class="d-flex justify-content-start">Mô tả tình trạng:</td>
@@ -225,15 +228,14 @@ export default {
                                             <tr class="create-space">
                                                 <td>
 
-                                                    <label for="appt-time" >Chọn giờ: </label>
+                                                    <label for="appt-time">Chọn giờ: </label>
                                                 </td>
 
                                                 <td>
 
                                                     <input id="appt-time" type="time" name="appt-time" v-model="this.data.GioKham" />
-                                                   
+
                                                 </td>
-                                              
 
                                             </tr>
 
@@ -279,8 +281,8 @@ export default {
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button  class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal"  @click="handleSubmit">Gửi</button>
-<!-- 
+                                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" @click="handleSubmit">Gửi</button>
+                                        <!-- 
                                         <button type="button" class="btn btn-primary" @click="handleSubmit" data-bs-dismiss="modal">
                                             Đăng ký
                                         </button> -->
@@ -296,7 +298,7 @@ export default {
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                       Bạn đã đăng ký dịch vụ thành công
+                                        Bạn đã đăng ký dịch vụ thành công
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Đóng</button>
@@ -304,8 +306,9 @@ export default {
                                 </div>
                             </div>
                         </div>
-                        <a  class="btn btn-primary text-light px-5" style="font-size: 20px;"  data-bs-toggle="modal" href="#exampleModalToggle" role="button">Đăng ký ngay</a>
-                     
+                        <a class="btn btn-primary text-light px-5" style="font-size: 20px;" data-bs-toggle="modal" href="#exampleModalToggle" role="button" 
+                        >Đăng ký ngay</a>
+
                     </div>
 
                 </div>

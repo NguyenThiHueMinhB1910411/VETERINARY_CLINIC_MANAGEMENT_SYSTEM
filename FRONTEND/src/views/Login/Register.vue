@@ -62,6 +62,10 @@ export default {
                                 <input type="email" class="form-control" id="gmail " placeholder="Nhập vào địa chỉ email " required v-model="this.data.Gmail" />
                             </div>
                             <div class="form-group">
+                                <label for="phone " class="">Số điện thoại:</label>
+                                <input type="email" class="form-control" id="gmail " placeholder="Nhập vào số điện thoại " required v-model="this.data.SoDienThoai" />
+                            </div>
+                            <div class="form-group">
                                 <label for="pwd">Mật khẩu:</label>
                                 <input type="password" class="form-control" id="pwd" placeholder="Nhập vào mật khẩu!" required v-model="this.data.Password" />
                             </div>

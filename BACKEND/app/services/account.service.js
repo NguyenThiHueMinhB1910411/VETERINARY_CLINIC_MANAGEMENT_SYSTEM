@@ -7,6 +7,7 @@ class AccountService {
       TenAccount: payload.TenAccount,
       Password: payload.Password,
       Gmail: payload.Gmail,
+      SoDienThoai: payload.SoDienThoai,
     };
     Object.keys(account).forEach(
       (key) => account[key] === undefined && delete account[key]
