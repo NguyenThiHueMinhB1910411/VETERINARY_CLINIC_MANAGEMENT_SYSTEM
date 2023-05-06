@@ -46,7 +46,7 @@ library.add(faHouse, faGear, faUser, faUsers, faDog,faArrowDown,faCalendarCheck,
         <!-- <font-awesome-icon icon="fa-solid fa-calendar-check" class="px-2 " /> -->
         <font-awesome-icon icon="fa-solid fa-check" class="px-2  " />
         <span >
-          Duyệt yêu cầu
+          Quản lý yêu cầu
 
         </span>
        </router-link
@@ -57,7 +57,7 @@ library.add(faHouse, faGear, faUser, faUsers, faDog,faArrowDown,faCalendarCheck,
       <router-link :to="{ name: 'DoctorCalenadar' }">
         <font-awesome-icon icon="fa-solid fa-calendar-check" class="px-2 " />
         
-        Lịch bác sĩ</router-link
+        Quản lý lịch bác sĩ</router-link
       >
     </div>
     <div class="ms-4 pb-4 text-light" style="font-weight: 600;">
@@ -71,27 +71,27 @@ library.add(faHouse, faGear, faUser, faUsers, faDog,faArrowDown,faCalendarCheck,
     <div class="ms-4 pb-4 text-light" style="font-weight: 600;">
       <router-link :to="{ name: 'OtherBooked' }">
         <font-awesome-icon icon="fa-solid fa-calendar-days" class="px-2" />
-        Nội trú, làm đẹp</router-link
+        Quản lý dịch vụ</router-link
       >
     </div>
     <div class="ms-4 pb-4 text-light" style="font-weight: 600;">
       <router-link :to="{ name: 'Examination(Doctor)' }">
         <!-- <font-awesome-icon icon="fa-solid fa-dog" class="px-2"/> -->
         <font-awesome-icon icon="fa-solid fa-hospital" class="px-2" />
-        Khám bệnh</router-link
+        Quản lý khám bệnh</router-link
       >
     </div>
     <div class="ms-4 pb-4 text-light" style="font-weight: 600;" >
       <router-link :to="{ name: 'MedicalRecord' }">
         <!-- <font-awesome-icon icon="fa-solid fa-notes-medical" class="px-2" /> -->
         <font-awesome-icon icon="fa-solid fa-file"  class="px-2"/>
-        Hồ sơ</router-link
+        Quản lý hồ sơ</router-link
       >
     </div>
     <div class="ms-4 pb-4 text-light" style="font-weight: 600;">
       <router-link :to="{ name: 'Examinated' }">
         <font-awesome-icon icon="fa-solid fa-credit-card" class="px-2" />
-        Thanh toán </router-link>
+        Quản lý thanh toán </router-link>
         <!-- Dịch vụ khác </router-link> -->
     </div>
     <hr class="text-dark" />

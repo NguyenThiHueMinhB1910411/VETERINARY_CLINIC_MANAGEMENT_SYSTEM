@@ -38,19 +38,20 @@ export default {
     data() {
         return {
             listRegistrationInformation: [],
+       
             listMedicalRecord: [],
             filtered: [],
             listPrescription: [],
             listMedicalSupplies: [],
             data: {},
             value: {},
-            select: {},
-            data: {},
+
             select: {},
             prescription: null,
             medicalSupplies: null,
             listMedical: [],
             value: {},
+            filtered: [],
         };
     },
     methods: {
@@ -58,9 +59,10 @@ export default {
             try {
                 this.listRegistrationInformation =
                     await registrationInformationService.getAll();
+               // this.listRegistrationInformation = await RegistrationInformationService.getAll();
+                // this.registrationInformation = this.listRegistrationInformation;
                 this.listMedicalRecord = await MedicalRecordService.getAll();
-                this.listRegistrationInformation =
-                    this.listRegistrationInformation.filter((e) => e.TenBacSi != null);
+                this.listRegistrationInformation =this.listRegistrationInformation.filter((e) => e.TenBacSi != null);
             } catch (error) {
                 console.log(error);
             }
@@ -128,6 +130,14 @@ export default {
             const findThuoc = await this.MedicalSuppliesService(this.data.TenThuoc);
             console.log(findThuoc);
         },
+        // search(event) {
+        //     this.registrationInformation = this.listRegistrationInformation.filter(
+        //         (e) =>
+        //         e.TenKhachHang.toLowerCase().includes(
+        //             event.target.value.toLowerCase()
+        //         ) || e.SoDienThoai.includes(event.target.value)
+        //     );
+        // },
     },
     created() {
         this.retrieveRequire();
@@ -148,6 +158,7 @@ export default {
     border-radius: 8px;
     opacity: 0.5;
 }
+
 .style-button {
     background-color: #CC4D26;
     color: white;
@@ -159,14 +170,17 @@ export default {
     <div>
         <div class="row d-flex pt-3 pl-4">
             <div class="col-7" style="font-size: 16px" @click="retrieveRequire">
-          <button class="btn text-light px-2" style="background-color: #cc4d26">
-            <font-awesome-icon icon="fa-solid fa-rotate-right" />
-            Refresh
-          </button>
-         
-        </div>
+                <button class="btn text-light px-2" style="background-color: #cc4d26">
+                    <font-awesome-icon icon="fa-solid fa-rotate-right" />
+                    Refresh
+                </button>
+
+            </div>
             <div class="col-5">
                 <input type="search" placeholder="Search" class="form-control w-75 d-flex justify-content-right mr-0" />
+                <!-- <form role="search" method="POST" class="search-form" action="/search" name="search-form">
+                    <input @input="search($event)" type="search" placeholder="Search" class="form-control w-75 d-flex justify-content-right mr-0" />
+                </form> -->
             </div>
         </div>
         <div class="row">
@@ -196,7 +210,7 @@ export default {
                             </thead>
                             <tbody class="text-left">
                                 <tr v-for="(registrationInformation, index) in this
-                      .listRegistrationInformation">
+                .listRegistrationInformation">
                                     <th scope="row m-0">{{ index + 1 }}</th>
                                     <td>{{ registrationInformation.TenBacSi }}</td>
 
@@ -232,17 +246,12 @@ export default {
                                         </button>
                                     </td>
                                     <td>
-                                        <font-awesome-icon 
-                      icon="fa-solid fa-pen-to-square" 
-                      class=" text-dark col px-2"
-                      @click="
+                                        <font-awesome-icon icon="fa-solid fa-pen-to-square" class=" text-dark col px-2" @click="
                           $router.push({
                             name: 'EditMedical',
                             params: { id: `${registrationInformation._id}` },
-                          })"
-                      
-                      />
-                      <!-- <router-link :to="{ name: 'PreDetail', params: { id: prescription._id } }">
+                          })" />
+                                        <!-- <router-link :to="{ name: 'PreDetail', params: { id: prescription._id } }">
                                                 <font-awesome-icon icon="fa-solid fa-pen-to-square" class="text-dark" />
                                             </router-link> -->
 

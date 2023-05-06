@@ -40,20 +40,20 @@ library.add(
     </div>
     <hr class="text-dark">
   
-    <div class=" ms-4 pb-4 decorate">
+    <!-- <div class=" ms-4 pb-4 decorate">
         <router-link :to="{ name: '' }">
         <font-awesome-icon icon="fa-solid fa-user" class="px-2" />
         Quản lý tài khoản</router-link
       >
         
 
-    </div>
+    </div> -->
 
 
     <div class=" ms-4 pb-4 decorate">
         <router-link :to="{ name: 'SelfCalenadar' }">
         <font-awesome-icon icon="fa-solid fa-calendar-days" class="px-2" />
-        Khám bệnh</router-link
+        Quản lý lịch khám</router-link
       >
         
 
@@ -61,7 +61,7 @@ library.add(
     <div class=" ms-4 pb-4 decorate">
         <router-link :to="{ name: 'Prescriptions' }">
         <font-awesome-icon icon="fa-solid fa-prescription-bottle-medical" class="px-2" />
-    Đơn thuốc</router-link
+    Danh sách kê đơn</router-link
       >
         
 
@@ -69,7 +69,7 @@ library.add(
     <div class=" ms-4 pb-4 decorate">
         <router-link :to="{ name: 'MedicalRe' }">
         <font-awesome-icon icon="fa-solid fa-prescription-bottle-medical" class="px-2" />
-    Hồ sơ</router-link
+    Quản lý hồ sơ</router-link
       >
         
 

@@ -79,18 +79,6 @@ export default {
         ...form,
         NgayLapHoSo: this.NgayLapHoSo,
       });
-      
-
-      //  this.data.NgayKeDon = new Date().toLocaleString("vi-VN", {
-      //   timeZone: "Asia/Ho_Chi_Minh",
-      // });
-
-      // await MedicalRecordService.create(this.select);
-
-      // const rs = await this.prescription.update(data);
-
-      // await registrationInformationService.update(data);
-      // this.retrievePrescription();
     },
     
   },
@@ -101,8 +89,30 @@ export default {
 </script>
 <template>
   <div class="my-3 py-3 bg-white">
+    <h6 class="fw-bold text-uppercase">CHUẨN ĐOÁN</h6>
+    <div class="d-flex flex-row mt-3 w-100">
+     
+        <div class="d-flex flex-column w-50 me-3">
+          <span class="text-start">Chuẩn đoán:</span>
+          <textarea
+            class="form-control w-100 my-2"
+            id="exampleFormControlTextarea1"
+            rows="3"
+            v-model="this.chandoan"
+          ></textarea>
+        </div>
+        <div class="d-flex flex-column w-50">
+          <span class="text-start">Ghi chú:</span>
+          <textarea
+            class="form-control w-100 my-2"
+            id="exampleFormControlTextarea1"
+            rows="3"
+            v-model="this.ghichu"
+          ></textarea>
+        </div>
+      </div>
     <div class="d-flex justify-content-between flex-row">
-      <h5 class="fw-bold text-uppercase">Kê đơn thuốc</h5>
+      <h6 class="fw-bold text-uppercase">Kê đơn thuốc</h6>
       <button class="btn btn-primary p-2 bg-primary" @click="addMedical">
         Thêm
       </button>
@@ -173,7 +183,7 @@ export default {
           />
         </div>
       </div>
-      <div class="d-flex flex-row mt-3 w-100">
+      <!-- <div class="d-flex flex-row mt-3 w-100">
         <div class="d-flex flex-column w-50 me-3">
           <span class="text-start">Chuẩn đoán:</span>
           <textarea
@@ -192,7 +202,7 @@ export default {
             v-model="this.ghichu"
           ></textarea>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <div>
