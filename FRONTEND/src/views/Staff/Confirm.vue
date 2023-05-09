@@ -65,9 +65,11 @@ export default {
       data.NgayDuyet = new Date().toLocaleString("vi-VN", {
         timeZone: "Asia/Ho_Chi_Minh",
       });
+
       console.log(data);
       await RegistrationInformationService.update(data);
       this.retrieveRequire();
+      
     },
     //     search(ten) {
     //   this.registrationInformation = this.listRegistrationInformation.filter(e => e.TenKhachHang.toLowerCase().includes(ten.target.value.toLowerCase()))
@@ -155,13 +157,29 @@ export default {
               <td>{{ registrationInformation.NgayKham }}</td>
               <td>{{ registrationInformation.GioKham }}</td>
               <td>{{ registrationInformation.TenLoaiDichVu }}</td>
-              <td class="text-primary">
-                {{ registrationInformation.TrangThaiPheDuyet }}
-              </td>
+              <td>
+                        <button
+                        type="button"
+                        :class="`text-light ${registrationInformation.TrangThaiPheDuyet== 'Đã duyệt'?'disable1':'active1'}` "
+                        
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal4"
+                        :disabled="registrationInformation.TrangThaiPheDuyet== 'Đã duyệt'
+                        "
+                        @click="
+                          handleSubmit({
+                              ...registrationInformation,
+                              TrangThaiPheDuyet: 'Đã duyệt',
+                            })
+                        "
+                      >
+                      {{ registrationInformation.TrangThaiPheDuyet }}
+                      </button>
+                      </td>
               <td class=" ">
 
 
-                      <a
+                      <!-- <a
                        :class="` col-6 px-2 ${registrationInformation.TrangThaiPheDuyet== 'Đã duyệt'?'disable':'active'}` "
                         
                   @click="
@@ -174,27 +192,14 @@ export default {
                   <font-awesome-icon
                     icon="fa-solid fa-check text-success "
                   />
-                </a>
+                </a> -->
 
 
 
-                <!-- <a
-                  class="text-success col-6"
-                  @click="
-                    handleSubmit({
-                      ...registrationInformation,
-                      TrangThaiPheDuyet: 'Đã duyệt',
-                    })
-                  "
-                >
-                  <font-awesome-icon
-                    icon="fa-solid fa-check text-success me-1 "
-                  />
-                </a>
- -->
+            
 
 
-                <a class="col-6" style="color: #063555">
+                <a class="col-6" >
                   <font-awesome-icon
                     icon="fa-solid fa-circle-info"
                     data-bs-toggle="modal"
@@ -360,11 +365,29 @@ export default {
   </main>
 </template>
 <style>
-.active{
+/* .active{
   color: green;
 }
 .disable{
   color: red;
   opacity: 0.5;
+} */
+.active1 {
+  background-color: #0f418b;
+  border-radius: 8px;
+  border: solid 2px #071e42;
+}
+.disable1 {
+  background-color: #e9965e;
+  border-radius: 8px;
+}
+button:disabled:hover{
+  animation: shake 200ms 2;
+
+}
+@keyframes shake {
+  0%, 100% {translate: 0;}
+  25% {translate: 0.125rem;}
+  75% {translate: -0.125rem;}
 }
 </style>

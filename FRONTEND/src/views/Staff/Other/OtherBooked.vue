@@ -78,7 +78,7 @@ export default {
       } catch (error) {
         console.log(error);
       }
-      //  this.retrieveRequire();
+     
     },
 
     filteredService(filter) {
@@ -90,16 +90,11 @@ export default {
       try {
         this.listRegistrationInformation =
           await registrationInformationService.getAll();
-        // this.registrationInformation = this.listRegistrationInformation;
-        // this.filtered = this.listRegistrationInformation;
 
         this.listRegistrationInformation =
           this.listRegistrationInformation.filter(
             (e) => e.TenLoaiDichVu != "Khám bệnh"
           );
-
-        // this.listRegistrationInformation =
-        //     this.listRegistrationInformation.filter((e) => e.TenBacSi == null);
 
         this.listRegistrationInformation =
           this.listRegistrationInformation.filter(
@@ -233,14 +228,11 @@ export default {
 
                       <td>{{ registrationInformation.NgayDangKy }}</td>
                       <td>{{ registrationInformation.SoDienThoai }}</td>
-                      <!-- <td style="color: #063555; font-weight: 600">
-                        {{ registrationInformation.TrangThaiDichVu }}
-                      </td> -->
                       
                       <td>
                         <button
                         type="button"
-                        :class="`text-light ${registrationInformation.TrangThaiDichVu== 'Hoàn tất'?'disable':'active'}` "
+                        :class="` ${registrationInformation.TrangThaiDichVu== 'Hoàn tất'?'disable2':'active2'}` "
                         
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal4"
@@ -254,26 +246,12 @@ export default {
                       >
                       {{ registrationInformation.TrangThaiDichVu }}
                       </button>
-                     
-
-                        <!-- <button
-                          type="button"
-                          class="px-3 text-light"
-                          style="background-color: #063555; border-radius: 10px"
-                          @click="
-                            handleStatus({
-                              ...registrationInformation,
-                              TrangThaiDichVu: 'Hoàn tất',
-                            })
-                          "
-                        >
-                          Chọn
-                        </button> -->
                       </td>
-                      <button
+                      <td>
+                        <button
                         type="button"
-                        :class="`text-light  ${registrationInformation.ThanhToan== 'Đã thanh toán'?'disable1':'active1'}` "
-                        style="font-size: small;"
+                        :class="`text-light ${registrationInformation.ThanhToan== 'Đã thanh toán'?'disable1':'active1'}` "
+                        
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal4"
                         :disabled="registrationInformation.ThanhToan== 'Đã thanh toán'"
@@ -285,8 +263,9 @@ export default {
                         "
                       >
                       {{ registrationInformation.ThanhToan }}
-                      
                       </button>
+                      </td>
+                     
                       <td>
                         <font-awesome-icon
                           icon="fa-solid fa-pen-to-square"
@@ -457,7 +436,7 @@ export default {
           >
             <thead class="bg-light">
               <tr class="text-dark">
-                <!-- <th scope="col ">STT</th> -->
+                
                 <th scope="col">Tất cả</th>
                 <th scope="col">Làm đẹp</th>
                 <th scope="col">Nội trú</th>
@@ -466,7 +445,6 @@ export default {
             </thead>
             <tbody class="text-center">
               <tr>
-                <!-- <td> </td> -->
                 <td>{{ this.statistical.all }}</td>
                 <td>{{ this.statistical.LamDep }}</td>
                 <td>{{ this.statistical.NoiTru }}</td>
@@ -481,23 +459,50 @@ export default {
 </template>
 
 <style scoped>
-.active {
+.active2{
   background-color: #063555;
   border-radius: 8px;
+  color: white;
 }
 
-.disable {
-  background-color: #0873a5c4;
+
+.disable2 {
+  background-color: #1491c2;
+  color: white;
   border-radius: 8px;
-  opacity: 0.6;
+  opacity: 0.9;
+  
+}
+/* .disable2 {
+  background-color: rgb(211, 204, 204);
+  color: black;
+  border-radius: 8px;
+  border: 2px gray solid;
+  font-weight: bold;
+  
+} */
+button:disabled:hover{
+  animation: shake 200ms 2;
+
+}
+@keyframes shake {
+  0%, 100% {translate: 0;}
+  25% {translate: 0.125rem;}
+  75% {translate: -0.125rem;}
 }
 .active1 {
-  background-color: #a01111;
+  background-color: #063555;
   border-radius: 8px;
+  color: white;
+  
 }
 .disable1 {
-  background-color: #08a576c4;
+  background-color: #069653c4;
+  
   border-radius: 8px;
+  box-shadow: 2px 2px 4px #ececec;
+
+ 
   
 }
 

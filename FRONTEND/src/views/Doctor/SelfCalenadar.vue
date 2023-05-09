@@ -225,7 +225,9 @@ export default {
                           registrationInformation.TrangThaiKhamBenh == 'Đã khám'
                             ? 'disable'
                             : 'active'
-                        }`" data-bs-toggle="modal" data-bs-target="#exampleModal4" @click="
+                        }`"
+                         :disabled="registrationInformation.TrangThaiKhamBenh == 'Đã khám'"
+                         data-bs-toggle="modal" data-bs-target="#exampleModal4" @click="
                         handleStatus({
                             ...registrationInformation,
                             TrangThaiKhamBenh: 'Đã khám',
@@ -345,3 +347,14 @@ export default {
     </div>
 </main>
 </template>
+<style>
+button:disabled:hover{
+  animation: shake 200ms 2;
+
+}
+@keyframes shake {
+  0%, 100% {translate: 0;}
+  25% {translate: 0.125rem;}
+  75% {translate: -0.125rem;}
+}
+</style>
