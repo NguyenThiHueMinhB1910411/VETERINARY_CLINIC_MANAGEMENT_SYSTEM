@@ -10,6 +10,7 @@ import {
   faPenToSquare,
   faAdd,
     faRotateRight,
+    faCircleInfo,
 } from "@fortawesome/free-solid-svg-icons";
 library.add(
   faMoneyBill,
@@ -20,6 +21,7 @@ library.add(
   faPenToSquare,
   faAdd,
     faRotateRight,
+    faCircleInfo,
 );
 
 import registrationInformationService from "../../../services/registrationInformation.service";
@@ -202,18 +204,19 @@ export default {
                     font-size: 15px;
                     background-color: white;
                     padding-bottom: 80%;
-                    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+                    box-shadow: 0px 5px 3px  rgba(212, 212, 212, 0.25); 
                   "
                 >
                   <thead class="">
-                    <tr class="" style="color: #063555">
+                    <tr class="" style="color: #CC4D26">
                       <th>STT</th>
                       <th>Tên khách hàng</th>
                       <th>Dịch vụ</th>
                       <th>Ngày đặt</th>
                       <th>Số điện thoại</th>
-                      <th>Trạng thái</th>
-                      <th>Thao tác</th>
+                      <!-- <th>Trạng thái</th> -->
+                      <th>Thực hiện</th>
+                      <th>Thanh toán</th>
                       <th>Thao tác</th>
                     </tr>
                   </thead>
@@ -230,9 +233,10 @@ export default {
 
                       <td>{{ registrationInformation.NgayDangKy }}</td>
                       <td>{{ registrationInformation.SoDienThoai }}</td>
-                      <td style="color: #063555; font-weight: 600">
+                      <!-- <td style="color: #063555; font-weight: 600">
                         {{ registrationInformation.TrangThaiDichVu }}
-                      </td>
+                      </td> -->
+                      
                       <td>
                         <button
                         type="button"
@@ -248,7 +252,7 @@ export default {
                             })
                         "
                       >
-                        Chọn
+                      {{ registrationInformation.TrangThaiDichVu }}
                       </button>
                      
 
@@ -266,6 +270,23 @@ export default {
                           Chọn
                         </button> -->
                       </td>
+                      <button
+                        type="button"
+                        :class="`text-light  ${registrationInformation.ThanhToan== 'Đã thanh toán'?'disable1':'active1'}` "
+                        style="font-size: small;"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal4"
+                        :disabled="registrationInformation.ThanhToan== 'Đã thanh toán'"
+                        @click="
+                          handleStatus({
+                              ...registrationInformation,
+                              ThanhToan: 'Đã thanh toán',
+                            })
+                        "
+                      >
+                      {{ registrationInformation.ThanhToan }}
+                      
+                      </button>
                       <td>
                         <font-awesome-icon
                           icon="fa-solid fa-pen-to-square"
@@ -431,7 +452,7 @@ export default {
               font-size: 15px;
               background-color: white;
               padding-bottom: 80%;
-              box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+              box-shadow: 0px 5px 3px  rgba(212, 212, 212, 0.25); 
             "
           >
             <thead class="bg-light">
@@ -470,6 +491,16 @@ export default {
   border-radius: 8px;
   opacity: 0.6;
 }
+.active1 {
+  background-color: #a01111;
+  border-radius: 8px;
+}
+.disable1 {
+  background-color: #08a576c4;
+  border-radius: 8px;
+  
+}
+
 .style-button{
     background-color: #CC4D26;
     color: white;

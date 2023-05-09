@@ -103,15 +103,16 @@ export default {
         </div>
 
         <div>
-            <div class="  mt-4 d-flex justify-content-center w-100">
+            <div class="row  mt-4 d-flex justify-content-center w-100">
 
-                <table class="table table-hover text-center table-bordered table table-bordered " style="font-size: 15px;background-color: white;padding-bottom: 80%; box-shadow: 0px 5px 15px rgba(0,0,0,0.25);">
+                <table class="table table-hover text-center table-bordered table table-bordered " style="font-size: 15px;background-color: white;padding-bottom: 800%; ">
                     <thead class="">
                         <tr style="color: #CC4D26;">
                             <th>STT</th>
                             <th>Khách hàng</th>
                             <th>SĐT</th>
-                            <th>Gmail</th>
+                            <!-- <th>Gmail</th> -->
+                            <th>Vật nuôi</th>
                             <th>Dịch vụ</th>
                             <th>Nội dung</th>
                             <th>Phản hồi</th>
@@ -124,7 +125,8 @@ export default {
                             <td>{{ index +1 }}</td>
                             <td>{{ feedback.info.TenKhachHang }}</td>
                             <td>{{ feedback.info.SoDienThoai }}</td>
-                            <td>{{ feedback.Gmail }}</td>
+                            <!-- <td>{{ feedback.Gmail }}</td> -->
+                            <td>{{ feedback.info.UsernameVatNuoi }}</td>
                             <td>{{ feedback.info.TenLoaiDichVu }}</td>
                             <td>{{ feedback.NoiDung }}</td>
                             <td>{{ feedback.TrangThai }}</td>

@@ -59,7 +59,7 @@ export default {
     </div>
     <div id="element-to-convert">
         <div class="row" style="font-size: 16px;">
-            <div class="col mt-4 mx-2 " style=" box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25); background-color: white;">
+            <div class="col mt-4 mx-2 " style="  background-color: white;">
                 <h5 class="py-3">THÔNG TIN BÁC SĨ</h5>
                 <div class="py-2">
                   

@@ -34,6 +34,7 @@ class RegistrationInformationService {
       TrangThaiDichVu: payload.TrangThaiDichVu??"Chưa hoàn tất",
       Gia: payload.Gia,
       GhiChuThem: payload.GhiChuThem,
+      ThanhToan: payload.ThanhToan??"Chưa thanh toán",
       
 
 
@@ -74,7 +75,7 @@ class RegistrationInformationService {
           as: "info4",
         },
       },
-      { $unwind: "$info4" },
+     // { $unwind: "$info4" },
       
      
     ]);

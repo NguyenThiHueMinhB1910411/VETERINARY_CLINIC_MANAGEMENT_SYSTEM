@@ -95,8 +95,22 @@ class AccountService {
     const result = await this.Account.deleteMany({});
     return result.deletedCount;
   }
+  async findById(id) {
+    return await this.Account.findOne({
+      // MaBacSi: id,
+    });
+  }
 
-  // dinh nghia cac phuong thuc truy xuat CSDL su dung mongodb API
+  async update(id, payload) {
+    const update = this.extractAccountData(payload);
+    const result = await this.Account.findOneAndUpdate(
+      { _id: ObjectId.isValid(id) ? new ObjectId(id) : null },
+      { $set: update },
+      { returnDocument: "after" }
+    );
+    return result.value;
+  }
 }
+
 
 module.exports = AccountService;

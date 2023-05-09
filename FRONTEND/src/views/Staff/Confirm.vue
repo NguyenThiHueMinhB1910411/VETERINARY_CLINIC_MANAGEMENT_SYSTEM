@@ -123,18 +123,18 @@ export default {
             font-size: 15px;
             background-color: white;
             padding-bottom: 80%;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 5px 3px  rgba(212, 212, 212, 0.25); 
           "
         >
           <thead class="">
             <tr class="" style="color: #cc4d26">
               <th>STT</th>
               <th>Tên Khách hàng</th>
-              <!-- <th>Email</th> -->
               <th>SĐT</th>
 
               <th>Thời gian gửi</th>
-              <th>Thời gian khám</th>
+              <th>Ngày khám</th>
+              <th>Giờ khám</th>
               <th>Loại dịch vụ</th>
               <th>Xác nhận</th>
               <th>Tác vụ</th>
@@ -153,15 +153,16 @@ export default {
 
               <td>{{ registrationInformation.NgayDangKy }}</td>
               <td>{{ registrationInformation.NgayKham }}</td>
+              <td>{{ registrationInformation.GioKham }}</td>
               <td>{{ registrationInformation.TenLoaiDichVu }}</td>
               <td class="text-primary">
                 {{ registrationInformation.TrangThaiPheDuyet }}
               </td>
-              <td class="row m-0">
+              <td class=" ">
 
 
                       <a
-                       :class="` col-6 ${registrationInformation.TrangThaiPheDuyet== 'Đã duyệt'?'disable':'active'}` "
+                       :class="` col-6 px-2 ${registrationInformation.TrangThaiPheDuyet== 'Đã duyệt'?'disable':'active'}` "
                         
                   @click="
                     handleSubmit({
@@ -171,7 +172,7 @@ export default {
                   "
                 >
                   <font-awesome-icon
-                    icon="fa-solid fa-check text-success me-1 "
+                    icon="fa-solid fa-check text-success "
                   />
                 </a>
 

@@ -23,6 +23,7 @@ import {
     faEyeSlash,
     faEye,
     faRotateRight,
+    faPenToSquare,
 } from "@fortawesome/free-solid-svg-icons";
 library.add(
     faHouse,
@@ -39,6 +40,7 @@ library.add(
     faPlus,
     faEye,
     faRotateRight,
+    faPenToSquare,
 );
 
 export default {
@@ -48,12 +50,14 @@ export default {
             data: {},
             showPassword: false,
             password: null,
+            value:{},
+            account: null,
         }
     },
     methods: {
         async getAccount(id) {
             try {
-                this.doctor = await AccountService.get(id);
+                this.account = await AccountService.get(id);
 
             } catch (error) {
                 console.log(error);
@@ -77,6 +81,15 @@ export default {
             if (window.confirm("Bạn có muốn xóa tài khoản này ?")) {
                 AccountService.delete(tenaccount)
 
+            }
+            this.retrieveAccounts();
+        },
+        async handleUpdate(id) {
+          
+
+            if (window.confirm("Bạn có cập nhật tài khoản này ?")) {
+                await AccountService.update(id, this.value);
+               
             }
             this.retrieveAccounts();
         },
@@ -164,9 +177,10 @@ export default {
         </div>
 
         <div>
-            <div class="  mt-4 d-flex justify-content-center w-75">
-
-                <table class="table table-hover text-center table-bordered table table-bordered " style="font-size: 15px;background-color: white;padding-bottom: 80%; box-shadow: 0px 5px 15px rgba(0,0,0,0.25);">
+            <div class="row  mt-4 ">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    <table class="  table table-hover text-center table-bordered table table-bordered " style="font-size: 15px;background-color: white;padding-bottom: 80%;box-shadow: 0px 5px 3px  rgba(212, 212, 212, 0.25); ;">
                     <thead class="">
                         <tr style="color: #CC4D26;">
                             <th scope="col ">STT</th>
@@ -191,7 +205,45 @@ export default {
 
                             </td>
                             <td>
-                                <font-awesome-icon icon="fa-solid fa-pen" class=" text-warning " />
+                                <font-awesome-icon icon="a-solid fa-pen-to-square" class=" text-warning "  data-bs-toggle="modal" data-bs-target="#exampleModal1" @click="this.value = account "/>
+                                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content ">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-center" id="exampleModalLabel1">
+                                        <font-awesome-icon icon="fa-solid fa-user" /> Chỉnh sửa thông tin</h5> &nbsp;
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body" style="font-size: 16px !important;">
+                                    <table>
+                                        <tr class="row">
+                                            <td class="col-4">
+                                                <p>Tên tài khoản: </p>
+                                                <input class="col form-control" type="text" placeholder="Nhập vào tên tài khoản" v-model="this.value.TenAccount" />
+
+                                            </td>
+
+                                            <td class="col-4">
+                                                <p>Gmail: </p>
+                                                <input class="col form-control" type="text" placeholder="Nhập vào gmail" v-model="this.value.Gmail" />
+
+                                            </td>
+                                            <td class="col-4">
+                                                <p>Mật khẩu: </p>
+                                                <input class="col form-control" type="text" placeholder="Nhập vào mật khẩu" v-model="this.value.Password" />
+
+                                            </td>
+
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                                    <button type="button" class="btn btn-primary" @click="handleUpdate(account._id)" data-bs-dismiss="modal">Lưu</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                                 <font-awesome-icon icon="fa-solid fa-trash" class=" text-danger px-4" @click="handleDeleteAccount(account.TenAccount)" />
 
                             </td>
@@ -199,6 +251,11 @@ export default {
 
                     </tbody>
                 </table>
+                </div>
+                
+
+                
+                <div class="col-1"></div>
 
             </div>
         </div>

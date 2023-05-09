@@ -9,7 +9,6 @@ class MedicalSuppliesService {
       Gia:payload.Gia,
       HinhAnh:payload.HinhAnh,
       MoTa:payload.MoTa,
-      Key:payload.Key??"1",
 
 
 
@@ -71,6 +70,13 @@ class MedicalSuppliesService {
     return gia
   }
 
+  // async delete(id) {
+  //   console.log(id);
+  //   const result = await this.medicalSupplies.findOneAndDelete({
+  //     MaVatTu :id
+  //   })
+  //   return result;
+  // }
   async delete(id) {
     console.log(id);
     const result = await this.medicalSupplies.findOneAndDelete({

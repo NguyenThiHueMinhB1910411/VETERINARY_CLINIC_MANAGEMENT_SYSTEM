@@ -14,8 +14,9 @@ import {
     faPenToSquare,
     faNotesMedical,
     faAddressBook,faRotateRight,
+    faCircleInfo,
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faMoneyBill, faCreditCard, faPrint, faUser, faArrowLeft, faPenToSquare, faNotesMedical, faAddressBook,faRotateRight, );
+library.add(faMoneyBill, faCreditCard, faPrint, faUser, faArrowLeft, faPenToSquare, faNotesMedical, faAddressBook,faRotateRight,faCircleInfo, );
 
 // import listService from "../../services/service.service";
 import PrescriptionService from "../../../services/Prescription.service";
@@ -109,9 +110,9 @@ export default {
                 <div class="py-3">
                     <div class="pt-2">
                         <div class="row">
-                            <table class="table table-hover text-center table-bordered table table-bordered" style=" font-size: 15px; background-color: white;padding-bottom: 80%; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);">
+                            <table class="table table-hover text-center table-bordered table table-bordered" style=" font-size: 15px; background-color: white;padding-bottom: 80%; box-shadow: 0px 5px 3px  rgba(212, 212, 212, 0.25);">
                                 <thead class="">
-                                    <tr class="" style="color: #063555">
+                                    <tr class="" style="color: #CC4D26">
                                         <th>STT</th>
                                         <th>Tên khách hàng</th>
                                         <th>Dịch vụ</th>

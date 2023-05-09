@@ -9,6 +9,7 @@ router
     .post(medicalSupplies.create);
 router
     .route("/:id")
+    .delete(medicalSupplies.delete);
     //.get(medicalSupplies.findOne)
 
 router

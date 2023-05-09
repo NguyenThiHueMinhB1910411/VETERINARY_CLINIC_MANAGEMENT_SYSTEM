@@ -60,6 +60,27 @@ exports.delete = async (req, res, next) => {
     );
   }
 };
+exports.update = async (req, res, next) => {
+  console.log(12345);
+  console.log(req.body);
+  console.log(req.params.id)
+  if (Object.keys(req.body).length === 0) {
+    return next(new ApiError(400, "Dữ liệu để cập nhật không được rỗng"));
+  }
+  try {
+    const accountService = new AccountService(MongoDB.client);
+    const document = await accountService.update(req.params.id, req.body);
+    if (!document) {
+      return next(new ApiError(404, "Không tìm thấy Account"));
+    }
+    return res.send({ message: "Account đã được cập nhật thành công" });
+  } catch (error) {
+    return next(
+      new ApiError(500, `Lỗi cập nhật biễu mẫu với id=${req.params.id}`)
+    );
+  }
+  console.log(45);
+};
 
 exports.findAll = async (req, res, next) => {
   let documents = [];

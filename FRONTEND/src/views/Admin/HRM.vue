@@ -400,10 +400,10 @@ export default {
 
         </div>
         <div>
-            <div class="  mt-4">
-                <table class="table table-hover text-center table-bordered table table-bordered " style="font-size: 15px;background-color: white;padding-bottom: 80%; box-shadow: 0px 5px 15px rgba(0,0,0,0.25);">
+            <div class="row  mt-4">
+                <table class="table table-hover text-center table-bordered table table-bordered " style="font-size: 15px;background-color: white;padding-bottom: 80%; box-shadow: 0px 5px 3px  rgba(212, 212, 212, 0.25);">
                     <thead>
-                        <tr style="color: #063555;">
+                        <tr style="color:  #cc4d26;">
                             <th>STT</th>
                             <th>Mã</th>
                             <th>Họ và tên</th>

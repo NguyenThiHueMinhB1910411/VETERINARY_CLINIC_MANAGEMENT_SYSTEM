@@ -13,15 +13,28 @@ export default {
         return {
             data: {},
             service: [],
+            listFeedback: [],
         };
     },
     methods: {
+        async retrieveFeedback() {
+            try {
+                this.listFeedback = await FeedbackService.getAll();
+                this.listFeedback = this.listFeedback.filter((e) => e.info.TrangThaiDichVu == "Hoàn tất");
+            } catch (error) {
+                console.log(error);
+            }
+        },
         async retriveService() {
             try {
                 this.service = await categoryService.getAll();
             } catch (error) {
                 console.log(error);
             }
+        },
+        filtered(filter) {
+            this.filtered = this.listFeedback.filter(e => e.TrangThaiDichVu == filter);
+
         },
         async handleSubmit(data) {
             data.NgayFeedback = new Date().toLocaleString("vi-VN", {
@@ -36,6 +49,7 @@ export default {
         },
         created() {
             this.retriveService();
+            this.retrieveFeedback();
         },
     },
 };
@@ -68,35 +82,30 @@ export default {
             <!-- form contact -->
             <div class="col-6 px-3">
                 <div class="">
-                    <form class="p-5 border border-dark frame-contact">
+
+                    <form class="px-5 pb-5 border border-dark frame-contact">
+                        <h5 class="text-center text-uppercase pt-4">Đánh giá</h5>
+                        <hr>
                         <div class="mb-3 d-flex ">
-                  
-                                                    <div class="form-check col">
-                                                        <input class="form-check-input " type="radio" name="flexRadioDefault1" id="flexRadioDefault2" value="Nội trú" v-model="this.data.TenLoaiDichVu" />
-                                                        <p class="form-check-label col" for="flexRadioDefault2">
-                                                            Nội trú
-                                                        </p>
-                                                    </div>
-                                               
-                                                    <div class="form-check col">
-                                                        <input class="form-check-input " type="radio" name="flexRadioDefault1" id="flexRadioDefault2" value="Làm đẹp" v-model="this.data.TenLoaiDichVu" />
-                                                        <p class="form-check-label col" for="flexRadioDefault2">
-                                                           Làm đẹp
-                                                        </p>
-                                                    </div>
-                                               
-                  
-                              </div>
+
+                            <div class="form-check col">
+                                <input class="form-check-input " type="radio" name="flexRadioDefault1" id="flexRadioDefault2" value="Nội trú" v-model="this.data.TenLoaiDichVu" />
+                                <p class="form-check-label col" for="flexRadioDefault2">
+                                    Nội trú
+                                </p>
+                            </div>
+
+                            <div class="form-check col">
+                                <input class="form-check-input " type="radio" name="flexRadioDefault1" id="flexRadioDefault2" value="Làm đẹp" v-model="this.data.TenLoaiDichVu" />
+                                <p class="form-check-label col" for="flexRadioDefault2">
+                                    Làm đẹp
+                                </p>
+                            </div>
+
+                        </div>
                         <div class="mb-3">
-                <input
-                  type="text"
-                  class="form-control bg-light"
-                  id="exampleInputEmail1"
-                  aria-describedby=""
-                  placeholder="TÊN*"
-                  v-model="this.data.TenKhachHang"
-                />
-              </div>
+                            <input type="text" class="form-control bg-light" id="exampleInputEmail1" aria-describedby="" placeholder="TÊN*" v-model="this.data.TenKhachHang" />
+                        </div>
                         <div class="mb-3">
                             <input type="email" class="form-control bg-light" id="exampleInputEmail1" aria-describedby="" placeholder="EMAIL*" v-model="this.data.Gmail" />
                         </div>
@@ -104,7 +113,6 @@ export default {
                             <!-- <input type="tel" id="phone" name="phone" placeholder="SỐ ĐIỆN THOẠI*" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" v-model="this.data.SoDienThoai"> -->
                             <input class="form-control" type="tel" id="phone" name="phone" placeholder="SỐ ĐIỆN THOẠI*" v-model="this.data.SoDienThoai" />
                         </div>
-                       
 
                         <div class="mb-3">
                             <textarea class="form-control" rows="4" cols="50" name="comment" form="usrform" placeholder="LỜI NHẮN..." v-model="this.data.NoiDung"></textarea>
@@ -144,6 +152,41 @@ export default {
         </div>
     </div>
     <hr />
+    <!-- <div class="py-4 px-5">
+        Các đánh giá
+        <div class="row">
+            <div class="  mt-4 d-flex justify-content-center w-100">
+
+                <table class="table table-hover text-center table-bordered table table-bordered " style="font-size: 15px;background-color: white;padding-bottom: 80%; box-shadow: 0px 5px 15px rgba(0,0,0,0.25);">
+                    <thead class="">
+                        <tr style="color: #CC4D26;">
+                            <th>STT</th>
+                            <th>Khách hàng</th>
+                            <th>SĐT</th>
+                            <th>Gmail</th>
+                            <th>Dịch vụ</th>
+                            <th>Nội dung</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-left">
+
+                        <tr v-for="(feedback, index) in this.listFeedback">
+                            <td>{{ index +1 }}</td>
+                            <td>{{ feedback.info.TenKhachHang }}</td>
+                            <td>{{ feedback.info.SoDienThoai }}</td>
+                            <td>{{ feedback.Gmail }}</td>
+                            <td>{{ feedback.info.TenLoaiDichVu }}</td>
+                            <td>{{ feedback.NoiDung }}</td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div> -->
     <div class="py-4 px-5">
         <h4 class="text-center pb-5" style="font-size: 2rem">
             Chăm sóc sức khỏe thú cưng được cá nhân hóa

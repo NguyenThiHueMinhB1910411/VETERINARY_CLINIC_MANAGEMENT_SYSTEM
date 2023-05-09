@@ -31,6 +31,10 @@ async getMedical(data){
 //   console.log(id)
 //   return (await this.api.delete(`/${id}`)).data;
 // }
+async delete(id) {
+  console.log(id)
+  return (await this.api.delete(`/${id}`)).data
+}
 
 }
 export default new MedicalSuppliesService();

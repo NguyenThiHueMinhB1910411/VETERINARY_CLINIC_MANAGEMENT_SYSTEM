@@ -16,7 +16,7 @@ router.route("/register")
 
 router
     .route("/:id")
-   
+    .post(account.update)
     .get(account.findOne)
     .delete(account.delete);
 

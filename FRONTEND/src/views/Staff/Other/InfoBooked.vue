@@ -73,7 +73,7 @@ export default {
     <div class="my-3">
       <div class="col-4">
         <div class="d-flex">
-          <div class="" style="font-size: 16px" @click="retrieveRequire">
+          <div class="" style="font-size: 16px">
             <button
               class="btn style-button text-light px-2"
               @click="exportToPDF"
@@ -91,7 +91,7 @@ export default {
         <div
           class="col  mx-2 p-4"
           style="
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+           box-shadow: 0px 5px 3px  rgba(212, 212, 212, 0.25); 
             background-color: white;
           "
         >
@@ -116,7 +116,7 @@ export default {
         <div
           class="col  mx-2 p-4"
           style="
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 5px 3px  rgba(212, 212, 212, 0.25); 
             background-color: white;
           "
         >

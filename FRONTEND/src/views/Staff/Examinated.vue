@@ -136,10 +136,10 @@ export default {
                     font-size: 15px;
                     background-color: white;
                     padding-bottom: 80%;
-                    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+                    box-shadow: 0px 5px 3px  rgba(212, 212, 212, 0.25); 
                   ">
                                 <thead class="">
-                                    <tr class="" style="color: #063555">
+                                    <tr class="" style="color: #CC4D26">
                                         <th>STT</th>
                                         <th>Tên KH</th>
                                         <th>SĐT</th>

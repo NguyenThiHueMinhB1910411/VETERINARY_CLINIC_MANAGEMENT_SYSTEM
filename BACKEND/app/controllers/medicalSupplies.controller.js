@@ -49,3 +49,15 @@ exports.findOne = async (req, res, next) => {
     );
   }
 };
+
+exports.delete = async (req, res, next) => {
+  try {
+    const medicalSuppliesService = new MedicalSuppliesService(MongoDB.client);
+    const document = await medicalSuppliesService.delete(req.params.id);
+    return res.send(document)
+  } catch (error) {
+    return next(
+      new ApiError(500, `Không thể xóa medicalSuppliesService với  id=${req.params.id}`)
+    );
+  }
+};

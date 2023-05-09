@@ -268,7 +268,6 @@ export default {
 <main>
     <div class="row" style="font-size: 16px">
         <div class="col mt-4 mx-2 p-4" style="
-          box-shadow: '0px 5px 15px rgba(0, 0, 0, 0.25)';
           background-color: white;
         ">
             <h4 class="text-center">Hồ sơ khám bệnh</h4>

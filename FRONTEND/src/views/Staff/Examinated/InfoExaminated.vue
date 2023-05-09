@@ -5,18 +5,20 @@ import {
 import {
     FontAwesomeIcon
 } from "@fortawesome/vue-fontawesome";
+
 import {
     faMoneyBill,
     faCreditCard,
-    faPrint,
+   
     faUser,
     faArrowLeft,
-    faPenToSquare,
+    faPenToSquare, 
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faMoneyBill, faPrint, faUser, faArrowLeft, faPenToSquare, faMoneyBill, );
+library.add(faMoneyBill, faUser, faArrowLeft, faPenToSquare, faMoneyBill, );
 
 // import registrationInformationService from "../../services/registrationInformation.service";
 import PrescriptionService from "../../../services/Prescription.service";
+import html2pdf from "html2pdf.js";
 export default {
     data() {
         return {
@@ -36,11 +38,17 @@ export default {
         };
     },
     methods: {
+        exportToPDF() {
+            html2pdf(document.getElementById("element"), {
+                margin: 1,
+                filename: "bill.pdf",
+            });
+        },
 
         async getInfo(id) {
             try {
-               const result = await PrescriptionService.getAll();
-               this.data = result.filter(e => e._id == id)[0];
+                const result = await PrescriptionService.getAll();
+                this.data = result.filter(e => e._id == id)[0];
                 console.log(this.data);
 
             } catch (error) {
@@ -48,7 +56,6 @@ export default {
                 console.log(this.Prescription);
             }
         },
-
 
     },
     mounted() {
@@ -66,87 +73,101 @@ export default {
 </script>
 <template>
 <main>
-    <!-- <div id="paypal-button-container" class="paypal-button-container"></div> -->
-<!-- 
-    <h5>Thông tin chi tiết ( dv khám bệnh)</h5> -->
-
-    <div class="row" style="font-size: 16px;">
-
-        <div class="col mt-4 mx-2 p-4" style=" box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25); background-color: white;">
-            <h5>THÔNG TIN KHÁCH HÀNG</h5>
-            <div class="py-2">
-                <b>Tên khách hàng: </b>
-                <span >{{ this.data.TenKhachHang }}</span>
-            </div>
-            <div class="py-2">
-                <b>Gmail: </b>
-                <span v-if="this.data.info1!== undefined">{{ this.data.info1.Gmail }}</span>
-            </div>
-            <div class="py-2">
-                <b>Số điện thoại: </b>
-                <span >{{ this.data.SoDienThoai }}</span>
-            </div>
-            <div class="py-2">
-                <b>Địa chỉ: </b>
-                <span v-if="this.data.info1!== undefined">{{ this.data.info1.DiaChi }}</span>
-
-            </div>
-
+    <div class="my-3">
+      <div class="col-4">
+        <div class="d-flex">
+          <div class="" style="font-size: 16px" >
+            <button style="background-color: #cc4d26;"
+              class="btn style-button text-light px-2"
+              @click="exportToPDF"
+            >
+              <!-- <font-awesome-icon icon="fa-solid fa-print" class="px-2" /> -->
+              Xuất file PDF
+            </button>
+          </div>
         </div>
-        <div class="col mt-4 mx-2 p-4" style=" box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25); background-color: white;">
-            <h5>THÔNG TIN DỊCH VỤ</h5>
-            <div class="py-2">
-                <b>Tên loại dịch vụ: </b>
-                <span v-if="this.data.info1!== undefined">{{ this.data.info1.TenLoaiDichVu }}</span>
-
-            </div>
-            <div class="py-2">
-                <b>Tên dịch vụ: </b>
-                <span v-if="this.data.info1!== undefined">{{ this.data.info1.TenDichVu }}</span>
-
-            </div>
-
-            <div class="py-2">
-                <b>Tên vật nuôi: </b>
-                <span >{{ this.data.UsernameVatNuoi }}</span>
-
-            </div>
-           
-            <!-- <div>
-                <b>Giói tính: </b>
-                <span>{{ this.data.GioiTinh }}</span>
-
-            </div> -->
-            <div class="py-2">
-                <b> Ngày Đăng ký lịch:</b>
-                <span v-if="this.data.info1!== undefined">{{ this.data.info1.NgayDangKy }}</span>
-
-            </div>
-            <div class="py-2">
-                <b>Ngày khám: </b>
-                <span v-if="this.data.info1!== undefined">{{ this.data.info1.NgayKham}}</span>
-
-            </div>
-            <div class="py-2">
-                <b>Giờ khám: </b>
-                <span v-if="this.data.info1!== undefined">{{ this.data.info1.GioKham}}</span>
-
-            </div>
-            <div class="py-2">
-                <b>Giá: </b>
-                <!-- <span v-if="this.data.info2!== undefined">{{ this.data.info2.Gia}}</span> -->
-                <span > {{ new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format(this.data.ThanhTien).replace("VND", "") }}</span>
-
-
-            </div>
-            <!-- <div class="py-2">
-                <b>Trạng thái dịch vụ: </b>
-                <span v-if="this.data.info1!== undefined">{{ this.data.info1.TrangThaiDichVu}}</span>
-
-            </div> -->
-
-        </div>
+      </div>
     </div>
+    <div id="element">
+        <div class="row" style="font-size: 16px;">
+
+            <div class="col mt-4 mx-2 p-4" style=" box-shadow: 0px 5px 3px  rgba(212, 212, 212, 0.25);  background-color: white;">
+                <h5>THÔNG TIN KHÁCH HÀNG</h5>
+                <div class="py-2">
+                    <b>Tên khách hàng: </b>
+                    <span>{{ this.data.TenKhachHang }}</span>
+                </div>
+                <div class="py-2">
+                    <b>Gmail: </b>
+                    <span v-if="this.data.info1!== undefined">{{ this.data.info1.Gmail }}</span>
+                </div>
+                <div class="py-2">
+                    <b>Số điện thoại: </b>
+                    <span>{{ this.data.SoDienThoai }}</span>
+                </div>
+                <div class="py-2">
+                    <b>Địa chỉ: </b>
+                    <span v-if="this.data.info1!== undefined">{{ this.data.info1.DiaChi }}</span>
+
+                </div>
+
+            </div>
+            <div class="col mt-4 mx-2 p-4" style=" box-shadow: 0px 5px 3px  rgba(212, 212, 212, 0.25);  background-color: white;">
+                <h5>THÔNG TIN DỊCH VỤ</h5>
+                <div class="py-2">
+                    <b>Tên loại dịch vụ: </b>
+                    <span v-if="this.data.info1!== undefined">{{ this.data.info1.TenLoaiDichVu }}</span>
+
+                </div>
+                <div class="py-2">
+                    <b>Tên dịch vụ: </b>
+                    <span v-if="this.data.info1!== undefined">{{ this.data.info1.TenDichVu }}</span>
+
+                </div>
+
+                <div class="py-2">
+                    <b>Tên vật nuôi: </b>
+                    <span>{{ this.data.UsernameVatNuoi }}</span>
+
+                </div>
+
+                <!-- <div>
+        <b>Giói tính: </b>
+        <span>{{ this.data.GioiTinh }}</span>
+
+    </div> -->
+                <div class="py-2">
+                    <b> Ngày Đăng ký lịch:</b>
+                    <span v-if="this.data.info1!== undefined">{{ this.data.info1.NgayDangKy }}</span>
+
+                </div>
+                <div class="py-2">
+                    <b>Ngày khám: </b>
+                    <span v-if="this.data.info1!== undefined">{{ this.data.info1.NgayKham}}</span>
+
+                </div>
+                <div class="py-2">
+                    <b>Giờ khám: </b>
+                    <span v-if="this.data.info1!== undefined">{{ this.data.info1.GioKham}}</span>
+
+                </div>
+                <div class="py-2">
+                    <b>Giá: </b>
+                    <!-- <span v-if="this.data.info2!== undefined">{{ this.data.info2.Gia}}</span> -->
+                    <span> {{ new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format(this.data.ThanhTien).replace("VND", "") }}</span>
+
+                </div>
+                <!-- <div class="py-2">
+        <b>Trạng thái dịch vụ: </b>
+        <span v-if="this.data.info1!== undefined">{{ this.data.info1.TrangThaiDichVu}}</span>
+
+    </div> -->
+
+            </div>
+        </div>
+
+    </div>
+
     <div class="py-4 px-5  d-flex justify-content-end">
 
         <div>
@@ -163,7 +184,7 @@ export default {
                                     </td>
                                     <td>
                                         <!-- <input type="text" class="form-control justify-content-center"  v-if="this.data.info2!== undefined" v-model="this.value.info1.Gia"  /> -->
-                                        <input type="text" class="form-control justify-content-center"   />
+                                        <input type="text" class="form-control justify-content-center" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -200,8 +221,6 @@ export default {
                 </option>
                 <option value="Option2">
                     Paypal
-             
-                    
 
                 </option>
             </select>

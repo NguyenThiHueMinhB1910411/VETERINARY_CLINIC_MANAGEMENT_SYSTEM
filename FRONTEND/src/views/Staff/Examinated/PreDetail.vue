@@ -79,8 +79,8 @@ export default {
 <main style="background-color: white !important; ">
     <div>
         <div class="mt-3 mx-4">
-            <button type="button" class="text-light mb-4" style="background-color: #063555; border-radius: 8px;">
-                <font-awesome-icon icon="fa-solid fa-print" class="px-2" @click="exportToPDF" /> In
+            <button type="button" class=" btn text-light mb-4" style="background-color: #cc4d26;font-size: 16px; ">
+                <font-awesome-icon icon="fa-solid fa-print" class="px-2" @click="exportToPDF" /> Xuất file pdf
             </button>
         </div>
         <div id="element-to-convert" style="padding: 0 60px;">
@@ -155,7 +155,15 @@ export default {
              <tr>
                     <td >{{ this.data.ChiTiet[0].service}}</td>
                     <td>{{ this.data.ChiTiet[0].soluong }}</td>
-                    <td >{{ this.data.ChiTiet[0].gia}}</td>
+                    <td >{{
+                    new Intl.NumberFormat("it-IT", {
+                      style: "currency",
+                      currency: "VND",
+                    })
+                      .format(this.data.ChiTiet[0].gia)
+                      .replace("VND", "")
+                  }}</td>
+                    
                     <td>{{ this.data.ChiTiet[0].slSang }}</td>
                     <td>{{ this.data.ChiTiet[0].slTrua }}</td>
                     <td>{{ this.data.ChiTiet[0].slChieu }}</td>
@@ -167,7 +175,14 @@ export default {
                 <tr>
                     <td >{{ this.data.ChiTiet[1].service}}</td>
                     <td>{{ this.data.ChiTiet[1].soluong }}</td>
-                    <td >{{ this.data.ChiTiet[1].gia}}</td>
+                    <td >{{
+                    new Intl.NumberFormat("it-IT", {
+                      style: "currency",
+                      currency: "VND",
+                    })
+                      .format(this.data.ChiTiet[1].gia)
+                      .replace("VND", "")
+                  }}</td>
                     <td>{{ this.data.ChiTiet[1].slSang }}</td>
                     <td>{{ this.data.ChiTiet[1].slTrua }}</td>
                     <td>{{ this.data.ChiTiet[1].slChieu }}</td>
