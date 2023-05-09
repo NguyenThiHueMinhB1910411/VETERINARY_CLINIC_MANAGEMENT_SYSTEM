@@ -168,65 +168,7 @@ export default {
 
     </div>
 
-    <div class="py-4 px-5  d-flex justify-content-end">
-
-        <div>
-
-            <div class="container">
-                <div v-if="chooseOption === 'Option1'">
-                    <div>
-                        <div>
-                            <h5>Thanh toán bằng tiền mặt:</h5>
-                            <table class="d-flex justify-content-center">
-                                <tr>
-                                    <td class="">
-                                        <span class="px-2">Số tiền cần thanh toán</span>
-                                    </td>
-                                    <td>
-                                        <!-- <input type="text" class="form-control justify-content-center"  v-if="this.data.info2!== undefined" v-model="this.value.info1.Gia"  /> -->
-                                        <input type="text" class="form-control justify-content-center" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="d-flex justify-content-start">
-                                        <span class="px-2">Tiền nhận được</span>
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control" />
-                                    </td>
-                                </tr>
-                            </table>
-
-                        </div>
-
-                    </div>
-                </div>
-
-                <div v-if="chooseOption === 'Option2'">
-
-                    <div>
-                        <h5>Thanh toán trực tuyến bằng paypal:</h5>
-                        <div style="padding: 10px 15px;">
-                            <div id="paypal-button-container" class="paypal-button-container"></div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <select class="form-select w-100" v-model="chooseOption">
-                <option value="Option1">
-                    Trực tiếp
-
-                </option>
-                <option value="Option2">
-                    Paypal
-
-                </option>
-            </select>
-        </div>
-
-    </div>
+    
 
 </main>
 </template>

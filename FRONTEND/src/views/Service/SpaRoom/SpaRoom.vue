@@ -4,6 +4,7 @@ import HeaderPublic from "@/components/Header/PublicHeader.vue";
 import ServiceService from "../../../services/service.service";
 import CategoryService from "../../../services/categoryService.service";
 import RegistrationInformationService from "../../../services/registrationInformation.service";
+import StaffService from "../../../services/staff.service";
 import { userAccStore } from "@/Store/userStore";
 export default {
   components: {
@@ -22,14 +23,20 @@ export default {
       filtered: [],
         service: {},
       data: {},
+      staff: {},
       account,
     };
   },
   methods: {
+    async retriveStaff() {
+            try {
+                this.staff = await StaffService.getAll();
+            } catch (error) {
+                console.log(error);
+            }
+        },
     async retrieveServices() {
       try {
-        //this.categoryService = await CategoryService.getAll();
-        //this.ListInfoService = await InfoService.getAll();
         this.ListService = await ServiceService.getAll();
         this.ListService = this.ListService.filter(
           (e) => e.MaLoaiDichVu == "DV2"
@@ -64,6 +71,7 @@ export default {
    
   mounted() {
     this.retrieveServices();
+    this.retriveStaff();
   },
 
 };
@@ -349,7 +357,7 @@ export default {
 
                       <tr class="create-space">
                         <td>
-                          Tên loại dịch vụ:
+                          Tên loại vụ:
                           <span class="text-danger fw-bold">*</span>
                         </td>
                         <td>
@@ -363,6 +371,19 @@ export default {
                           </select>
                         </td>
                       </tr>
+                      <tr class="create-space">
+                                                <td>
+                                                    Tên nhân viên:
+                                                    <span class="text-danger fw-bold">*</span>
+                                                </td>
+                                                <td>
+                                                    <select v-model="this.data.TenNhanVien">
+                                                        <option v-for="(staff, index) in this.staff" :value="staff.TenNhanVien">
+                                                            {{ staff.TenNhanVien }}
+                                                        </option>
+                                                    </select>
+                                                </td>
+                                            </tr>
 
                       <!-- <tr class="create-space">
                                             <td class="d-flex justify-content-start">

@@ -77,8 +77,8 @@ export default {
 </script>
 <template>
 <main style="background-color: white !important; ">
-    <div>
-        <div class="mt-3 mx-4">
+   
+        <div class="mt-3 ">
             <button type="button" class=" btn text-light mb-4" style="background-color: #cc4d26;font-size: 16px; ">
                 <font-awesome-icon icon="fa-solid fa-print" class="px-2" @click="exportToPDF" /> Xuất file pdf
             </button>
@@ -247,43 +247,8 @@ export default {
 
         </div>
 
-    </div>
-    <div>
-        <div class="py-4 px-5  d-flex justify-content-end">
-
-            <table class="d-flex justify-content-center">
-                <tr>
-                    <th>Thanh toán bằng tiền mặt:</th>
-                </tr>
-
-                <tr>
-
-                    <td class="">
-                        <span class="px-2">Số tiền cần thanh toán</span>
-
-                    </td>
-                    <td>
-
-                        <div v-if="this.data.info2!== undefined">Tổng tiền: {{ new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format(this.data.info2.Gia*this.data.SoLuong).replace("VND", "") }} </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="d-flex justify-content-start">
-                        <span class="px-2">Tiền nhận được</span>
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="ml-4">
-                        <button class=" btn bg-primary text-light border border-light">Thanh toán</button>
-                    </td>
-                </tr>
-            </table>
-
-        </div>
-    </div>
+  
+  
 
 </main>
 </template>

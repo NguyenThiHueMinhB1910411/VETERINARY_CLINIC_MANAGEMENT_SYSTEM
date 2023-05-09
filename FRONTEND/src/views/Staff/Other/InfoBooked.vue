@@ -165,49 +165,7 @@ export default {
           </div>
         </div>
       </div>
-      <div class="py-4 px-5 d-flex justify-content-end">
-        <div>
-          <div class="container">
-            <div v-if="chooseOption === 'Option1'">
-              <div>
-                <div>
-                  <h5>Thanh toán bằng tiền mặt:</h5>
-                  <table class="d-flex justify-content-center">
-                    <tr>
-                      <td class="">
-                        <span class="px-2">Số tiền cần thanh toán</span>
-                      </td>
-                      <td>
-                        <input
-                          type="text"
-                          class="form-control justify-content-center"
-                          placeholder="Vui lòng nhập số tiền..."
-                        />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="d-flex justify-content-start">
-                        <span class="px-2">Tiền nhận được</span>
-                      </td>
-                      <td>
-                        <input type="text" class="form-control" />
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div v-if="chooseOption === 'Option2'"></div>
-
-            <select class="form-select w-100" v-model="chooseOption">
-              <option value="Option1">Trực tiếp</option>
-            </select>
-          </div>
-        </div>
-      </div>
+      
     </div>
   </main>
 </template>
