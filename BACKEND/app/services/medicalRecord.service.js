@@ -32,32 +32,27 @@ class MedicalRecordService {
 
   async create(payload) {
     console.log('createmedicalRecord', payload)
-    // const data = this.extractMedicalRecordData(payload);
-    // console.log('createmicalRecord',data);
-
     const user = await this.medicalRecord.findOne({
       SoDienThoai: payload.SoDienThoai,
     })
-    console.log(2)
-    console.log(user)
-
-    if (user != null) {
+    // console.log(2)
+    // console.log(user)
+    if (user !== null) {
       const pet = await this.medicalRecord.findOne({
         'ChiTiet.UsernameVatNuoi': payload.UsernameVatNuoi,
       })
-      if (pet != null) {
-        console.log(2)
+      if (pet !== null) {
+        // console.log(2)
         const result = await this.medicalRecord.findOneAndUpdate(
           {
             SoDienThoai: payload.SoDienThoai,
           },
           {
             $set: {
-              'ChiTiet.$[elem].NgayKham': [
+              'ChiTiet.$[elem].NgayKham': 
                 new Date().toLocaleString('vi-VN', {
                   timeZone: 'Asia/Ho_Chi_Minh',
                 }),
-              ],
             },
           },
           {
@@ -67,9 +62,8 @@ class MedicalRecordService {
           },
         )
       return result.value;
-
       } else {
-        console.log(11234);
+        // console.log(11234);
         const result = await this.medicalRecord.findOneAndUpdate(
           {
             SoDienThoai: payload.SoDienThoai,
@@ -81,10 +75,9 @@ class MedicalRecordService {
         );
         console.log(result.ok);
       return result.value;
-
       }
-
-    } else {
+    } 
+    else {
       const result = await this.medicalRecord.insertOne({
         SoDienThoai: payload.SoDienThoai,
         TenKhachHang: payload.TenKhachHang,
@@ -99,7 +92,7 @@ class MedicalRecordService {
           },
         ],
       })
-      return result.value
+      return result.value;
     }
   }
   async getAll() {

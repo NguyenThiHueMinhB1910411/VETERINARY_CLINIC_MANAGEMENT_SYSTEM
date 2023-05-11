@@ -99,7 +99,7 @@ export default {
                 </div>
                 <div class="py-2">
                     <b>Gmail: </b>
-                    <span v-if="this.data.info1!== undefined">{{ this.data.info1.Gmail }}</span>
+                    <span v-if="this.data.info1!== undefined">{{ this.data.Gmail }}</span>
                 </div>
                 <div class="py-2">
                     <b>Số điện thoại: </b>
@@ -107,7 +107,7 @@ export default {
                 </div>
                 <div class="py-2">
                     <b>Địa chỉ: </b>
-                    <span v-if="this.data.info1!== undefined">{{ this.data.info1.DiaChi }}</span>
+                    <span v-if="this.data.info1!== undefined">{{ this.data.DiaChi }}</span>
 
                 </div>
 
@@ -116,12 +116,12 @@ export default {
                 <h5>THÔNG TIN DỊCH VỤ</h5>
                 <div class="py-2">
                     <b>Tên loại dịch vụ: </b>
-                    <span v-if="this.data.info1!== undefined">{{ this.data.info1.TenLoaiDichVu }}</span>
+                    <span v-if="this.data.info1!== undefined">{{ this.data.TenLoaiDichVu }}</span>
 
                 </div>
                 <div class="py-2">
                     <b>Tên dịch vụ: </b>
-                    <span v-if="this.data.info1!== undefined">{{ this.data.info1.TenDichVu }}</span>
+                    <span v-if="this.data.info1!== undefined">{{ this.data.TenDichVu }}</span>
 
                 </div>
 
@@ -138,23 +138,23 @@ export default {
     </div> -->
                 <div class="py-2">
                     <b> Ngày Đăng ký lịch:</b>
-                    <span v-if="this.data.info1!== undefined">{{ this.data.info1.NgayDangKy }}</span>
+                    <span v-if="this.data.info1!== undefined">{{ this.data.NgayDangKy }}</span>
 
                 </div>
                 <div class="py-2">
                     <b>Ngày khám: </b>
-                    <span v-if="this.data.info1!== undefined">{{ this.data.info1.NgayKham}}</span>
+                    <span v-if="this.data.info1!== undefined">{{ this.data.NgayKham}}</span>
 
                 </div>
                 <div class="py-2">
                     <b>Giờ khám: </b>
-                    <span v-if="this.data.info1!== undefined">{{ this.data.info1.GioKham}}</span>
+                    <span >{{ this.data.GioKham}}</span>
 
                 </div>
                 <div class="py-2">
                     <b>Giá: </b>
                     <!-- <span v-if="this.data.info2!== undefined">{{ this.data.info2.Gia}}</span> -->
-                    <span> {{ new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format(this.data.ThanhTien).replace("VND", "") }}</span>
+                    <span v-if="this.data.info1!== undefined"> {{ new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format(this.data.ThanhTien).replace("VND", "") }}</span>
 
                 </div>
                 <!-- <div class="py-2">

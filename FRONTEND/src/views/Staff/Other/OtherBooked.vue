@@ -386,7 +386,7 @@ export default {
                                 >
                                   Hủy
                                 </button>
-                                <!-- <button type="button" class="btn btn-primary text-light "  @click="handleUpdateDoctor(doctor.MaBacSi)" data-bs-dismiss="modal">Lưu</button> -->
+                              
                                 <button
                                   type="button"
                                   class="btn btn-primary text-light"
@@ -423,7 +423,7 @@ export default {
         </div>
       </div>
 
-      <div>
+      <!-- <div>
         <div>
           <table
             class="table table-hover text-center table-bordered table table-bordered"
@@ -453,7 +453,7 @@ export default {
             </tbody>
           </table>
         </div>
-      </div>
+      </div> -->
     </div>
   </main>
 </template>

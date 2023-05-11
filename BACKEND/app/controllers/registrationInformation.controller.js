@@ -104,7 +104,6 @@ exports.update = async (req, res, next) => {
       req.params.id,
       req.body,
     )
-    console.log(req.body)
     if (!document) {
       return next(
         new ApiError(404, 'Không thể tìm thấy registrationInformation'),

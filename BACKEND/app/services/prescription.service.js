@@ -35,23 +35,23 @@ class PrescriptionService {
 
   constructor(client) {
     this.prescription = client.db().collection('prescription')
-    this.registrationInformation = client.db().collection('registrationInformation')
+    this.registrationInformation = client
+      .db()
+      .collection('registrationInformation')
     this.medicalSupplies = client.db().collection('medicalSupplies')
     this.medicalRecord = client.db().collection('medicalRecord')
   }
 
   async getAllInfo() {
-    const rs = await this.prescription.aggregate([
+    const rs = await this.registrationInformation.aggregate([
       {
         $lookup: {
-          from: 'registrationInformation',
+          from: 'prescription',
           localField: 'UsernameVatNuoi',
           foreignField: 'UsernameVatNuoi',
           as: 'info1',
         },
       },
-        {$unwind:'$info1'}
-      
     ])
     return await rs.toArray()
   }
@@ -79,7 +79,7 @@ class PrescriptionService {
       update_at: '',
       NgayKeDon: payload.NgayKeDon,
     })
-    return result;
+    return result
   }
 
   async delete(id) {
@@ -103,7 +103,7 @@ class PrescriptionService {
   }
   async findById(id) {
     return await this.prescription.findOne({
-      _id: ObjectId.isValid(id) ? new ObjectId(id) : null,
+      MaDangKy: ObjectId.isValid(id) ? new ObjectId(id) : null,
       //SoDienThoai: id,
     })
   }

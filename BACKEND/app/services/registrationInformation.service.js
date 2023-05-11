@@ -117,7 +117,6 @@ class RegistrationInformationService {
   }
 
   async update(id, payload) {
-    console.log(payload);
     const update = this.extracRegistrationInformationData(payload);
     const result = await this.registrationInformation.findOneAndUpdate(
       { _id: ObjectId.isValid(id) ? new ObjectId(id) : null },
@@ -151,7 +150,9 @@ class RegistrationInformationService {
           "<br/> Yêu cầu đăng ký về dịch vụ "  +
              ri.TenLoaiDichVu
            +
-          " của bạn đã được duyệt "+
+          " của bạn đã được duyệt. "+
+          "Bạn vui lòng đưa vật nuôi đến phòng khám vào ngày "+ ri.NgayKham +
+          " vào lúc "+ ri.GioKham + "."+
           
           "<br/><small> Trân trọng cảm ơn </small>,",
       };

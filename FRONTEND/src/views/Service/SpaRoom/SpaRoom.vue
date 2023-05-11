@@ -93,8 +93,8 @@ export default {
               </tr>
               <tr class="set-bg text-light">
                 <td colspan="" class="text-center px-5 py-1">Tên dịch vụ</td>
-                <td colspan="" class="text-center px-5 py-1">0 -5 kg</td>
-                <td colspan="" class="text-center px-5 py-1">Trên 5kg</td>
+                <td colspan="" class="text-center px-5 py-1">0 -7kg</td>
+                <td colspan="" class="text-center px-5 py-1">Trên 7kg</td>
               </tr>
               <tr v-for="(service, index) in this.ListService">
                 <td colspan="" class="text-center px-5 py-1">

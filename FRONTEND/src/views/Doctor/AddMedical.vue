@@ -33,17 +33,18 @@ export default {
       const giasanpham = await MedicalSuppliesService.getMedical({
         service: this.data.service,
       });
+      
       this.sum += giasanpham.gia * this.data.soluong;
       this.listMedical.push({
         service: this.data.service,
         soluong: this.data.soluong,
-
         gia: giasanpham.gia * this.data.soluong,
         slSang: this.data.slSang,
         slTrua: this.data.slTrua,
         slChieu: this.data.slChieu,
-        
+  
       });
+
       (this.data.service = ""),
         (this.data.soluong = 0),
         (this.data.slTrua = 0),
@@ -57,6 +58,7 @@ export default {
       this.NgayKeDon= new Date().toLocaleString("vi-VN", {
         timeZone: "Asia/Ho_Chi_Minh",
       });
+
       const form = {
         TenKhachHang: this.info.TenKhachHang,
         SoDienThoai: this.info.SoDienThoai,
@@ -68,10 +70,12 @@ export default {
         NgayLapHoSo: this.NgayLapHoSo,
         NgayKeDon: this.NgayKeDon,
       };
+
       const donthuoc = await PrescriptionService.create({
         ...form,
         _id: this.info._id,
       });
+
       this.$router.push({ name: "SelfCalenadar" });
       
       // Tạo hồ sơ

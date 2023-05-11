@@ -7,8 +7,9 @@ exports.findAll = async (req, res, next) => {
 
   try {
     const prescriptionService = new PrescriptionService(MongoDB.client)
-    documents = await prescriptionService.getAllInfo()
-    return res.send(documents)
+    documents = await prescriptionService.getAllInfo();
+    console.log(documents);
+    return res.send(documents);
   } catch (error) {
     return next(new ApiError(500, 'Lỗi truy xuất prescriptionService'))
   }
@@ -30,7 +31,6 @@ exports.create = async (req, res, next) => {
 
 exports.findOne = async (req, res, next) => {
   try {
-    console.log(123)
     const prescriptionService = new PrescriptionService(MongoDB.client)
     const document = await prescriptionService.findById(req.params.id);
     
@@ -58,7 +58,6 @@ exports.update = async (req, res, next) => {
   try {
     const prescriptionService = new PrescriptionService(MongoDB.client)
     const document = await prescriptionService.update(req.params.id, req.body)
-    console.log(req.body)
     if (!document) {
       return next(new ApiError(404, 'Không thể tìm thấy prescriptionService'))
     }
