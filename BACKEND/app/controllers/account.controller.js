@@ -2,21 +2,6 @@ const AccountService = require("../services/account.service");
 const ApiError = require("../api-error");
 const MongoDB = require("../utils/mongodb.util");
 
-exports.findOne = async (req, res, next) => {
-  try {
-    console.log(321);
-    const accountService = new AccountService(MongoDB.client);
-    const document = await accountService.findById(req.params.id);
-    if (!document) {
-      return next(new ApiError(404, "Không tìm thấy tài khoản"));
-    }
-    return res.send(document);
-  } catch (error) {
-    return next(
-      new ApiError(500, `Đã xảy ra lỗi khi truy xuất với id=${req.params.id}`)
-    );
-  }
-};
 
 
 
@@ -47,6 +32,21 @@ exports.create = async (req, res, next) => {
     return next(new ApiError(500, "Đã xảy ra lỗi khi truy xuất doctor"));
   }
 
+};
+exports.findOne = async (req, res, next) => {
+  try {
+    console.log(321);
+    const accountService = new AccountService(MongoDB.client);
+    const document = await accountService.findById(req.params.id);
+    if (!document) {
+      return next(new ApiError(404, "Không tìm thấy tài khoản"));
+    }
+    return res.send(document);
+  } catch (error) {
+    return next(
+      new ApiError(500, `Đã xảy ra lỗi khi truy xuất với id=${req.params.id}`)
+    );
+  }
 };
 
 exports.delete = async (req, res, next) => {

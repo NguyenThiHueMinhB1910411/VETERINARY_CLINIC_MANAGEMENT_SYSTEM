@@ -9,6 +9,7 @@ export default {
      // id: this.$route.params.id,
       listMedicalSupplies: [],
       id: this.$route.params,
+      chitiet:[],
       data: {
         prescription: null,
         service: "",
@@ -28,86 +29,19 @@ export default {
   methods: {
     async getInfo(id) {
             try {
-               const result = await PrescriptionService.getAll();
-               this.data = result.filter(e => e._id == id)[0];
-                console.log(this.data);
-
+               const result = await PrescriptionService.get(id);
+                this.data = result;
+                this.ChiTiet = this.data.ChiTiet
             } catch (error) {
                 console.log(error);
                 console.log(this.Prescription);
             }
         },
-    async retrieveList() {
-      this.listMedicalSupplies = await MedicalSuppliesService.getAll();
-      this.info = await registrationInformationService.getById(this.id);
-    },
-    async addMedical() {
-      const giasanpham = await MedicalSuppliesService.getMedical({
-        service: this.data.service,
-      });
-      this.sum += giasanpham.gia * this.data.soluong;
-      this.listMedical.push({
-        service: this.data.service,
-        soluong: this.data.soluong,
-
-        gia: giasanpham.gia * this.data.soluong,
-        slSang: this.data.slSang,
-        slTrua: this.data.slTrua,
-        slChieu: this.data.slChieu,
-        
-      });
-      (this.data.service = ""),
-        (this.data.soluong = 0),
-        (this.data.slTrua = 0),
-        (this.data.slSang = 0),
-        (this.data.slChieu = 0);
-    },
-    deleteMedical(i) {
-      this.listMedical.splice(i, 1);
-    },
-    async handleSubmit() {
-      this.NgayKeDon= new Date().toLocaleString("vi-VN", {
-        timeZone: "Asia/Ho_Chi_Minh",
-      });
-      const form = {
-        TenKhachHang: this.info.TenKhachHang,
-        SoDienThoai: this.info.SoDienThoai,
-        UsernameVatNuoi: this.info.UsernameVatNuoi,
-        ChiTiet: this.listMedical,
-        ChanDoan: this.chandoan,
-        GhiChu: this.ghichu,
-        ThanhTien: this.sum,
-        NgayLapHoSo: this.NgayLapHoSo,
-        NgayKeDon: this.NgayKeDon,
-      };
-      const donthuoc = await PrescriptionService.create({
-        ...form,
-        _id: this.info._id,
-      });
-      this.$router.push({ name: "SelfCalenadar" });
-      
-      // Tạo hồ sơ
-      const result = await medicalRecordService.create({
-        ...form,
-        NgayLapHoSo: this.NgayLapHoSo,
-      });
-      
-
-      //  this.data.NgayKeDon = new Date().toLocaleString("vi-VN", {
-      //   timeZone: "Asia/Ho_Chi_Minh",
-      // });
-
-      // await MedicalRecordService.create(this.select);
-
-      // const rs = await this.prescription.update(data);
-
-      // await registrationInformationService.update(data);
-      // this.retrievePrescription();
-    },
-    
+     deleteMedical(index){
+        this.ChiTiet.splice(index, 1)
+     }   
   },
   created() {
-    this.retrieveList();
     this.getInfo(this.$route.params.id);
   },
 };
@@ -127,7 +61,7 @@ export default {
           <select
             style="height: 38px; border-radius: 5px; border: 1px solid gray"
             :required="true"
-            v-model="data.service"
+            v-model="this.data.ChiTiet.service"
           >
             <option
               v-for="(medicalSupplies, index) in this.listMedicalSupplies"
@@ -145,7 +79,7 @@ export default {
             class="form-control w-100"
             required
             placeholder="Nhập số lượng"
-            v-model="data.soluong"
+            v-model="this.data.ChiTiet.soluong"
           />
         </div>
       </div>
@@ -158,7 +92,7 @@ export default {
             id="formGroupExampleInput"
             required
             placeholder="Nhập số lượng thuốc"
-            v-model="data.slSang"
+            v-model="this.data.ChiTiet.slSang"
           />
         </div>
         <div class="me-2 d-flex flex-column" style="width: 33%">
@@ -170,7 +104,7 @@ export default {
             class="form-control"
             id="formGroupExampleInput"
             required
-            v-model="data.slTrua"
+            v-model="this.data.ChiTiet.slTrua"
           />
         </div>
         <div class="d-flex flex-column" style="width: 33%">
@@ -182,7 +116,7 @@ export default {
             class="form-control ms-1"
             id="formGroupExampleInput"
             required
-            v-model="data.slChieu"
+            v-model="this.data.ChiTiet.slChieu"
           />
         </div>
       </div>
@@ -193,7 +127,7 @@ export default {
             class="form-control w-100 my-2"
             id="exampleFormControlTextarea1"
             rows="3"
-            v-model="this.chandoan"
+            v-model="this.data.ChanDoan"
           ></textarea>
         </div>
         <div class="d-flex flex-column w-50">
@@ -202,7 +136,7 @@ export default {
             class="form-control w-100 my-2"
             id="exampleFormControlTextarea1"
             rows="3"
-            v-model="this.ghichu"
+            v-model="this.data.GhiChu"
           ></textarea>
         </div>
       </div>
@@ -221,7 +155,7 @@ export default {
           <th>Thành tiền</th>
         </thead>
         <tbody>
-          <tr v-for="(medical, index) in listMedical" v-bind:key="index">
+          <tr v-for="(medical, index) in this.ChiTiet" v-bind:key="index">
             <td>{{ index + 1 }}</td>
             <td>{{ medical.service }}</td>
             <td>{{ medical.soluong }}</td>

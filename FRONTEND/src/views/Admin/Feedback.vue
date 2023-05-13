@@ -25,6 +25,7 @@ import {
     faRotateRight,
     faHeart,
 } from "@fortawesome/free-solid-svg-icons";
+import feedbackservice from "../../services/feedbackservice";
 library.add(
     faHouse,
     faGear,
@@ -48,9 +49,24 @@ export default {
         return {
             listFeedback: [],
             data: {},
+            feedback: null,
         }
     },
     methods: {
+        async getFeedback(id) {
+            try {
+                this.feedback = await feedbackservice.get(id);
+
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        async handleDelete(ngayfeedback) {
+            if (window.confirm("Bạn có muốn xóa tài khoản này ?")) {
+                FeedbackService.delete(ngayfeedback)
+
+            }
+        },
         async handleSubmit(data) {
             
             await FeedbackService.update(data);
@@ -62,14 +78,23 @@ export default {
             try {
                 this.listFeedback = await FeedbackService.getAll();
                 this.listFeedback = this.listFeedback.filter((e) => e.info.TrangThaiDichVu == "Hoàn tất");
+                this.listFeedback = this.listFeedback.filter((e) => e.info.ThanhToan == "Đã thanh toán");
             } catch (error) {
                 console.log(error);
             }
         },
         filtered(filter) {
             this.filtered = this.listFeedback.filter(e => e.TrangThaiDichVu == filter);
+            // this.filtered = this.listFeedback.filter(e => e.ThanhToan == filter);
 
         },
+
+        filteredThanhToan(filter) {
+     
+             this.filtered = this.listFeedback.filter(e => e.ThanhToan == filter);
+
+        },
+
 
     },
 
@@ -114,6 +139,7 @@ export default {
                             <!-- <th>Gmail</th> -->
                             <th>Vật nuôi</th>
                             <th>Dịch vụ</th>
+                            <th>Thời gian</th>
                             <th>Nội dung</th>
                             <th>Phản hồi</th>
                             <th>Thao tác</th>
@@ -127,7 +153,9 @@ export default {
                             <td>{{ feedback.info.SoDienThoai }}</td>
                             <!-- <td>{{ feedback.Gmail }}</td> -->
                             <td>{{ feedback.info.UsernameVatNuoi }}</td>
+                          
                             <td>{{ feedback.info.TenLoaiDichVu }}</td>
+                            <td>{{ feedback.NgayFeedback }}</td>
                             <td>{{ feedback.NoiDung }}</td>
                             <td>{{ feedback.TrangThai }}</td>
                             <td>
@@ -143,6 +171,8 @@ export default {
                                     <font-awesome-icon icon="fa-solid fa-heart " />
 
                                 </a>
+
+                                <font-awesome-icon icon="fa-solid fa-trash" class=" text-danger px-4" @click="handleDelete(feedback.NgayFeedback)" />
                                
 
                                 <!-- <button

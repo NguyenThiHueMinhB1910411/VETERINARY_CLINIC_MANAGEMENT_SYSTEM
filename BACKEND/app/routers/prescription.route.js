@@ -8,10 +8,10 @@ router
     .get(prescription.findAll)
     .post(prescription.create);
 
-    router
+router
     .route("/:id")
     .get(prescription.findOne)
-    .post(prescription.update);
+    .post(prescription.update);   
     
 
 module.exports = router;

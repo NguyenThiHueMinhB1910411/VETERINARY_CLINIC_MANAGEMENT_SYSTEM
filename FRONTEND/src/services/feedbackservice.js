@@ -14,7 +14,15 @@ class FeedbackService {
   async update(data) {
     return (await this.api.put(`/${data._id}`, data)).data
   }
-  
+  async delete(id) {
+    return (await this.api.delete(`/${id}`)).data
+  }
+  async get(id) {
+    return (await this.api.get(`/${id}`)).data
+  }
+  async delete(id) {
+    return (await this.api.delete(`/${id}`)).data
+  }
 
 }
 export default new FeedbackService();

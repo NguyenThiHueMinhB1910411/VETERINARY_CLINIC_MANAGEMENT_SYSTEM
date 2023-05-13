@@ -11,8 +11,9 @@ router
     
 router
     .route("/:id")
-
     .put(feedback.update)
+    .get(feedback.findOne)
+    .delete(feedback.delete);
 
    
 module.exports = router;

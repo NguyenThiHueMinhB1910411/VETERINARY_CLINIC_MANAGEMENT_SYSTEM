@@ -55,6 +55,10 @@ export default {
       try {
         this.listRegistrationInformation =
           await registrationInformationService.getAll();
+          this.listRegistrationInformation =
+          this.listRegistrationInformation.filter(
+            (e) => e.TrangThaiPheDuyet == "Đã duyệt"
+          );
         this.listRegistrationInformation =
           this.listRegistrationInformation.filter((e) => e.TenBacSi != null);
       } catch (error) {
@@ -79,6 +83,9 @@ export default {
       this.filtered = this.listPrescription.filter(
         (e) => e.TrangThaiKhamBenh == filter
       );
+      this.filtered = this.listRegistrationInformation.filter(
+        (e) => e.TrangThaiPheDuyet == filter
+      );
     },
     async handleRecord(data) {
       data.NgayLapHoSo = new Date().toLocaleString("vi-VN", {
@@ -87,25 +94,11 @@ export default {
       const rs = await MedicalRecordService.create(this.data);
     },
 
-    // async handleSubmit() {
-    //   this.data.NgayKeDon = new Date().toLocaleString("vi-VN", {
-    //     timeZone: "Asia/Ho_Chi_Minh",
-    //   });
-    //   this.data.SoDienThoai = this.select.SoDienThoai;
-    //   this.data.UsernameVatNuoi = this.select.UsernameVatNuoi;
-    //   const result = await PrescriptionService.create({
-    //     ...this.data,
-    //     _id: this.select._id,
-    //   });
-    //   await MedicalRecordService.create(this.select);
-    //   const rs = await this.prescription.update(data);
-    // //   this.retrievePrescription();
-    // },
+ 
 
     async handleStatus(data) {
       await registrationInformationService.update(data);
-    //   this.select = data;
-    //   this.handleStatus();
+   
     },
     async handlePrescription() {
       try {
@@ -114,20 +107,13 @@ export default {
         console.log(error);
       }
       this.retrieveRequire();
-    //   this.handleStatus();
+   
     },
     async addMedical() {
       const findThuoc = await this.MedicalSuppliesService(this.data.TenThuoc);
       console.log(findThuoc);
     },
-    // search(event) {
-    //     this.registrationInformation = this.listRegistrationInformation.filter(
-    //         (e) =>
-    //         e.TenKhachHang.toLowerCase().includes(
-    //             event.target.value.toLowerCase()
-    //         ) || e.SoDienThoai.includes(event.target.value)
-    //     );
-    // },
+ 
   },
   created() {
     this.retrieveRequire();

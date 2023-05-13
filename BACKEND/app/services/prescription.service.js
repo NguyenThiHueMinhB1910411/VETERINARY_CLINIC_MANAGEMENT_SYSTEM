@@ -22,6 +22,7 @@ class PrescriptionService {
       GhiChu: payload.GhiChu,
       TrangThaiThanhToan: payload.TrangThaiThanhToan ?? 'Chưa thanh toán',
       TrangThaiKeDon: payload.TrangThaiKeDon ?? 'Đã kê đơn thuốc',
+      ThanhToan: payload.ThanhToan ?? 'Chưa thanh toán',
       NgayKeDon: payload.NgayKeDon,
       TenKhachHang: payload.TenKhachHang,
       SoDienThoai: payload.SoDienThoai,
@@ -83,9 +84,8 @@ class PrescriptionService {
   }
 
   async delete(id) {
-    // console.log(id)
     const result = await this.doctor.findOneAndDelete({
-      MaDonThuoc: id,
+      NgayFeefback: id,
     })
     return result
   }
@@ -102,10 +102,11 @@ class PrescriptionService {
     return result.value
   }
   async findById(id) {
-    return await this.prescription.findOne({
+    const document = await this.prescription.findOne({
       MaDangKy: ObjectId.isValid(id) ? new ObjectId(id) : null,
-      //SoDienThoai: id,
     })
+    console.log('findById',document)
+    return document; 
   }
 }
 module.exports = PrescriptionService

@@ -214,8 +214,8 @@ const routes = [
 
      //Dịch vụ khám bệnh
      {
-      path: 'Examination(Doctor)',
-      name: 'Examination(Doctor)',
+      path: 'ExaminationDoctor',
+      name: 'ExaminationDoctor',
       component: () => import("@/views/Staff/Examinated/Examination(Doctor).vue"),
      },
      {
@@ -292,6 +292,18 @@ const routes = [
       path: 'InfoMe/:id/:UsernameVatNuoi',
       name: 'InfoMe',
       component: () => import("@/views/doctor/InfoMe.vue"),
+     },
+
+
+     {
+      path: 'PreDetail/:id',
+      name: 'PreDetail',
+      component: () => import("@/views/Doctor/PreDetail.vue"),
+     },
+     {
+      path: 'InfoExaminated/:id',
+      name: 'InfoExaminated',
+      component: () => import("@/views/Doctor/InfoExaminated.vue"),
      },
     
     ]

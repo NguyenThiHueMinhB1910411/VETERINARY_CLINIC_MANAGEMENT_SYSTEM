@@ -37,7 +37,7 @@ export default {
 
         },
         async handleSubmit(data) {
-            data.NgayFeedback = new Date().toLocaleString("vi-VN", {
+            this.data.NgayFeedback = new Date().toLocaleString("vi-VN", {
                 timeZone: "Asia/Ho_Chi_Minh",
             });
             const rs = await feedbackservice.create(this.data);
@@ -152,42 +152,7 @@ export default {
         </div>
     </div>
     <hr />
-    <!-- <div class="py-4 px-5">
-        Các đánh giá
-        <div class="row">
-            <div class="  mt-4 d-flex justify-content-center w-100">
-
-                <table class="table table-hover text-center table-bordered table table-bordered " style="font-size: 15px;background-color: white;padding-bottom: 80%; box-shadow: 0px 5px 15px rgba(0,0,0,0.25);">
-                    <thead class="">
-                        <tr style="color: #CC4D26;">
-                            <th>STT</th>
-                            <th>Khách hàng</th>
-                            <th>SĐT</th>
-                            <th>Gmail</th>
-                            <th>Dịch vụ</th>
-                            <th>Nội dung</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-left">
-
-                        <tr v-for="(feedback, index) in this.listFeedback">
-                            <td>{{ index +1 }}</td>
-                            <td>{{ feedback.info.TenKhachHang }}</td>
-                            <td>{{ feedback.info.SoDienThoai }}</td>
-                            <td>{{ feedback.Gmail }}</td>
-                            <td>{{ feedback.info.TenLoaiDichVu }}</td>
-                            <td>{{ feedback.NoiDung }}</td>
-
-                        </tr>
-
-                    </tbody>
-                </table>
-
-            </div>
-
-        </div>
-    </div> -->
-    <div class="py-4 px-5">
+   <div class="py-4 px-5">
         <h4 class="text-center pb-5" style="font-size: 2rem">
             Chăm sóc sức khỏe thú cưng được cá nhân hóa
         </h4>
@@ -235,15 +200,7 @@ export default {
         </div>
     </div>
 
-    <!-- <div class="py-2">
-        <h3 class="text-center"><b>Chi nhánh</b></h3>
-        <div class="row ml-4 mr-4 pb-4">
-            <div class="col-4 text-right branch-position">Cần Thơ</div>
-            <div class="col-4 text-center branch-position">Hồ Chí Minh</div>
-            <div class="col-4 text-left branch-position">Vĩnh Long</div>
-        </div>
-        <hr />
-    </div> -->
+ 
 </main>
 <PublicFooters />
 </template>

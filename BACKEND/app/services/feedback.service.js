@@ -11,6 +11,7 @@ class FeedbackService {
         NgayFeedback: payload.NgayFeedback,
         
       TrangThai: payload.TrangThai??"Chưa phản hồi",
+  
         
     };
     Object.keys(feedback).forEach(
@@ -48,9 +49,30 @@ class FeedbackService {
     const result = await this.feedback.insertOne(data);
     return result.value;
   }
+  async delete(id) {
+    console.log(id);
+    const result = await this.Account.findOneAndDelete({
+       NgayFeedback :id
+      //_id: ObjectId.isValid(id) ? new ObjectId(id) : null,
+    })
+    return result;
+  }
   async find(filter) {
     const curson = await this.feedback.find(filter);
     return await curson.toArray();
+  }
+  async findById(id) {
+    return await this.feedback.findOne({
+      // NgayFeedback: id,
+    });
+  }
+  async delete(id) {
+    console.log(id);
+    const result = await this.Account.findOneAndDelete({
+       NgayFeedback :id
+      //_id: ObjectId.isValid(id) ? new ObjectId(id) : null,
+    })
+    return result;
   }
 
   async update(id, payload) {
@@ -83,7 +105,7 @@ class FeedbackService {
         text: "Bạn đã nhận tin nhắn đến từ  VETERINARY CLINIC",
         html:
 
-          " <b>Xin chào </b>" +
+          " Xin chào " +
           ri.TenKhachHang +
           "<br/> Cảm ơn phản hồi của bạn về dịch vụ "  +
              ri.TenLoaiDichVu

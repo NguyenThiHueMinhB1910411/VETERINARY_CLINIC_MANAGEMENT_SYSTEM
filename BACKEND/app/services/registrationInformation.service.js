@@ -65,16 +65,16 @@ class RegistrationInformationService {
         },
       },
       { $unwind: "$info3" },
-      {
-        $lookup: {
-          from: "account",
-          localField: "SoDienThoai",
+      // {
+      //   $lookup: {
+      //     from: "account",
+      //     localField: "SoDienThoai",
 
-          foreignField: "SoDienThoai",
+      //     foreignField: "SoDienThoai",
 
-          as: "info4",
-        },
-      },
+      //     as: "info4",
+      //   },
+      // },
      // { $unwind: "$info4" },
       
      
@@ -145,12 +145,12 @@ class RegistrationInformationService {
         text: "Bạn đã nhận tin nhắn đến từ  VETERINARY CLINIC",
         html:
 
-          " <b>Xin chào </b>" +
+          " Xin chào " +
           ri.TenKhachHang +
           "<br/> Yêu cầu đăng ký về dịch vụ "  +
              ri.TenLoaiDichVu
            +
-          " của bạn đã được duyệt. "+
+          " của bạn đã được duyệt. <br>"+
           "Bạn vui lòng đưa vật nuôi đến phòng khám vào ngày "+ ri.NgayKham +
           " vào lúc "+ ri.GioKham + "."+
           

@@ -205,9 +205,11 @@ export default {
                   <thead class="">
                     <tr class="" style="color: #CC4D26">
                       <th>STT</th>
-                      <th>Tên khách hàng</th>
+                      <th>Chủ vật nuôi</th>
+                      <th>Vật nuôi</th>
                       <th>Dịch vụ</th>
-                      <th>Ngày đặt</th>
+                      <th>Ngày</th>
+              <th>Giờ</th>
                       <th>Số điện thoại</th>
                       <!-- <th>Trạng thái</th> -->
                       <th>Thực hiện</th>
@@ -224,9 +226,11 @@ export default {
                     >
                       <th scope="row m-0">{{ index + 1 }}</th>
                       <td>{{ registrationInformation.TenKhachHang }}</td>
+                      <td>{{ registrationInformation.UsernameVatNuoi }}</td>
                       <td>{{ registrationInformation.TenLoaiDichVu }}</td>
 
-                      <td>{{ registrationInformation.NgayDangKy }}</td>
+                      <td>{{ registrationInformation.NgayKham }}</td>
+              <td>{{ registrationInformation.GioKham }}</td>
                       <td>{{ registrationInformation.SoDienThoai }}</td>
                       
                       <td>
@@ -423,37 +427,7 @@ export default {
         </div>
       </div>
 
-      <!-- <div>
-        <div>
-          <table
-            class="table table-hover text-center table-bordered table table-bordered"
-            style="
-              font-size: 15px;
-              background-color: white;
-              padding-bottom: 80%;
-              box-shadow: 0px 5px 3px  rgba(212, 212, 212, 0.25); 
-            "
-          >
-            <thead class="bg-light">
-              <tr class="text-dark">
-                
-                <th scope="col">Tất cả</th>
-                <th scope="col">Làm đẹp</th>
-                <th scope="col">Nội trú</th>
-                <th scope="col">Khám bệnh</th>
-              </tr>
-            </thead>
-            <tbody class="text-center">
-              <tr>
-                <td>{{ this.statistical.all }}</td>
-                <td>{{ this.statistical.LamDep }}</td>
-                <td>{{ this.statistical.NoiTru }}</td>
-                <td>{{ this.statistical.KhamBenh }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div> -->
+     
     </div>
   </main>
 </template>

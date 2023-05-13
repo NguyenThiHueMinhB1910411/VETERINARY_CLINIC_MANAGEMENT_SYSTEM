@@ -217,7 +217,7 @@ export default {
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                                                    <button type="button" class="btn btn-primary" @click="handleSubmit()" data-bs-dismiss="modal">Gửi</button>
+                                                    <button type="button" class="btn btn-primary" @click="handleSubmit()" data-bs-dismiss="modal">Chọn</button>
                                                 </div>
                                             </div>
                                         </div>

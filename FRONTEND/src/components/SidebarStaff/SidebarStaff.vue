@@ -75,7 +75,7 @@ library.add(faHouse, faGear, faUser, faUsers, faDog,faArrowDown,faCalendarCheck,
       >
     </div>
     <div class="ms-4 pb-4 text-light" style="font-weight: 600;">
-      <router-link :to="{ name: 'Examination(Doctor)' }">
+      <router-link :to="{ name: 'ExaminationDoctor' }">
         <!-- <font-awesome-icon icon="fa-solid fa-dog" class="px-2"/> -->
         <font-awesome-icon icon="fa-solid fa-hospital" class="px-2" />
         Quản lý khám bệnh</router-link

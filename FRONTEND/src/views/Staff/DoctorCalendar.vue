@@ -344,7 +344,7 @@ export default {
                             <thead >
                                 <tr style="color: #CC4D26;">
                                     <th>STT</th>
-                                    <th>Tên khách hàng</th>
+                                    <th>Tên vật nuôi</th>
                                     <th>Dịch vụ</th>
                                     <th>Ngày đặt</th>
                                     <th>Ngày khám</th>
@@ -357,7 +357,7 @@ export default {
                                 <tr v-for="(registrationInformation, index) in this
               .listRegistrationInformation">
                                     <th scope="row m-0">{{ index + 1 }}</th>
-                                    <td>{{ registrationInformation.TenKhachHang }}</td>
+                                    <td>{{ registrationInformation.UsernameVatNuoi }}</td>
                                     <td>{{ registrationInformation.TenLoaiDichVu }}</td>
 
                                     <td>{{ registrationInformation.NgayDangKy }}</td>

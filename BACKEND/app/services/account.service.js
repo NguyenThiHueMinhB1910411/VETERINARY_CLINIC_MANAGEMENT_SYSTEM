@@ -83,13 +83,13 @@ class AccountService {
     return await curson.toArray();
   }
   
-  async delete(id) {
-    console.log(id);
-    const result = await this.Account.findOneAndDelete({
-      TenAccount :id
-    })
-    return result;
-  }
+  // async delete(id) {
+  //   console.log(id);
+  //   const result = await this.Account.findOneAndDelete({
+  //     TenAccount :id
+  //   })
+  //   return result;
+  // }
 
   async deleteAll() {
     const result = await this.Account.deleteMany({});
@@ -99,6 +99,13 @@ class AccountService {
     return await this.Account.findOne({
       // MaBacSi: id,
     });
+  }
+  async delete(id) {
+    console.log(id);
+    const result = await this.Account.findOneAndDelete({
+      TenAccount :id
+    })
+    return result;
   }
 
   async update(id, payload) {

@@ -179,21 +179,7 @@ export default {
               <td class=" ">
 
 
-                      <!-- <a
-                       :class="` col-6 px-2 ${registrationInformation.TrangThaiPheDuyet== 'Đã duyệt'?'disable':'active'}` "
-                        
-                  @click="
-                    handleSubmit({
-                      ...registrationInformation,
-                      TrangThaiPheDuyet: 'Đã duyệt',
-                    })
-                  "
-                >
-                  <font-awesome-icon
-                    icon="fa-solid fa-check text-success "
-                  />
-                </a> -->
-
+                    
 
 
             

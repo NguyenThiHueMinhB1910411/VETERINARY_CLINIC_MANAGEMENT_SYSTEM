@@ -222,7 +222,7 @@ export default {
                                                     <span class="text-danger fw-bold">*</span>
                                                 </td>
                                                 <td>
-                                                    <input type="date" id="demo" min="2023-05-05" max="2023-07-30" v-model="this.data.NgayKham" />
+                                                    <input type="date" id="demo" min="2023-05-15" max="2023-08-30" v-model="this.data.NgayKham" />
                                                 </td>
                                             </tr>
                                             <tr class="create-space">
