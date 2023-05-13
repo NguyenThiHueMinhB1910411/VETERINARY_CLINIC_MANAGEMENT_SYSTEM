@@ -77,9 +77,13 @@ export default {
     search(event) {
       this.registrationInformation = this.listRegistrationInformation.filter(
         (e) =>
-          e.TenKhachHang.toLowerCase().includes(
-            event.target.value.toLowerCase()
-          ) || e.SoDienThoai.includes(event.target.value)
+        e.TenKhachHang.toLowerCase().includes(event.target.value.toLowerCase()) 
+          || e.SoDienThoai.includes(event.target.value)
+          || e.TenLoaiDichVu.toLowerCase().includes(event.target.value.toLowerCase()) 
+          || e.TrangThaiPheDuyet.toLowerCase().includes(event.target.value.toLowerCase()) 
+          
+        
+
       );
     },
   },

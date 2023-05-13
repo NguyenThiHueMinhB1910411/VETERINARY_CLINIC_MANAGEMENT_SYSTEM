@@ -47,54 +47,70 @@ library.add(
 export default {
     data() {
         return {
-            listFeedback: [],
+            listFeedback: {},
+            Feedback: {},
             data: {},
             feedback: null,
         }
     },
     methods: {
-        async getFeedback(id) {
-            try {
-                this.feedback = await feedbackservice.get(id);
+        // async getFeedback(id) {
+        //     try {
+        //         this.feedback = await feedbackservice.get(id);
 
-            } catch (error) {
-                console.log(error);
-            }
-        },
-        async handleDelete(ngayfeedback) {
-            if (window.confirm("Bạn có muốn xóa tài khoản này ?")) {
-                FeedbackService.delete(ngayfeedback)
+        //     } catch (error) {
+        //         console.log(error);
+        //     }
+        // },
+        async handleDelete(ngayFeedback) {
+            if (window.confirm("Bạn có muốn xóa phản hồi này?")) {
+                FeedbackService.delete(ngayFeedback)
 
             }
+            this.retrieveFeedback();
         },
         async handleSubmit(data) {
-            
+
             await FeedbackService.update(data);
             this.retrieveFeedback();
-            
+
         },
 
         async retrieveFeedback() {
             try {
                 this.listFeedback = await FeedbackService.getAll();
-                this.listFeedback = this.listFeedback.filter((e) => e.info.TrangThaiDichVu == "Hoàn tất");
-                this.listFeedback = this.listFeedback.filter((e) => e.info.ThanhToan == "Đã thanh toán");
+                this.Feedback = this.listFeedback;
+                this.Feedback = this.Feedback.filter((e) => e.info.TrangThaiDichVu == "Hoàn tất");
+                this.Feedback = this.Feedback.filter((e) => e.info.ThanhToan == "Đã thanh toán");
+                
             } catch (error) {
                 console.log(error);
             }
         },
         filtered(filter) {
-            this.filtered = this.listFeedback.filter(e => e.TrangThaiDichVu == filter);
+            this.Feedback = this.listFeedback;
+            this.filtered = this.Feedback.filter(e => e.TrangThaiDichVu == filter);
             // this.filtered = this.listFeedback.filter(e => e.ThanhToan == filter);
 
         },
 
         filteredThanhToan(filter) {
-     
-             this.filtered = this.listFeedback.filter(e => e.ThanhToan == filter);
+
+            this.filtered = this.Feedback.filter(e => e.ThanhToan == filter);
 
         },
+        search(event) {
+            this.Feedback = this.listFeedback.filter(
+                (e) =>
+              
+                e.SoDienThoai.includes(event.target.value) ||
+                 e.TenKhachHang.toLowerCase().includes(event.target.value.toLowerCase()) ||
+                 e.NoiDung.toLowerCase().includes(event.target.value.toLowerCase())||
+                
+                 e.TenLoaiDichVu.toLowerCase().includes(event.target.value.toLowerCase())
 
+            );
+        },
 
     },
 
@@ -108,7 +124,7 @@ export default {
 <main>
     <div>
         <div class="row my-3">
-            <div class="col-4 ">
+            <div class="col-7 ">
 
                 <div class="d-flex">
                     <div style="font-size: 16px" @click="retrieveFeedback">
@@ -121,9 +137,22 @@ export default {
                 </div>
 
             </div>
-            <!-- <div class="col-8">
-                <p class="title-page" style="">Phản hồi</p>
-            </div> -->
+            <div class="col-5">
+          <form
+            role="search"
+            method="POST"
+            class="search-form"
+            action="/search"
+            name="search-form"
+          >
+            <input
+              @input="search($event)"
+              type="search"
+              placeholder="Search"
+              class="form-control w-75 d-flex justify-content-right mr-0"
+            />
+          </form>
+        </div>
 
         </div>
 
@@ -147,33 +176,28 @@ export default {
                     </thead>
                     <tbody class="text-left">
 
-                        <tr v-for="(feedback, index) in this.listFeedback">
+                        <tr v-for="(feedback, index) in this.Feedback">
                             <td>{{ index +1 }}</td>
                             <td>{{ feedback.info.TenKhachHang }}</td>
                             <td>{{ feedback.info.SoDienThoai }}</td>
                             <!-- <td>{{ feedback.Gmail }}</td> -->
                             <td>{{ feedback.info.UsernameVatNuoi }}</td>
-                          
+
                             <td>{{ feedback.info.TenLoaiDichVu }}</td>
                             <td>{{ feedback.NgayFeedback }}</td>
                             <td>{{ feedback.NoiDung }}</td>
                             <td>{{ feedback.TrangThai }}</td>
                             <td>
-                                <a 
-                                :class="` col-6 ${feedback.TrangThai== 'Đã phản hồi'?'disable':'active'}` "
-                        
-                  @click="handleSubmit({
+                                <a :class="` col-6 ${feedback.TrangThai== 'Đã phản hồi'?'disable':'active'}` " @click="handleSubmit({
                       ...feedback,
                       TrangThai: 'Đã phản hồi',
                     })
-                  "
-                                >
+                  ">
                                     <font-awesome-icon icon="fa-solid fa-heart " />
 
                                 </a>
 
                                 <font-awesome-icon icon="fa-solid fa-trash" class=" text-danger px-4" @click="handleDelete(feedback.NgayFeedback)" />
-                               
 
                                 <!-- <button
                         type="button"
@@ -228,6 +252,6 @@ export default {
 
 .disable {
     color: rgb(153, 6, 6);
-   
+
 }
 </style>

@@ -34,6 +34,7 @@ export default {
   data() {
     return {
       listRegistrationInformation: [],
+      registrationInformation: [],
 
       listMedicalRecord: [],
       filtered: [],
@@ -61,6 +62,7 @@ export default {
           );
         this.listRegistrationInformation =
           this.listRegistrationInformation.filter((e) => e.TenBacSi != null);
+          this.registrationInformation = this.listRegistrationInformation;
       } catch (error) {
         console.log(error);
       }
@@ -113,6 +115,22 @@ export default {
       const findThuoc = await this.MedicalSuppliesService(this.data.TenThuoc);
       console.log(findThuoc);
     },
+    search(event) {
+      this.registrationInformation = this.listRegistrationInformation.filter(
+        (e) =>
+        e.TenKhachHang.toLowerCase().includes(event.target.value.toLowerCase()) 
+          || e.SoDienThoai.includes(event.target.value)
+          || e.TenLoaiVatNuoi.toLowerCase().includes(event.target.value.toLowerCase()) 
+          || e.UsernameVatNuoi.toLowerCase().includes(event.target.value.toLowerCase())
+          || e.TrangThaiKhamBenh.toLowerCase().includes(event.target.value.toLowerCase())  
+          || e.MoTa.toLowerCase().includes(event.target.value.toLowerCase()) 
+        
+        
+          
+        
+
+      );
+    },
  
   },
   created() {
@@ -152,14 +170,20 @@ export default {
           </button>
         </div>
         <div class="col-5">
-          <input
-            type="search"
-            placeholder="Search"
-            class="form-control w-75 d-flex justify-content-right mr-0"
-          />
-          <!-- <form role="search" method="POST" class="search-form" action="/search" name="search-form">
-                    <input @input="search($event)" type="search" placeholder="Search" class="form-control w-75 d-flex justify-content-right mr-0" />
-                </form> -->
+          <form
+            role="search"
+            method="POST"
+            class="search-form"
+            action="/search"
+            name="search-form"
+          >
+            <input
+              @input="search($event)"
+              type="search"
+              placeholder="Search"
+              class="form-control w-75 d-flex justify-content-right mr-0"
+            />
+          </form>
         </div>
       </div>
       <div class="row">
@@ -200,7 +224,7 @@ export default {
                 <tbody class="text-left">
                   <tr
                     v-for="(registrationInformation, index) in this
-                      .listRegistrationInformation"
+                      .registrationInformation"
                   >
                     <th scope="row m-0">{{ index + 1 }}</th>
 

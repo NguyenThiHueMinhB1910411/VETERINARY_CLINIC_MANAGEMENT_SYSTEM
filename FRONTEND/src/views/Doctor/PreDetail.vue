@@ -108,7 +108,7 @@ export default {
       >
         <table class="table">
           <tr>
-            <th>Ngày lập phiếu</th>
+            <th>Ngày kê đơn thuốc:</th>
 
             <td>{{ this.data.NgayKeDon }}</td>
           </tr>
@@ -138,7 +138,7 @@ export default {
                 <th>Sáng</th>
                 <th>Trưa</th>
                 <th>Chiều</th>
-                <th colspan="2">Tổng tiền</th>
+               
                 <th colspan="2">Ghi chú</th>
               </tr>
               <tr v-for="element in this.data.ChiTiet">
@@ -148,16 +148,7 @@ export default {
                 <td>{{ element.slSang }}</td>
                 <td>{{ element.slTrua }}</td>
                 <td>{{ element.slChieu }}</td>
-                <td colspan="2">
-                  {{
-                    new Intl.NumberFormat("it-IT", {
-                      style: "currency",
-                      currency: "VND",
-                    })
-                      .format(this.data.ThanhTien)
-                      .replace("VND", "")
-                  }}
-                </td>
+               
                 <td colspan="2">{{ this.data.GhiChu }}</td>
               </tr>
             </table>
@@ -180,7 +171,7 @@ export default {
               </div>
               <br />
             </div>
-            <div class="row">
+            <!-- <div class="row">
               <div class="text-center">Chữ ký:</div>
               <div
                 class="fw-bold text-center"
@@ -188,7 +179,7 @@ export default {
               >
                 {{ this.data.info1.TenBacSi }}
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

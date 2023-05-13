@@ -15,6 +15,7 @@ class FeedbackService {
     return (await this.api.put(`/${data._id}`, data)).data
   }
   async delete(id) {
+    console.log(id)
     return (await this.api.delete(`/${id}`)).data
   }
   async get(id) {

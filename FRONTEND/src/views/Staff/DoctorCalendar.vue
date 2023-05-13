@@ -28,7 +28,7 @@ export default {
             listStaff: [],
             filtered: [],
             filterService: [],
-            listRegistrationInformation: [],
+            registrationInformation: [],
             select: {},
             data: {},
 
@@ -82,6 +82,7 @@ export default {
                 this.listRegistrationInformation = await registrationInformationService.getAll();
                 this.listRegistrationInformation = this.listRegistrationInformation.filter((e) => e.TrangThaiPheDuyet == "Đã duyệt");
                 this.listRegistrationInformation = this.listRegistrationInformation.filter((e) => e.TenLoaiDichVu == "Khám bệnh");
+                this.registrationInformation = this.listRegistrationInformation;
             } catch (error) {
                 console.log(error);
             }
@@ -107,13 +108,24 @@ export default {
             this.filterService = this.listRegistrationInformation.filter(i => i.TenLoaiDichVu == filter);
 
         },
+        search(event) {
+      this.registrationInformation = this.listRegistrationInformation.filter(
+        (e) =>
+          e.TenKhachHang.toLowerCase().includes(
+            event.target.value.toLowerCase()
+          ) || e.SoDienThoai.includes(event.target.value)
+          || e.UsernameVatNuoi.toLowerCase().includes(event.target.value.toLowerCase()) 
+          || e.TenBacSi.toLowerCase().includes(event.target.value.toLowerCase()) 
+        
+      );
+    },
 
     },
-    mounted() {
+    created() {
 
-        this.retrieveDoctors();
+        // this.retrieveDoctors();
         this.retrieveRequire();
-        this.retrieveService();
+        // this.retrieveService();
     }
 }
 </script>
@@ -127,7 +139,7 @@ export default {
                 <div class=" row  my-3">
                    
 
-                    <div class="col-4">
+                    <div class="col-7">
                         <div class="d-flex">
                             <div class="" style="font-size: 16px;" @click="retrieveRequire">
                             <button class="btn style-button text-light px-2">
@@ -330,9 +342,22 @@ export default {
                         </div>
 
                     </div>
-                    <div class="col-8">
-                        <p class="title-page" style="">Dịch vụ đã đăng ký trực tuyến</p>
-                    </div>
+                    <div class="col-5">
+          <form
+            role="search"
+            method="POST"
+            class="search-form"
+            action="/search"
+            name="search-form"
+          >
+            <input
+              @input="search($event)"
+              type="search"
+              placeholder="Search"
+              class="form-control w-75 d-flex justify-content-right mr-0"
+            />
+          </form>
+        </div>
                    
 
                 </div>
@@ -355,7 +380,7 @@ export default {
                             </thead>
                             <tbody class="text-left">
                                 <tr v-for="(registrationInformation, index) in this
-              .listRegistrationInformation">
+              .registrationInformation">
                                     <th scope="row m-0">{{ index + 1 }}</th>
                                     <td>{{ registrationInformation.UsernameVatNuoi }}</td>
                                     <td>{{ registrationInformation.TenLoaiDichVu }}</td>

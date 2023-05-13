@@ -52,7 +52,9 @@ class PrescriptionService {
           foreignField: 'UsernameVatNuoi',
           as: 'info1',
         },
+
       },
+      // { $unwind: "$info1" },
     ])
     return await rs.toArray()
   }

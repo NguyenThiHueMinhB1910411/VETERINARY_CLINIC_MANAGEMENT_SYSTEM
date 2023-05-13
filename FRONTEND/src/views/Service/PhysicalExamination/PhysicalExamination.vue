@@ -6,11 +6,14 @@ import CategoryService from "../../../services/categoryService.service";
 import DoctorService from "../../../services/doctor.service";
 import RegistrationInformationService from "../../../services/registrationInformation.service";
 import accountService from "../../../services/account.service";
+import Datepicker from 'vuejs3-datepicker';
+
 import {
     userAccStore
 } from "@/Store/userStore";
 
 export default {
+  
     components: {
         PublicFooters,
         HeaderPublic,
@@ -18,6 +21,7 @@ export default {
 
         ServiceService,
         accountService,
+        Datepicker,
     },
     data() {
 
@@ -221,6 +225,11 @@ export default {
                                                     Thời gian đặt hẹn:
                                                     <span class="text-danger fw-bold">*</span>
                                                 </td>
+
+                                                <td>
+ 
+                                                </td>
+
                                                 <td>
                                                     <input type="date" id="demo" min="2023-05-15" max="2023-08-30" v-model="this.data.NgayKham" />
                                                 </td>
@@ -306,8 +315,7 @@ export default {
                                 </div>
                             </div>
                         </div>
-                        <a class="btn btn-primary text-light px-5" style="font-size: 20px;" data-bs-toggle="modal" href="#exampleModalToggle" role="button" 
-                        >Đăng ký ngay</a>
+                        <a class="btn btn-primary text-light px-5" style="font-size: 20px;" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Đăng ký ngay</a>
 
                     </div>
 
