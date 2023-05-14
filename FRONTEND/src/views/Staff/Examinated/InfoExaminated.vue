@@ -73,8 +73,6 @@ export default {
 </script>
 <template>
 <main>
-    <h1>STAFF</h1>
-
     <div class="my-3">
       <div class="col-4">
         <div class="d-flex">

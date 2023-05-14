@@ -130,9 +130,18 @@ export default {
                             </div>
 
                         </div>
-                        <div class="py-2">
-                            <b>Tên vật nuôi: </b>
+                        <div class="py-2 row">
+                            <div class="row">
+                                <b>Tên vật nuôi: </b>
                             <span>{{ el.UsernameVatNuoi }}</span>
+
+                            </div>
+                            <div class="col d-flex justify-content-end">
+                                <b>Ngày tái khám: </b> &nbsp;
+                                <span>{{ el.NgayTaiKham }}</span>
+
+                            </div>
+                            
                         </div>
                         <div class="py-2">
                             <span class="col"><b>Chuẩn đoán: </b> {{ el.ChanDoan }}</span>

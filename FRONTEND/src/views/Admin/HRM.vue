@@ -590,7 +590,7 @@ export default {
     </div>
 
     </div>
-    <font-awesome-icon icon="fa-solid fa-trash" class=" text-danger col" @click="handleDeleteDoctor(doctor.MaBacSi)" />
+    <font-awesome-icon icon="fa-solid fa-trash" class=" text-danger col px-2" @click="handleDeleteDoctor(doctor.MaBacSi)" />
     <router-link :to="{ name: 'InfoDoctor', params: { id: doctor._id } }">
         <font-awesome-icon icon="fa-solid fa-circle-info" class="text-dark" />
     </router-link>

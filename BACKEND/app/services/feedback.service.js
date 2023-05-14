@@ -109,7 +109,7 @@ class FeedbackService {
       var mainOptions = {
         from: " VETERINARY CLINIC",
         to: ri.Gmail,
-        subject: "PHẢN HỒI FEEDBACK",
+        subject: "VETERINARY CLINIC - PHẢN HỒI FEEDBACK",
         text: "Bạn đã nhận tin nhắn đến từ  VETERINARY CLINIC",
         html:
 

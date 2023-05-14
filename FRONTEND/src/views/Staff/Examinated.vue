@@ -14,7 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 library.add(faMoneyBill, faCreditCard, faPrint, faUser, faArrowLeft);
 import PrescriptionService from "../../services/Prescription.service";
-import PaymentService from "../../services/payment.service";
+
 
 // import { describe } from "node:test";
 export default {
@@ -36,49 +36,49 @@ export default {
     },
     methods: {
 
-        setLoaded: function () {
-            paypal
-                .Buttons({
-                    createOrder: (data, action) => {
-                        return action.order.create({
-                            purchase_units: [{
-                                description: this.product.description,
-                                amount: {
-                                    currency_code: "USD",
-                                    value: this.product.price
-                                }
-                            }]
-                        });
-                    },
-                    onApprove: async (data, actions, resp) => {
-                        // const order = await action.order.capture();
-                        // this.data;
-                        // submitOrder()
-                        // this.paidFor = true;
-                        // this.loading = false;
-                        // this.submitDomain();
-                        return actions.order.capture().then(function (details) {
-                            const {
-                                payer
-                            } = details;
-                            console.log(details);
-                            // inforData.orderId = details.id;
-                            // inforData.create_at = details.create_time;
+        // setLoaded: function () {
+        //     paypal
+        //         .Buttons({
+        //             createOrder: (data, action) => {
+        //                 return action.order.create({
+        //                     purchase_units: [{
+        //                         description: this.product.description,
+        //                         amount: {
+        //                             currency_code: "USD",
+        //                             value: this.product.price
+        //                         }
+        //                     }]
+        //                 });
+        //             },
+        //             onApprove: async (data, actions, resp) => {
+        //                 // const order = await action.order.capture();
+        //                 // this.data;
+        //                 // submitOrder()
+        //                 // this.paidFor = true;
+        //                 // this.loading = false;
+        //                 // this.submitDomain();
+        //                 return actions.order.capture().then(function (details) {
+        //                     const {
+        //                         payer
+        //                     } = details;
+        //                     console.log(details);
+        //                     // inforData.orderId = details.id;
+        //                     // inforData.create_at = details.create_time;
 
-                            // addBill({
-                            //     ...inforData,
-                            //     thongtinhanhkhach: thongtinhanhkhach
-                            // });
-                            setSuccess(true);
-                            //handleApprove();
-                        });
-                    },
-                    onError: err => {
-                        console.log(err);
-                    }
-                })
-                .render("#paypal-button-container");
-        },
+        //                     // addBill({
+        //                     //     ...inforData,
+        //                     //     thongtinhanhkhach: thongtinhanhkhach
+        //                     // });
+        //                     setSuccess(true);
+        //                     //handleApprove();
+        //                 });
+        //             },
+        //             onError: err => {
+        //                 console.log(err);
+        //             }
+        //         })
+        //         .render("#paypal-button-container");
+        // },
 
         submitDomain() {
 
@@ -98,13 +98,13 @@ export default {
 
         },
     },
-    mounted() {
-        const script = document.createElement("script");
-        script.src =
-            "https://www.paypal.com/sdk/js?client-id=ATEMg2mbQ8vBzjmJe5BlUjR-E2swm1lCz5O5c9JhrcNFnIsHKYcoFd881yFPObcHnj05gN3ERU30IIGO";
-        script.addEventListener("load", this.setLoaded);
-        document.body.appendChild(script);
-    },
+    // mounted() {
+    //     const script = document.createElement("script");
+    //     script.src =
+    //         "https://www.paypal.com/sdk/js?client-id=ATEMg2mbQ8vBzjmJe5BlUjR-E2swm1lCz5O5c9JhrcNFnIsHKYcoFd881yFPObcHnj05gN3ERU30IIGO";
+    //     script.addEventListener("load", this.setLoaded);
+    //     document.body.appendChild(script);
+    // },
     created() {
         this.retrievePrescription();
         this.handleStatus();

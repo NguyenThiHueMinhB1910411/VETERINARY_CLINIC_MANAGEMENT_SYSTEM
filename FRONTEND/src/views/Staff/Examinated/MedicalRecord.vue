@@ -31,14 +31,25 @@ export default {
         }
     },
     methods: {
+
         async retriveMedicalRecord() {
             try {
                 this.listMedicalRecord = await MedicalRecordService.getAll();
-                // console.log(this.listMedicalRecord);
+                this.MedicalRecord = this.listMedicalRecord;
+            
             } catch (error) {
                 console.log(error);
             }
-        }
+        },
+        search(event) {
+            this.MedicalRecord = this.listMedicalRecord.filter(
+                (e) =>
+                e.TenKhachHang.toLowerCase().includes(event.target.value.toLowerCase()) 
+               ||e.ChiTiet.UsernameVatNuoi.toLowerCase().includes(event.target.value.toLowerCase()) 
+               ||e.SoDienThoai.includes(event.target.value) 
+
+            );
+        },
     },
     created() {
         this.retriveMedicalRecord();
@@ -48,8 +59,8 @@ export default {
 </script>
 <template>
 <div>
-    <div class="row my-3">
-        <div class="col-4 ">
+    <div class="row d-flex pt-3 pl-4">
+        <div class="col-7 ">
                 <div class="d-flex">
                     <div class="col-7" style="font-size: 16px" @click="retriveMedicalRecord">
           <button class="btn text-light px-2" style="background-color: #cc4d26">
@@ -61,6 +72,11 @@ export default {
 
                 </div>
 
+            </div>
+            <div class="col-5">
+                <form role="search" method="POST" class="search-form" action="/search" name="search-form">
+                    <input @input="search($event)" type="search" placeholder="Search" class="form-control w-75 d-flex justify-content-right mr-0" />
+                </form>
             </div>
         <div class="py-3">
             <div class="pt-2">
@@ -78,7 +94,7 @@ export default {
                         </thead>
                         <tbody class="text-left">
                             <tr v-for="(medicalRecord, index) in this
-                      .listMedicalRecord">
+                      .MedicalRecord">
                                 <th scope="row m-0">{{ index + 1 }}</th>
                                 <td>{{ medicalRecord.TenKhachHang }}</td>
                                 <td>{{ medicalRecord.ChiTiet.UsernameVatNuoi }}</td>

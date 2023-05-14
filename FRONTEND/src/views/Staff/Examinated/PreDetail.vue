@@ -72,7 +72,6 @@ export default {
 };
 </script>
 <template>
-  <h1>STAFF</h1>
   <main style="background-color: white !important">
     <div class="mt-3">
       <button
@@ -181,7 +180,7 @@ export default {
               </div>
               <br />
             </div>
-            <div class="row">
+            <!-- <div class="row">
               <div class="text-center">Chữ ký:</div>
               <div
                 class="fw-bold text-center"
@@ -189,7 +188,7 @@ export default {
               >
                 {{ this.data.info1.TenBacSi }}
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

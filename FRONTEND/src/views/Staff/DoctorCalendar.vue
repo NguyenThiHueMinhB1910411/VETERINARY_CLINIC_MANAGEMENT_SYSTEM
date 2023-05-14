@@ -124,6 +124,8 @@ export default {
              
                 e.UsernameVatNuoi.toLowerCase().includes(event.target.value.toLowerCase()) 
                 || e.SoDienThoai.includes(event.target.value)
+                || e.NgayKham.includes(event.target.value)
+                || e.GioKham.includes(event.target.value)
 
             );
         },

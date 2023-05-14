@@ -154,7 +154,7 @@ export default {
                                 <th>Tên khách hàng</th>
                                 <th>Dịch vụ</th>
                                 <th>Ngày đặt</th>
-                                <th rowspan="2">Giờ khám</th>
+                                <th >Giờ khám</th>
                                 <th>Số điện thoại</th>
                                 <th>Trạng thái</th>
                                 <th>Chọn bs/ nv</th>
@@ -168,8 +168,8 @@ export default {
                                 <td>{{ registrationInformation.TenLoaiDichVu }}</td>
 
                                 <td>{{ registrationInformation.NgayDangKy }}</td>
-                                <td rowspan="2">
-                                    {{ registrationInformation.GioKham }}
+                                <td >
+                                    {{ registrationInformation.GioKham }} &nbsp;
                                     {{ registrationInformation.NgayKham }}
                                     
                                 </td>

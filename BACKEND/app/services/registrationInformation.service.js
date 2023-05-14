@@ -141,7 +141,7 @@ class RegistrationInformationService {
       var mainOptions = {
         from: " VETERINARY CLINIC",
         to: ri.Gmail,
-        subject: "PHẢN HỒI KẾT QUẢ ĐĂNG KÝ",
+        subject: "VETERINARY CLINIC - PHẢN HỒI KẾT QUẢ ĐĂNG KÝ",
         text: "Bạn đã nhận tin nhắn đến từ  VETERINARY CLINIC",
         html:
 
@@ -154,13 +154,13 @@ class RegistrationInformationService {
           "Bạn vui lòng đưa vật nuôi đến phòng khám vào ngày "+ ri.NgayKham +
           " vào lúc "+ ri.GioKham + "."+
           
-          "<br/><small> Trân trọng cảm ơn </small>,",
+          "<br/>Trân trọng cảm ơn, ",
       };
     } else {
       var mainOptions = {
         from: " VETERINARY CLINIC",
         to: ri.Gmail,
-        subject: "PHẢN HỒI KẾT QUẢ ĐĂNG KÝ",
+        subject: "VETERINARY CLINIC - PHẢN HỒI KẾT QUẢ ĐĂNG KÝ",
         text: "Bạn đã nhận tin nhắn đến từ  VETERINARY CLINIC",
         html:
 
@@ -169,18 +169,19 @@ class RegistrationInformationService {
           "<br/> Yêu cầu đăng ký về dịch vụ "  +
              ri.TenLoaiDichVu
            +
-          " của bạn đã bỵ hủy do bị trùng lịch với lịch khám khác. Chúng tôi rất mong bạn thông cảm. Bạn có thể vào hệ thống vào đặt lịch lại vào một ngày khác. <br>"+
-          
-          "<br/><small> Trân trọng cảm ơn </small>,",
+          " của bạn đã bị hủy do bị trùng lịch với lịch khám khác của bác sĩ. Chúng tôi rất mong bạn thông cảm. Bạn có thể vào hệ thống của chúng chúng để chọn ngày khác và đặt lịch. <br>"+
+          "Chúng tôi rất làm tiếc vì sự bất tiện này. "+
+          "<br/> Trân trọng cảm ơn, "
       };
-      transporter.sendMail(mainOptions, function (err, info) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("Message sent: " + info.response);
-        }
-      });
+     
     } 
+    transporter.sendMail(mainOptions, function (err, info) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("Message sent: " + info.response);
+      }
+    });
 
     console.log(nodemailer.getTestMessageUrl(mainOptions));
     return result.value;

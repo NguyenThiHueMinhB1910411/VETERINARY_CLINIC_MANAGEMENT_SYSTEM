@@ -105,9 +105,7 @@ export default {
               
                 e.SoDienThoai.includes(event.target.value) ||
                  e.TenKhachHang.toLowerCase().includes(event.target.value.toLowerCase()) ||
-                 e.NoiDung.toLowerCase().includes(event.target.value.toLowerCase())||
-                
-                 e.TenLoaiDichVu.toLowerCase().includes(event.target.value.toLowerCase())
+                 e.NoiDung.toLowerCase().includes(event.target.value.toLowerCase())
 
             );
         },
@@ -178,7 +176,7 @@ export default {
 
                         <tr v-for="(feedback, index) in this.Feedback">
                             <td>{{ index +1 }}</td>
-                            <td>{{ feedback.info.TenKhachHang }}</td>
+                            <td>{{ feedback.TenKhachHang }}</td>
                             <td>{{ feedback.info.SoDienThoai }}</td>
                             <!-- <td>{{ feedback.Gmail }}</td> -->
                             <td>{{ feedback.info.UsernameVatNuoi }}</td>

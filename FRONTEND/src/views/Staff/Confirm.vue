@@ -82,7 +82,11 @@ export default {
                 e.TenKhachHang.toLowerCase().includes(event.target.value.toLowerCase()) ||
                 e.SoDienThoai.includes(event.target.value) ||
                 e.TenLoaiDichVu.toLowerCase().includes(event.target.value.toLowerCase()) ||
-                e.TrangThaiPheDuyet.toLowerCase().includes(event.target.value.toLowerCase())
+                e.TrangThaiPheDuyet.toLowerCase().includes(event.target.value.toLowerCase())||
+                // e.TenLoaiDichVu.toLowerCase().includes(event.target.value.toLowerCase())||
+                e.NgayKham.includes(event.target.value) ||
+                e.GioKham.includes(event.target.value) ||
+                e.NgayDangKy.includes(event.target.value) 
 
             );
         },
@@ -126,6 +130,7 @@ export default {
                         <th>Thời gian gửi</th>
                 
                         <th >Giờ khám</th>
+                      
                         <th>Loại dịch vụ</th>
                         <th>Trạng thái</th>
                         <th>Tác vụ</th>
@@ -147,37 +152,12 @@ export default {
                                     {{ registrationInformation.NgayKham }}
                                     
                                 </td>
-                        <td>{{ registrationInformation.TenLoaiDichVu }}</td>
-                        <td class="text-primary">{{ registrationInformation.TrangThaiPheDuyet }}</td>
-                        <!-- <td>
-                            <button type="button" :class="`text-light ${registrationInformation.TrangThaiPheDuyet== 'Đã duyệt'?'disable1':'active1'}` " data-bs-toggle="modal" data-bs-target="#exampleModal4" :disabled="registrationInformation.TrangThaiPheDuyet== 'Đã duyệt'
-                        " @click="
-                          handleSubmit({
-                              ...registrationInformation,
-                              TrangThaiPheDuyet: 'Đã duyệt',
-                            })
-                        ">
-                                {{ registrationInformation.TrangThaiPheDuyet }}
-                            </button>
+                               
+                        <td >
+                            {{ registrationInformation.TenLoaiDichVu }}
                         </td>
-                        <td>
-                          <button type="button" 
-                          :class="`text-light 
-                          ${registrationInformation.TrangThaiPheDuyet== 'Đã hủy'?'disable1':'active1'}` 
-                          " 
-                          data-bs-toggle="modal" data-bs-target="#exampleModal4" 
-                          :disabled="registrationInformation.TrangThaiPheDuyet== 'Đã hủy'
-                        "
-                         @click="
-                          handleSubmit({
-                              ...registrationInformation,
-                              TrangThaiPheDuyet: 'Đã Hủy',
-                            })
-                        ">
-                                {{ registrationInformation.TrangThaiPheDuyet }}
-                            </button>
-                        </td> -->
-
+                        <td class="text-primary">{{ registrationInformation.TrangThaiPheDuyet }}</td>
+                      
 
                         <td class=" ">
                           <font-awesome-icon icon="fa-solid fa-check"
@@ -211,31 +191,7 @@ export default {
                               ...registrationInformation,
                               TrangThaiPheDuyet: 'Đã hủy',
                             })
-                        "
-                          
-                          
-                          /> 
-                          
-                      
-                          
-
-                          <!-- <font-awesome-icon icon="fa-solid fa-ban"
-                          :class="`text-danger px-2
-                          ${registrationInformation.TrangThaiPheDuyet== 'Đã hủy'?'disable':'active'}` 
-                          " 
-                          
-                          :disabled="registrationInformation.TrangThaiPheDuyet== 'Đã hủy'
-                        "
-                        @click="
-                          handleSubmit({
-                              ...registrationInformation,
-                              TrangThaiPheDuyet: 'Đã hủy',
-                            })
-                        "
-                          
-                          
-                          /> -->
-
+                        " /> 
                             
                         </td>
                         <td>
@@ -330,6 +286,14 @@ export default {
                                                             {{ this.value.GioKham}}
                                                         </div>
                                                     </div>
+                                                    <div class="row">
+                                                        <div class="col-6 text-dark d-flex jutify-content-start" style="margin: 0px">
+                                                            Tên bác sĩ:
+                                                        </div>
+                                                        <div class="col-6 text-dark d-flex jutify-content-start">
+                                                            {{ this.value.TenBacSi}}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -353,7 +317,7 @@ export default {
 <style>
 
 
-.active1 {
+/* .active1 {
   background-color: #0f418b;
   border-radius: 8px;
   border: solid 2px #071e42;
@@ -361,7 +325,7 @@ export default {
 .disable1 {
   background-color: #069653c4;
   border-radius: 8px;
-}
+} */
 
 
 button:disabled:hover{

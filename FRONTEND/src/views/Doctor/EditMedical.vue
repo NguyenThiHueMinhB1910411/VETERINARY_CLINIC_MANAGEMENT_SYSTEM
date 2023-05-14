@@ -1,4 +1,24 @@
 <script>
+
+import {
+    library
+} from "@fortawesome/fontawesome-svg-core";
+import {
+    FontAwesomeIcon
+} from "@fortawesome/vue-fontawesome";
+import {
+    faMoneyBill,
+    faCreditCard,
+    faPrint,
+    faUser,
+    faArrowLeft,
+    faAdd,
+    faRotateRight,
+    faTrash,
+    faPlus,
+} from "@fortawesome/free-solid-svg-icons";
+library.add(faMoneyBill, faCreditCard, faPrint, faUser, faArrowLeft, faAdd, faRotateRight, faTrash,faPlus,);
+
 import medicalRecordService from "../../services/medicalRecord.service";
 import MedicalSuppliesService from "../../services/medicalSupplies.service";
 import PrescriptionService from "../../services/Prescription.service";
@@ -83,10 +103,40 @@ export default {
 };
 </script>
 <template>
-  <div class="my-3 py-3 bg-white">
-    <div class="d-flex justify-content-between flex-row">
-      <h5 class="fw-bold text-uppercase ">Chỉnh sửa đơn thuốc</h5>
-      <button class="btn btn-primary p-2 bg-primary" @click="addMedical">
+  <div class="my-3 py-3 bg-white container">
+    <h5 class="fw-bold text-uppercase ">KIỂM TRA SỨC KHỎE</h5>
+    <div class="d-flex pb-4 flex-row mt-3 w-100">
+        <div class="d-flex flex-column w-50 me-3">
+          <span class="text-start">
+            &nbsp  <b> Chuẩn đoán:</b>
+            
+
+          </span>
+          <textarea
+            class="form-control w-100 my-2"
+            id="exampleFormControlTextarea1"
+            rows="3"
+            v-model="this.data.ChanDoan"
+          ></textarea>
+        </div>
+        <div class="d-flex flex-column w-50">
+          <span class="text-start">
+            &nbsp   <b> Ghi chú:</b>
+            
+          </span>
+          <textarea
+            class="form-control w-100 my-2"
+            id="exampleFormControlTextarea1"
+            rows="3"
+            v-model="this.data.GhiChu"
+          ></textarea>
+        </div>
+      </div>
+      <div class="py-4 mt-5" style="background-color: rgb(236, 242, 247); border-radius: 10px; border: 1px solid gray;" >
+        <div class="d-flex justify-content-between flex-row" >
+      <h5 class="fw-bold text-uppercase text-center" >Chỉnh sửa đơn thuốc</h5>
+      <button class="btn  p-2 text-light" style="background-color: #084d7b;" @click="addMedical">
+        <font-awesome-icon icon="fa-solid fa-plus" />
         Thêm
       </button>
     </div>
@@ -111,7 +161,9 @@ export default {
           <span class="text-start">Số lượng: </span>
 
           <input
-            type="text"
+          type="number"
+            min="0"
+            max="20"
             class="form-control w-100"
             required
             placeholder="Nhập số lượng"
@@ -123,7 +175,9 @@ export default {
         <div class="d-flex flex-column me-2" style="width: 33%">
           <span class="text-start"> Số lượng sáng:</span>
           <input
-            type="text"
+          type="number"
+            min="0"
+            max="20"
             class="form-control"
             id="formGroupExampleInput"
             required
@@ -135,7 +189,7 @@ export default {
           <span class="text-start"> Số lượng trưa:</span>
           <input
             type="number"
-            min="1"
+            min="0"
             max="20"
             class="form-control"
             id="formGroupExampleInput"
@@ -147,7 +201,7 @@ export default {
           <span class="text-start">Số lượng chiều:</span>
           <input
             type="number"
-            min="1"
+            min="0"
             max="20"
             class="form-control ms-1"
             id="formGroupExampleInput"
@@ -156,38 +210,19 @@ export default {
           />
         </div>
       </div>
-      <div class="d-flex flex-row mt-3 w-100">
-        <div class="d-flex flex-column w-50 me-3">
-          <span class="text-start">Chuẩn đoán:</span>
-          <textarea
-            class="form-control w-100 my-2"
-            id="exampleFormControlTextarea1"
-            rows="3"
-            v-model="this.data.ChanDoan"
-          ></textarea>
-        </div>
-        <div class="d-flex flex-column w-50">
-          <span class="text-start">Ghi chú:</span>
-          <textarea
-            class="form-control w-100 my-2"
-            id="exampleFormControlTextarea1"
-            rows="3"
-            v-model="this.data.GhiChu"
-          ></textarea>
-        </div>
-      </div>
+      
     </div>
 
-    <div>
-      <table class="table border">
+    <div class="py-2">
+      <table class="table border bg-light ">
         <thead>
           <th>STT</th>
           <th>Tên thuốc</th>
           <th>Số lượng</th>
-          <th>Giá</th>
+          <!-- <th>Giá</th> -->
           <th>Sáng</th>
           <th>Trưa</th>
-          <th>Tối</th>
+          <th>Chiều</th>
           <th>Thành tiền</th>
         </thead>
         <tbody>
@@ -195,30 +230,51 @@ export default {
             <td>{{ index + 1 }}</td>
             <td>{{ medical.service }}</td>
             <td>{{ medical.soluong }}</td>
-            <td>{{ medical.gia }}</td>
+            <!-- <td>{{ medical.gia }}</td> -->
             <td>{{ medical.slSang }}</td>
             <td>{{ medical.slTrua }}</td>
             <td>{{ medical.slChieu }}</td>
+            <td>{{
+                    new Intl.NumberFormat("it-IT", {
+                      style: "currency",
+                      currency: "VND",
+                    })
+                      .format(medical.gia)
+                      .replace("VND", "")
+                  }} vnđ</td>
             <td>
-              <button @click="deleteMedical(index)">x</button>
+              <td>
+              <button @click="deleteMedical(index)" class="bg-danger text-light rounded border-light"> x </button>
+            </td>
             </td>
           </tr>
         </tbody>
       </table>
       <div>
-        <p>Tổng tiền: {{ this.sum }}</p>
+        <p><b>Tổng tiền:</b> {{
+                    new Intl.NumberFormat("it-IT", {
+                      style: "currency",
+                      currency: "VND",
+                    })
+                      .format(this.sum)
+                      .replace("VND", "")
+                  }} vnđ</p>
       </div>
       <div>
         <!-- <button class="btn btn-primary" @click="handleSubmit">Hoàn tất</button> -->
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn text-light " style="background-color: #b3362d; border:1px #c07b7b  solid;"
           @click="handleUpdate(this.$route.params.id)"
         >
           Lưu
         </button>
       </div>
     </div>
+
+      </div>
+
+    
   </div>
 </template>
 

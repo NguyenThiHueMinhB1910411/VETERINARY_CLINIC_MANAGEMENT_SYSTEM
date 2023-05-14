@@ -81,6 +81,8 @@ class PrescriptionService {
       create_at: new Date(),
       update_at: '',
       NgayKeDon: payload.NgayKeDon,
+      NgayTaiKham:payload.NgayTaiKham,
+      GioTaiKham:payload.GioTaiKham,
     })
     return result
   }
