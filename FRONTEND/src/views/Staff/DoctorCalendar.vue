@@ -14,7 +14,7 @@ import {
     faRotateRight,
     faPlus,
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faMoneyBill, faCreditCard, faPrint, faUser, faArrowLeft, faRotateRight,faPlus, );
+library.add(faMoneyBill, faCreditCard, faPrint, faUser, faArrowLeft, faRotateRight, faPlus, );
 
 import registrationInformationService from "../../services/registrationInformation.service";
 import DoctorService from "../../services/doctor.service";
@@ -100,6 +100,16 @@ export default {
             }
 
         },
+        search(event) {
+            this.registrationInformation = this.listRegistrationInformation.filter(
+                (e) =>
+                e.TenKhachHang.toLowerCase().includes(event.target.value.toLowerCase()) ||
+                e.SoDienThoai.includes(event.target.value) ||
+                e.TenLoaiDichVu.toLowerCase().includes(event.target.value.toLowerCase()) ||
+                e.TrangThaiPheDuyet.toLowerCase().includes(event.target.value.toLowerCase())
+
+            );
+        },
         filteredDangKy(filter) {
             this.filtered = this.listRegistrationInformation.filter(e => e.TrangThaiPheDuyet == filter);
         },
@@ -109,54 +119,48 @@ export default {
 
         },
         search(event) {
-      this.registrationInformation = this.listRegistrationInformation.filter(
-        (e) =>
-          e.TenKhachHang.toLowerCase().includes(
-            event.target.value.toLowerCase()
-          ) || e.SoDienThoai.includes(event.target.value)
-          || e.UsernameVatNuoi.toLowerCase().includes(event.target.value.toLowerCase()) 
-          || e.TenBacSi.toLowerCase().includes(event.target.value.toLowerCase()) 
-        
-      );
-    },
+            this.registrationInformation = this.listRegistrationInformation.filter(
+                (e) =>
+             
+                e.UsernameVatNuoi.toLowerCase().includes(event.target.value.toLowerCase()) 
+                || e.SoDienThoai.includes(event.target.value)
+
+            );
+        },
 
     },
     created() {
 
-        // this.retrieveDoctors();
         this.retrieveRequire();
-        // this.retrieveService();
     }
 }
 </script>
 <template>
 <main>
     <div>
-       
+
         <div class="row">
             <div class="">
-               
+
                 <div class=" row  my-3">
-                   
 
                     <div class="col-7">
                         <div class="d-flex">
                             <div class="" style="font-size: 16px;" @click="retrieveRequire">
-                            <button class="btn style-button text-light px-2">
+                                <button class="btn style-button text-light px-2">
 
-                                <font-awesome-icon icon="fa-solid fa-rotate-right" />
-                                Refresh
+                                    <font-awesome-icon icon="fa-solid fa-rotate-right" />
+                                    Refresh
+                                </button>
+
+                            </div>
+                            <button type="button" class="btn style-button-add mx-2 text-light mb-2 " data-bs-toggle="modal" href="#exampleModalToggle" role="button">
+                                <font-awesome-icon icon="fa-solid fa-plus" />
+                                Thêm
                             </button>
 
                         </div>
-                        <button type="button" class="btn style-button-add mx-2 text-light mb-2 " data-bs-toggle="modal" href="#exampleModalToggle" role="button">
-                            <font-awesome-icon icon="fa-solid fa-plus" /> 
-                             Thêm
-                        </button>
-                       
 
-                        </div>
-                       
                         <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
@@ -316,10 +320,7 @@ export default {
                                     </div>
                                     <div class="modal-footer">
                                         <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" @click="handleSubmitForm()">Gửi</button>
-                                        <!-- 
-                                        <button type="button" class="btn btn-primary" @click="handleSubmit" data-bs-dismiss="modal">
-                                            Đăng ký
-                                        </button> -->
+
                                     </div>
                                 </div>
                             </div>
@@ -343,36 +344,23 @@ export default {
 
                     </div>
                     <div class="col-5">
-          <form
-            role="search"
-            method="POST"
-            class="search-form"
-            action="/search"
-            name="search-form"
-          >
-            <input
-              @input="search($event)"
-              type="search"
-              placeholder="Search"
-              class="form-control w-75 d-flex justify-content-right mr-0"
-            />
-          </form>
-        </div>
-                   
+                        <form role="search" method="POST" class="search-form" action="/search" name="search-form">
+                            <input @input="search($event)" type="search" placeholder="Search" class="form-control w-75 d-flex justify-content-right mr-0" />
+                        </form>
+                    </div>
 
                 </div>
 
-                <div >
+                <div>
                     <div class="row">
-                     
+
                         <table class="table table-hover text-center table-bordered table table-bordered " style="font-size: 15px;background-color: white;padding-bottom: 80%;box-shadow: 0px 5px 3px  rgba(212, 212, 212, 0.25); ">
-                            <thead >
+                            <thead>
                                 <tr style="color: #CC4D26;">
                                     <th>STT</th>
                                     <th>Tên vật nuôi</th>
                                     <th>Dịch vụ</th>
-                                    <th>Ngày đặt</th>
-                                    <th>Ngày khám</th>
+                                    <th>Giờ khám</th>
                                     <th>Số điện thoại</th>
                                     <th>Trạng thái</th>
                                     <th>Tên bác sĩ</th>
@@ -385,13 +373,12 @@ export default {
                                     <td>{{ registrationInformation.UsernameVatNuoi }}</td>
                                     <td>{{ registrationInformation.TenLoaiDichVu }}</td>
 
-                                    <td>{{ registrationInformation.NgayDangKy }}</td>
-                                    <td>{{ registrationInformation.NgayKham }}</td>
+                                    <td> {{ registrationInformation.GioKham }}&nbsp;
+                                        {{ registrationInformation.NgayKham }}</td>
                                     <td>{{ registrationInformation.SoDienThoai }}</td>
                                     <td>{{ registrationInformation.TrangThaiPheDuyet}}</td>
                                     <td>{{ registrationInformation.TenBacSi }}
 
-                                       
                                     </td>
 
                                 </tr>
@@ -406,19 +393,20 @@ export default {
 </template>
 
 <style scoped>
-.style-button{
+.style-button {
     background-color: #CC4D26;
     color: white;
 }
-.style-button-add{
+
+.style-button-add {
     background-color: #153A64;
     color: white;
 
 }
-.title-page{
-    font-size: 30px; 
-    font-weight:500; 
+
+.title-page {
+    font-size: 30px;
+    font-weight: 500;
     color: #153A64;
 }
-
 </style>

@@ -93,11 +93,13 @@ class PrescriptionService {
   }
 
   async update(id, payload) {
-    const update = this.extractPrescriptionData(payload)
+    // const update = this.extractPrescriptionData(payload)
+    console.log(payload);
+
     const result = await this.prescription.findOneAndUpdate(
       // { MaDonThuoc :id},
-      { _id: ObjectId.isValid(id) ? new ObjectId(id) : null },
-      { $set: update },
+      { MaDangKy: ObjectId.isValid(id) ? new ObjectId(id) : null },
+      { $set: {ChiTiet:payload} },
       { returnDocument: 'after' },
     )
     console.log(result)

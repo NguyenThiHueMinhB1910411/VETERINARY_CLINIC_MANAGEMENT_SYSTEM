@@ -59,14 +59,14 @@ export default {
             value: {},
             data: {},
             error: false,
-            selectedFile: {}
+            selectedFile: {},
+            info:{}
         }
     },
     methods: {
         async getDoctor(id) {
             try {
                 this.doctor = await DoctorService.get(id);
-
             } catch (error) {
                 console.log(error);
             }
@@ -126,25 +126,12 @@ export default {
             const rs = await StaffService.create(formData);
 
         },
-        // async handleCreateStaff() {
-        //     const result = await accountService.register(this.data);
-
-        //     const rs = await StaffService.create(this.data);
-        //     this.retrieveDoctors();
-
-        // },
         async handleUpdateDoctor(id) {
-            // var formData = new FormData();
-            // formData.append('file', this.selectedFile);
-
-            // this.buildFormData(formData, this.data)
-
             if (window.confirm("Bạn có cập nhật doctor này ?")) {
                 await DoctorService.update(id, this.value);
                 this.retrieveDoctors();
             }
         },
-
         async handleDeleteDoctor(mabacsi) {
             if (window.confirm("Bạn có muốn xóa doctor này ?")) {
                 DoctorService.delete(mabacsi)
@@ -498,7 +485,7 @@ export default {
                                     </div>
                                 </div>
                                 <!-- <FontAwesomeIcon icon="fa-solid fa-pen-to-square" /> -->
-                                <font-awesome-icon icon="fa-solid fa-pen-to-square" class=" text-warning col" data-bs-toggle="modal" data-bs-target="#exampleModal6" @click="this.value = doctor " />
+                                <font-awesome-icon icon="fa-solid fa-pen-to-square" class=" text-warning col" data-bs-toggle="modal" data-bs-target="#exampleModal6" @click="this.value = {...doctor} " />
                                 <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel6" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content ">
@@ -621,7 +608,6 @@ export default {
         <td>{{ staff.DiaChi }}</td>
         <td>{{ staff.ChucVu }}</td>
         <td>
-
             <font-awesome-icon icon="fa-solid fa-pen-to-square" class=" text-warning col" />
             <font-awesome-icon icon="fa-solid fa-trash" class=" text-danger col" @click="handleDeleteStaff(staff.MaNhanVien)" />
             <font-awesome-icon icon="fa-solid fa-circle-info" class=" col" data-bs-toggle="modal" data-bs-target="#exampleModal8" @click="this.value = staff " />

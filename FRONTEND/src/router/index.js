@@ -296,13 +296,13 @@ const routes = [
 
 
      {
-      path: 'PreDetail/:id',
-      name: 'PreDetail',
+      path: 'PreDetailDoctor/:id',
+      name: 'PreDetailDoctor',
       component: () => import("@/views/Doctor/PreDetail.vue"),
      },
      {
-      path: 'InfoExaminated/:id',
-      name: 'InfoExaminated',
+      path: 'InfoExaminatedDoctor/:id',
+      name: 'InfoExaminatedDoctor',
       component: () => import("@/views/Doctor/InfoExaminated.vue"),
      },
     

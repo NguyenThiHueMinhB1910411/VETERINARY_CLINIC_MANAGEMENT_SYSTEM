@@ -1,12 +1,35 @@
 [
     {
-        "MaNhanVien":"NV01",
-        "TenNhanVien":"Nguyễn Thị Huế Minh",
-        "NgaySinh":"07/06/2001",
-        "GioiTinh":"Nữ",
-        "SoDienThoai":"0389943552",
-        "Gmai":"minh@gmail.com",
-        "ChucVu":"Nhân viên",
-        "DiaChi":"Vĩnh Long"
+        "MaNhanVien": "NV01",
+  "TenNhanVien": "Huế Minh",
+  "SoDienThoai": "0389943552",
+  "DiaChi": "Vĩnh Long",
+  "GioiTinh": "Nữ",
+  "ChucVu": "Nhân viên",
+  "Gmail": "hueminh@gmail.com",
+  "HinhAnh": "avatar_doctor_female1.png",
+  "TenAccount": "hueminh0706"
+    },
+    {
+        "MaNhanVien": "NV02",
+        "TenNhanVien": "Phan Văn Nam",
+        "SoDienThoai": "0384443551",
+        "DiaChi": "Vĩnh Long",
+        "GioiTinh": "Nam",
+        "ChucVu": "Nhân viên nội trú",
+        "Gmail": "vannam@gmail.com",
+        "HinhAnh": "staff_1.avif",
+        "TenAccount": "vannam"
+    },
+    {
+        "MaNhanVien": "NV03",
+        "TenNhanVien": "Trần Ngọc Nhi",
+        "SoDienThoai": "0384443552",
+        "DiaChi": "Hậu Giang",
+        "GioiTinh": "Nữ",
+        "ChucVu": "Nhân viên làm đẹp",
+        "Gmail": "ngoccnhi@gmail.com",
+        "HinhAnh": "staff_1_spa.jfif",
+        "TenAccount": "ngocnhi"
     }
 ]

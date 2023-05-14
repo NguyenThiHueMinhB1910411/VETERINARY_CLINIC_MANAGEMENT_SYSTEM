@@ -1,24 +1,52 @@
 [
+
+  
+
+
   {
     "MaBacSi": "BS01",
-    "TenBacSi": "Đặng Thị Xuân Duyênn",
-    "SoDienThoai": "0389943578",
+    "TenBacSi": "Đặng Thị Xuân Duyên",
+    "SoDienThoai": "0389943550",
     "GioiTinh": "Nữ",
-    "DiaChi": "Vĩnh Long",
+    "DiaChi": "Cần Thơ",
     "ChucVu": "Bác sĩ ngoại khoa",
-    "Gmail": "duyen@gmail.com",
+    "Gmail": "xuanduyen@gmail.com",
     "HinhAnh": "avatar_doctor_female1.png",
-    "TenAccount": "duyen123"
+    "TenAccount": "xuanduyen"
   },
   {
     "MaBacSi": "BS02",
-    "TenBacSi": "Nguyễn Văn An",
-    "SoDienThoai": "0389943550",
+    "TenBacSi": "Nguyễn Thị Kim Ngọc",
+    "SoDienThoai": "0389943551",
+    "GioiTinh": "Nữ",
+    "DiaChi": "An Giang",
+    "ChucVu": "Bác sĩ nội khoa",
+    "Gmail": "kimngoc@gmail.com",
+    "HinhAnh": "avatar_doctor_female2.png",
+    "TenAccount": "kimngoc"
+
+  },
+  {
+    "MaBacSi": "BS03",
+    "TenBacSi": "Nguyễn Quốc Đạt",
+    "SoDienThoai": "0389943552",
     "GioiTinh": "Nam",
-    "DiaChi": "Vĩnh Long",
-    "ChucVu": "Bác sĩ khám bệnh",
-    "Gmail": "an@gmail.com",
+    "DiaChi": "Hậu Giang",
+    "ChucVu": "Bác sĩ",
+    "Gmail": "quocdat@gmail.com",
     "HinhAnh": "avatar_doctor_male1.png",
-    "TenAccount": "an123"
+    "TenAccount": "quocdat"
+
+  },
+  {
+    "MaBacSi": "BS04",
+    "TenBacSi": "Nguyễn Quốc Dũng",
+    "SoDienThoai": "0389943553",
+    "GioiTinh": "Nam",
+    "DiaChi": "Tiền Giang",
+    "ChucVu": "Bác sĩ",
+    "Gmail": "quocdung@gmail.com",
+    "HinhAnh": "avatar_doctor_male2.png",
+    "TenAccount": "quocdung"
   }
 ]

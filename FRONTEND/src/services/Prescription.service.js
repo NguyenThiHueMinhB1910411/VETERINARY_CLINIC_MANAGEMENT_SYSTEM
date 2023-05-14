@@ -12,6 +12,7 @@ class PrescriptionService {
     console.log(id,data)
     return (await this.api.post(`/${id}`,data)).data;
   }
+ 
   async getAll() {
     return (await this.api.get('/')).data
   }

@@ -156,6 +156,23 @@ class RegistrationInformationService {
           
           "<br/><small> Trân trọng cảm ơn </small>,",
       };
+    } else {
+      var mainOptions = {
+        from: " VETERINARY CLINIC",
+        to: ri.Gmail,
+        subject: "PHẢN HỒI KẾT QUẢ ĐĂNG KÝ",
+        text: "Bạn đã nhận tin nhắn đến từ  VETERINARY CLINIC",
+        html:
+
+          " Xin chào " +
+          ri.TenKhachHang +
+          "<br/> Yêu cầu đăng ký về dịch vụ "  +
+             ri.TenLoaiDichVu
+           +
+          " của bạn đã bỵ hủy do bị trùng lịch với lịch khám khác. Chúng tôi rất mong bạn thông cảm. Bạn có thể vào hệ thống vào đặt lịch lại vào một ngày khác. <br>"+
+          
+          "<br/><small> Trân trọng cảm ơn </small>,",
+      };
       transporter.sendMail(mainOptions, function (err, info) {
         if (err) {
           console.log(err);

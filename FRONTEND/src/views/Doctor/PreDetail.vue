@@ -72,6 +72,7 @@ export default {
 };
 </script>
 <template>
+  <h1>DOCTOR</h1>
   <main style="background-color: white !important">
     <div class="mt-3">
       <button
@@ -108,6 +109,7 @@ export default {
       >
         <table class="table">
           <tr>
+           
             <th>Ngày kê đơn thuốc:</th>
 
             <td>{{ this.data.NgayKeDon }}</td>

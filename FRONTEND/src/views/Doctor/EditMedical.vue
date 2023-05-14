@@ -6,7 +6,7 @@ import registrationInformationService from "../../services/registrationInformati
 export default {
   data() {
     return {
-     // id: this.$route.params.id,
+      id: this.$route.params.id,
       listMedicalSupplies: [],
       id: this.$route.params,
       chitiet:[],
@@ -27,6 +27,41 @@ export default {
     };
   },
   methods: {
+    async addMedical() {
+      const giasanpham = await MedicalSuppliesService.getMedical({
+        service: this.data.service,
+      });
+      
+      this.sum += giasanpham.gia * this.data.soluong;
+      this.ChiTiet.push({
+        service: this.data.service,
+        soluong: this.data.soluong,
+        gia: giasanpham.gia * this.data.soluong,
+        slSang: this.data.slSang,
+        slTrua: this.data.slTrua,
+        slChieu: this.data.slChieu,
+  
+      });
+
+      (this.data.service = ""),
+        (this.data.soluong = 0),
+        (this.data.slTrua = 0),
+        (this.data.slSang = 0),
+        (this.data.slChieu = 0);
+    },
+    async handleUpdate(id) {
+      console.log();
+            if (confirm("Bạn có cập nhật đơn thuốc này ?")) {
+                await PrescriptionService.update(id,this.ChiTiet);
+               
+            }
+            this.$router.push({ name: "SelfCalenadar" });
+        },
+       
+    async retrieveList() {
+      this.listMedicalSupplies = await MedicalSuppliesService.getAll();
+      this.info = await registrationInformationService.getById(this.id);
+    },
     async getInfo(id) {
             try {
                const result = await PrescriptionService.get(id);
@@ -43,13 +78,14 @@ export default {
   },
   created() {
     this.getInfo(this.$route.params.id);
+    this.retrieveList();
   },
 };
 </script>
 <template>
   <div class="my-3 py-3 bg-white">
     <div class="d-flex justify-content-between flex-row">
-      <h5 class="fw-bold text-uppercase">Chỉnh sửa đơn thuốc</h5>
+      <h5 class="fw-bold text-uppercase ">Chỉnh sửa đơn thuốc</h5>
       <button class="btn btn-primary p-2 bg-primary" @click="addMedical">
         Thêm
       </button>
@@ -61,7 +97,7 @@ export default {
           <select
             style="height: 38px; border-radius: 5px; border: 1px solid gray"
             :required="true"
-            v-model="this.data.ChiTiet.service"
+            v-model="data.service"
           >
             <option
               v-for="(medicalSupplies, index) in this.listMedicalSupplies"
@@ -79,7 +115,7 @@ export default {
             class="form-control w-100"
             required
             placeholder="Nhập số lượng"
-            v-model="this.data.ChiTiet.soluong"
+            v-model="this.data.soluong"
           />
         </div>
       </div>
@@ -92,7 +128,7 @@ export default {
             id="formGroupExampleInput"
             required
             placeholder="Nhập số lượng thuốc"
-            v-model="this.data.ChiTiet.slSang"
+            v-model="this.data.slSang"
           />
         </div>
         <div class="me-2 d-flex flex-column" style="width: 33%">
@@ -104,7 +140,7 @@ export default {
             class="form-control"
             id="formGroupExampleInput"
             required
-            v-model="this.data.ChiTiet.slTrua"
+            v-model="this.data.slTrua"
           />
         </div>
         <div class="d-flex flex-column" style="width: 33%">
@@ -116,7 +152,7 @@ export default {
             class="form-control ms-1"
             id="formGroupExampleInput"
             required
-            v-model="this.data.ChiTiet.slChieu"
+            v-model="this.data.slChieu"
           />
         </div>
       </div>
@@ -177,13 +213,7 @@ export default {
         <button
           type="button"
           class="btn btn-primary"
-          @click="
-            handleSubmit({
-              ...prescription,
-              TrangThaiKeDon: 'Đã kê đơn',
-            })
-          "
-          data-bs-dismiss="modal"
+          @click="handleUpdate(this.$route.params.id)"
         >
           Lưu
         </button>

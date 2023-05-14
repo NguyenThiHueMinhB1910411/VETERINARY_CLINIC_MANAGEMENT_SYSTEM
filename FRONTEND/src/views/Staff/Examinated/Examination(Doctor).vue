@@ -150,7 +150,8 @@ export default {
               <td>{{ prescription.GioKham }}</td>
                                         <td>{{ prescription.SoDienThoai }}</td>
                                         <td>
-                                            <button type="button" :class="`text-light ${prescription.ThanhToan== 'Đã thanh toán'?'disable1':'active1'}` "  :disabled="registrationInformation.ThanhToan== 'Đã thanh toán'" @click="
+                                            <button type="button" :class="`text-light ${prescription.ThanhToan== 'Đã thanh toán'?'disable1':'active1'}` "
+                                              :disabled="prescription.ThanhToan== 'Đã thanh toán'" @click="
                           handleStatus({
                               ...prescription,
                               ThanhToan: 'Đã thanh toán',
@@ -194,6 +195,7 @@ export default {
 </template>
 
 <style scoped>
+
 button:disabled:hover{
   animation: shake 200ms 2;
 

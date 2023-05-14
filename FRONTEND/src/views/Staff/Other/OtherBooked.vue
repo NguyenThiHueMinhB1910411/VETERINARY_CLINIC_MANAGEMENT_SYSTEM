@@ -46,14 +46,7 @@ export default {
     };
   },
   methods: {
-    search(event) {
-      this.registrationInformation = this.listRegistrationInformation.filter(
-        (e) =>
-          e.TenKhachHang.toLowerCase().includes(
-            event.target.value.toLowerCase()
-          ) || e.SoDienThoai.includes(event.target.value)
-      );
-    },
+
     async getDoctor(id) {
       try {
         this.doctor = await DoctorService.get(id);
@@ -107,16 +100,17 @@ export default {
 
         this.statistical.all = this.listRegistrationInformation.length;
 
-        this.statistical.LamDep = this.listRegistrationInformation.filter(
-          (i) => i.TenLoaiDichVu == "Làm đẹp"
-        ).length;
-        this.statistical.NoiTru = this.listRegistrationInformation.filter(
-          (i) => i.TenLoaiDichVu == "Nội trú"
-        ).length;
-        this.statistical.KhamBenh = this.listRegistrationInformation.filter(
-          (i) => i.TenLoaiDichVu == "Khám bệnh"
-        ).length;
-        console.log(this.listRegistrationInformation);
+        // this.statistical.LamDep = this.listRegistrationInformation.filter(
+        //   (i) => i.TenLoaiDichVu == "Làm đẹp"
+        // ).length;
+        // this.statistical.NoiTru = this.listRegistrationInformation.filter(
+        //   (i) => i.TenLoaiDichVu == "Nội trú"
+        // ).length;
+        // this.statistical.KhamBenh = this.listRegistrationInformation.filter(
+        //   (i) => i.TenLoaiDichVu == "Khám bệnh"
+        // ).length;
+        this.registrationInformation = this.listRegistrationInformation;
+        // console.log(this.listRegistrationInformation);
       } catch (error) {
         console.log(error);
       }
@@ -140,21 +134,18 @@ export default {
         (i) => i.TenLoaiDichVu == filter
       );
     },
-    // serviceCheck(a) {
-    //     listService.forEach((value) => {
-    //         if (value.TenDichVu == a) {
-    //             this.dichvu = value;
-    //             return this.dichvu;
-    //         }
-    //     });
-    // },
-    // serviceCheck(cn) {
-    //     if (0 < cn <= 5) {
-    //         return cn.GiaCoVua;
-    //     } else {
-    //         return cn.GiaCoLon;
-    //     }
-    // },
+    search(event) {
+      this.registrationInformation = this.listRegistrationInformation.filter(
+        (e) =>
+        e.TenKhachHang.toLowerCase().includes(event.target.value.toLowerCase()) 
+        ||e.UsernameVatNuoi.toLowerCase().includes(event.target.value.toLowerCase()) 
+        ||e.TenLoaiDichVu.toLowerCase().includes(event.target.value.toLowerCase()) 
+        || e.SoDienThoai.includes(event.target.value)
+
+      );
+    },
+ 
+    
   },
 
   created() {
@@ -169,7 +160,7 @@ export default {
      
       <div>
         <div class="row my-3">
-            <div class="col-4">
+            <div class="col-7">
                 <div class="d-flex">
                     <div class="" style="font-size: 16px;" @click="retrieveRequire">
                         <button class="btn style-button text-light px-2">
@@ -184,9 +175,22 @@ export default {
                 </div>
 
             </div>
-            <div class="col-8">
-                <!-- <p class="title-page" style="">Dịch vụ đã đăng ký trực tuyến</p> -->
-            </div>
+            <div class="col-5">
+          <form
+            role="search"
+            method="POST"
+            class="search-form"
+            action="/search"
+            name="search-form"
+          >
+            <input
+              @input="search($event)"
+              type="search"
+              placeholder="Search"
+              class="form-control w-75 d-flex justify-content-right mr-0"
+            />
+          </form>
+        </div>
           <div class="py-3">
           
 
@@ -222,7 +226,7 @@ export default {
                       .registrationInformation"> -->
                     <tr
                       v-for="(registrationInformation, index) in this
-                        .listRegistrationInformation"
+                        .registrationInformation"
                     >
                       <th scope="row m-0">{{ index + 1 }}</th>
                       <td>{{ registrationInformation.TenKhachHang }}</td>

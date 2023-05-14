@@ -13,7 +13,7 @@ import {
 } from "@/Store/userStore";
 
 export default {
-  
+
     components: {
         PublicFooters,
         HeaderPublic,
@@ -220,33 +220,28 @@ export default {
                                                 </td>
 
                                             </tr>
-                                            <tr class="create-space">
-                                                <td>
-                                                    Thời gian đặt hẹn:
-                                                    <span class="text-danger fw-bold">*</span>
-                                                </td>
+                                            <tr class="">
+                                    <td>
+                                        Thời gian đặt hẹn
+                                        <span class="text-danger fw-bold">*</span>:
+                                    </td>
+                                    <td>
+                                        <input type="date" id="demo" min="2023-05-15" max="2023-08-30" v-model="this.data.NgayKham" />
+                                    </td>
+                                </tr>
+                                <tr class="create-space">
+                                    <td>
 
-                                                <td>
- 
-                                                </td>
+                                        <label for="appt-time">Chọn giờ: </label>
+                                    </td>
 
-                                                <td>
-                                                    <input type="date" id="demo" min="2023-05-15" max="2023-08-30" v-model="this.data.NgayKham" />
-                                                </td>
-                                            </tr>
-                                            <tr class="create-space">
-                                                <td>
+                                    <td>
 
-                                                    <label for="appt-time">Chọn giờ: </label>
-                                                </td>
+                                        <input id="appt-time" type="time" name="appt-time" v-model="this.data.GioKham" />
 
-                                                <td>
+                                    </td>
 
-                                                    <input id="appt-time" type="time" name="appt-time" v-model="this.data.GioKham" />
-
-                                                </td>
-
-                                            </tr>
+                                </tr>
 
                                         </table>
                                         <div class="form-group">

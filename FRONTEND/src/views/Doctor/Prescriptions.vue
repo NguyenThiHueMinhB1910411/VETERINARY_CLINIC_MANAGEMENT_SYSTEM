@@ -201,7 +201,7 @@ export default {
                                             </div> -->
                                         <td class="px-2">
                                             <router-link :to="{
-                            name: 'InfoExaminated',
+                            name: 'InfoExaminatedDoctor',
                             params: { id: prescription._id },
                           }">
                                                 <font-awesome-icon icon="fa-solid fa-circle-info" class="text-dark" />
@@ -209,7 +209,7 @@ export default {
                                         </td>
                                         <td>
                                             <router-link :to="{
-                            name: 'PreDetail',
+                            name: 'PreDetailDoctor',
                             params: { id: prescription._id },
                           }">
                                                 <font-awesome-icon icon="fa-solid fa-eye" class="text-danger" />
