@@ -138,7 +138,10 @@ export default {
                             </div>
                             <div class="col d-flex justify-content-end">
                                 <b>Ngày tái khám: </b> &nbsp;
-                                <span>{{ el.NgayTaiKham }}</span>
+                                <span>
+                                    {{ el.NgayTaiKham }} - 
+                                    {{ el.GioTaiKham }}
+                                </span>
 
                             </div>
                             

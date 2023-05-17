@@ -80,6 +80,7 @@ export default {
             this.registrationInformation = this.listRegistrationInformation.filter(
                 (e) =>
                 e.TenKhachHang.toLowerCase().includes(event.target.value.toLowerCase()) ||
+                e.UsernameVatNuoi.toLowerCase().includes(event.target.value.toLowerCase()) ||
                 e.SoDienThoai.includes(event.target.value) ||
                 e.TenLoaiDichVu.toLowerCase().includes(event.target.value.toLowerCase()) ||
                 e.TrangThaiPheDuyet.toLowerCase().includes(event.target.value.toLowerCase())||
@@ -126,10 +127,12 @@ export default {
                     <tr class="" style="color: #cc4d26">
                         <th>STT</th>
                         <th>Tên Khách hàng</th>
+                        <th>Tên vật nuôi</th>
                         <th>SĐT</th>
                         <th>Thời gian gửi</th>
                 
-                        <th >Giờ khám</th>
+                        <th >Ngày khám</th>
+                        <th>Giờ khám</th>
                       
                         <th>Loại dịch vụ</th>
                         <th>Trạng thái</th>
@@ -143,15 +146,18 @@ export default {
                 .registrationInformation">
                         <td scope="row m-0">{{ index + 1 }}</td>
                         <td>{{ registrationInformation.TenKhachHang }}</td>
+                        <td>{{ registrationInformation.UsernameVatNuoi }}</td>
+
                         <td>{{ registrationInformation.SoDienThoai }}</td>
 
                         <td>{{ registrationInformation.NgayDangKy }}</td>
                       
                         <td >
-                                    {{ registrationInformation.GioKham }}&nbsp;
                                     {{ registrationInformation.NgayKham }}
+                                   
                                     
                                 </td>
+                                <td> {{ registrationInformation.GioKham }}</td>
                                
                         <td >
                             {{ registrationInformation.TenLoaiDichVu }}
@@ -194,9 +200,9 @@ export default {
                         " /> 
                             
                         </td>
-                        <td>
+                        <td  style="font-size: 13px;">
                           <a class="col px-2">
-                                <font-awesome-icon icon="fa-solid fa-circle-info" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="($event) => (this.value = registrationInformation)" />
+                                <font-awesome-icon icon="fa-solid fa-circle-info"  style="font-size: 13px;" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="($event) => (this.value = registrationInformation)" />
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

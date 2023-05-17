@@ -125,7 +125,6 @@ a{
     font-size: 25px;
     position: sticky;
     top: 0;
-    z-index: 1000;
 }
 
 .title-name{

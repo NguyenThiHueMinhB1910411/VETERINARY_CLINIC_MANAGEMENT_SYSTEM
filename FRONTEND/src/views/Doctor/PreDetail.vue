@@ -145,7 +145,17 @@ export default {
               <tr v-for="element in this.data.ChiTiet">
                 <td>{{ element.service }}</td>
                 <td>{{ element.soluong }}</td>
-                <td>{{ element.gia }}</td>
+                <td>
+                  <!-- {{ element.gia }} -->
+                  {{
+                  new Intl.NumberFormat("it-IT", {
+                    style: "currency",
+                    currency: "VND",
+                  })
+                    .format(element.gia)
+                    .replace("VND", "")
+                }}
+                </td>
                 <td>{{ element.slSang }}</td>
                 <td>{{ element.slTrua }}</td>
                 <td>{{ element.slChieu }}</td>

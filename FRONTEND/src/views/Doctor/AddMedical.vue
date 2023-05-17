@@ -71,9 +71,15 @@ export default {
         (this.data.slSang = 0),
         (this.data.slChieu = 0);
     },
-    deleteMedical(i) {
-      this.listMedical.splice(i, 1);
-    },
+    // deleteMedical(i) {
+    //   this.listMedical.splice(i, 1);
+    // },
+    deleteMedical(element,index){
+        this.listMedical.splice(index, 1);
+        console.log(this.sum,element.gia, element.soluong);
+        this.sum -= element.gia;
+        console.log(this.ChiTiet, this.sum)
+     }   ,
     async handleSubmit() {
       this.NgayKeDon= new Date().toLocaleString("vi-VN", {
         timeZone: "Asia/Ho_Chi_Minh",
@@ -278,7 +284,7 @@ export default {
             
             </td>
             <td>
-              <button @click="deleteMedical(index)" class="bg-danger text-light rounded border-light"> x </button>
+              <button @click="deleteMedical(medical,index)" class="bg-danger text-light rounded border-light"> x </button>
             </td>
           </tr>
         </tbody>

@@ -32,10 +32,10 @@ export default {
                         this.$router.push({ name: "HRM" });
                     }
                     // trang staff
-                    else if ( this.result.TenAccount == "staff" || this.result.TenAccount == "hueminh0706" ){
+                    else if ( this.result.TenAccount == "staff" || this.result.TenAccount == "vannam" ){
                       this.$router.push({ name: "Confirm"})
                     }
-                    else if ( this.result.TenAccount == "doctor" || this.result.TenAccount == "duyen123"){
+                    else if ( this.result.TenAccount == "doctor" || this.result.TenAccount == "xuanduyen"){
                       this.$router.push({ name:"SelfCalenadar"})
                     }
 

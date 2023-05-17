@@ -88,12 +88,11 @@ library.add(faHouse, faGear, faUser, faUsers, faDog,faArrowDown,faCalendarCheck,
         Quản lý hồ sơ</router-link
       >
     </div>
-    <div class="ms-4 pb-4 text-light" style="font-weight: 600;">
+    <!-- <div class="ms-4 pb-4 text-light" style="font-weight: 600;">
       <router-link :to="{ name: 'Examinated' }">
         <font-awesome-icon icon="fa-solid fa-credit-card" class="px-2" />
         Quản lý thanh toán </router-link>
-        <!-- Dịch vụ khác </router-link> -->
-    </div>
+    </div> -->
     <hr class="text-dark" />
     <div class="ms-4 text-dark" style="font-weight: 600;">
       <a
