@@ -36,49 +36,7 @@ export default {
     },
     methods: {
 
-        // setLoaded: function () {
-        //     paypal
-        //         .Buttons({
-        //             createOrder: (data, action) => {
-        //                 return action.order.create({
-        //                     purchase_units: [{
-        //                         description: this.product.description,
-        //                         amount: {
-        //                             currency_code: "USD",
-        //                             value: this.product.price
-        //                         }
-        //                     }]
-        //                 });
-        //             },
-        //             onApprove: async (data, actions, resp) => {
-        //                 // const order = await action.order.capture();
-        //                 // this.data;
-        //                 // submitOrder()
-        //                 // this.paidFor = true;
-        //                 // this.loading = false;
-        //                 // this.submitDomain();
-        //                 return actions.order.capture().then(function (details) {
-        //                     const {
-        //                         payer
-        //                     } = details;
-        //                     console.log(details);
-        //                     // inforData.orderId = details.id;
-        //                     // inforData.create_at = details.create_time;
-
-        //                     // addBill({
-        //                     //     ...inforData,
-        //                     //     thongtinhanhkhach: thongtinhanhkhach
-        //                     // });
-        //                     setSuccess(true);
-        //                     //handleApprove();
-        //                 });
-        //             },
-        //             onError: err => {
-        //                 console.log(err);
-        //             }
-        //         })
-        //         .render("#paypal-button-container");
-        // },
+       
 
         submitDomain() {
 
@@ -98,13 +56,7 @@ export default {
 
         },
     },
-    // mounted() {
-    //     const script = document.createElement("script");
-    //     script.src =
-    //         "https://www.paypal.com/sdk/js?client-id=ATEMg2mbQ8vBzjmJe5BlUjR-E2swm1lCz5O5c9JhrcNFnIsHKYcoFd881yFPObcHnj05gN3ERU30IIGO";
-    //     script.addEventListener("load", this.setLoaded);
-    //     document.body.appendChild(script);
-    // },
+ 
     created() {
         this.retrievePrescription();
         this.handleStatus();
@@ -223,53 +175,7 @@ export default {
                                                 </div>
                                             </div>
 
-                                            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">
-                                                                <font-awesome-icon icon="fa-solid fa-credit-card" class="px-4" />
-                                                                <span>Thanh toánnn</span>
-                                                            </h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <table>
-                                                                <tr>
-                                                                    <td class="">
-                                                                        <span class="px-2">Số tiền cần thanh toán</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <input type="text" class="form-control justify-content-center" placeholder="Vui lòng nhập số tiền..." />
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="d-flex justify-content-start">
-                                                                        <span class="px-2">Tiền nhận được</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <input type="text" class="form-control" />
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                                                Hủy
-                                                            </button>
-                                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="
-                                    handleStatus({
-                                      ...prescription,
-                                      TrangThaiThanhToan: 'Đã thanh toán',
-                                    })
-                                  ">
-                                                                Thanh toán
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-                                        </td>
+                                       </td>
                                     </tr>
                                 </tbody>
                             </table>

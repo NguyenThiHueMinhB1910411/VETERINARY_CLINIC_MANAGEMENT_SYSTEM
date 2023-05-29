@@ -43,37 +43,7 @@ export default {
         };
     },
     methods: {
-        // setLoaded: function () {
-        //     paypal
-        //         .Buttons({
-        //             createOrder: (data, action) => {
-        //                 return action.order.create({
-        //                     purchase_units: [{
-        //                         description: this.product.description,
-        //                         amount: {
-        //                             currency_code: "USD",
-        //                             value: this.product.price
-        //                         }
-        //                     }]
-        //                 });
-        //             },
-        //             onApprove: async (data, actions, resp) => {
-        //                 return actions.order.capture().then(function (details) {
-        //                     const {
-        //                         payer
-        //                     } = details;
-        //                     console.log(details);
-
-        //                     setSuccess(true);
-        //                 });
-        //             },
-        //             onError: err => {
-        //                 console.log(err);
-        //             }
-        //         })
-        //         .render("#paypal-button-container");
-        // },
-
+    
         submitDomain() {},
         async retriveMedicalRecord() {
             try {

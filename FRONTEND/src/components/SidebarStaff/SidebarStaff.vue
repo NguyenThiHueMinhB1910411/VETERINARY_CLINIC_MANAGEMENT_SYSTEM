@@ -43,7 +43,6 @@ library.add(faHouse, faGear, faUser, faUsers, faDog,faArrowDown,faCalendarCheck,
     <hr class="text-dark" />
     <div class="ms-4 pb-4 text-light " style="font-weight: 600;">
       <router-link :to="{ name: 'Confirm' }">
-        <!-- <font-awesome-icon icon="fa-solid fa-calendar-check" class="px-2 " /> -->
         <font-awesome-icon icon="fa-solid fa-check" class="px-2  " />
         <span >
           Quản lý yêu cầu
@@ -62,7 +61,7 @@ library.add(faHouse, faGear, faUser, faUsers, faDog,faArrowDown,faCalendarCheck,
     </div>
     <div class="ms-4 pb-4 text-light" style="font-weight: 600;">
       <router-link :to="{ name: 'Booked' }">
-        <!-- <font-awesome-icon icon="fa-solid fa-calendar-days" class="px-2" /> -->
+       
         <font-awesome-icon icon="fa-solid fa-user-doctor" class="px-2" />
         Chọn bác sĩ</router-link
       >
@@ -76,23 +75,18 @@ library.add(faHouse, faGear, faUser, faUsers, faDog,faArrowDown,faCalendarCheck,
     </div>
     <div class="ms-4 pb-4 text-light" style="font-weight: 600;">
       <router-link :to="{ name: 'ExaminationDoctor' }">
-        <!-- <font-awesome-icon icon="fa-solid fa-dog" class="px-2"/> -->
+       
         <font-awesome-icon icon="fa-solid fa-hospital" class="px-2" />
         Quản lý khám bệnh</router-link
       >
     </div>
     <div class="ms-4 pb-4 text-light" style="font-weight: 600;" >
       <router-link :to="{ name: 'MedicalRecord' }">
-        <!-- <font-awesome-icon icon="fa-solid fa-notes-medical" class="px-2" /> -->
         <font-awesome-icon icon="fa-solid fa-file"  class="px-2"/>
         Quản lý hồ sơ</router-link
       >
     </div>
-    <!-- <div class="ms-4 pb-4 text-light" style="font-weight: 600;">
-      <router-link :to="{ name: 'Examinated' }">
-        <font-awesome-icon icon="fa-solid fa-credit-card" class="px-2" />
-        Quản lý thanh toán </router-link>
-    </div> -->
+  
     <hr class="text-dark" />
     <div class="ms-4 text-dark" style="font-weight: 600;">
       <a

@@ -9,17 +9,7 @@ export default {
 };
 </script>
 
-<!-- <template>
-<HeaderAdmin/>
-<div class="row m-0">
-    <SidebarStaff class="col-2" />
 
-    <router-view class="col-9 ">
-
-    </router-view>
-
-</div>
-</template> -->
 
 <template>
     <div class="row">

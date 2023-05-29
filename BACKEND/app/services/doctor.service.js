@@ -78,18 +78,6 @@ class DoctorService {
     return result;
   }
 
-  // async update(id, payload) {
-  //   const update = this.extractDoctorData(payload);
-  //   const result = await this.doctor.findOneAndUpdate(
-  //     {  MaBacSi :id},
-    
-  //     { $set: update },
-  //     { returnDocument: "after" }
-  //   );
-  //   console.log(result);
-  //   console.log(lỗi)
-  //   return result.value;
-  // }
 
 }
 module.exports = DoctorService;

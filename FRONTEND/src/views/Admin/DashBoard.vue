@@ -29,7 +29,7 @@ import {
     faUserDoctor,
     faCalendarDays,
 } from "@fortawesome/free-solid-svg-icons";
-// import BarChart from '../Chart/index.Vue';
+
 library.add(
     faHouse,
     faGear,

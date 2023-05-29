@@ -22,13 +22,7 @@ class MedicalSuppliesService {
     this.medicalSupplies = client.db().collection("medicalSupplies");
   }
 
-  // async create(payload) {
-  //   console.log(payload);
-  //   const data = this.extractMedicalSupplieseData(payload);
-  //   console.log(data);
-  //   const result = await this.medicalSupplies.insertOne(data);
-  //   return result.value;
-  // }
+ 
   async create(file,payload) {
     const data = this.extractMedicalSupplieseData({...payload, HinhAnh: file.name});
 

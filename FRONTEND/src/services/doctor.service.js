@@ -13,16 +13,7 @@ class DoctorService {
       })
     ).data
   }
-  // async update(id, data) {
-  //   console.log(id, data)
-  //   return (await this.api.post(`/${id}`, data,{
-  //     headers: {
-  //       'Content-Type': 'multipart/form-data',
-  //     },
 
-  //   } )
-  //   ).data
-  // }
   
   async update(id, data) {
     console.log(id, data)
@@ -43,9 +34,6 @@ class DoctorService {
     return (await this.api.delete(`/${id}`)).data
   }
 
-  // async update(id, data) {
-  //   return (await this.api.put(`/${id}`, data)).data;
-  // }
 
  
 }

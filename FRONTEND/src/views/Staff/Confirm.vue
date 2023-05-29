@@ -323,16 +323,6 @@ export default {
 <style>
 
 
-/* .active1 {
-  background-color: #0f418b;
-  border-radius: 8px;
-  border: solid 2px #071e42;
-}
-.disable1 {
-  background-color: #069653c4;
-  border-radius: 8px;
-} */
-
 
 button:disabled:hover{
   animation: shake 200ms 2;

@@ -77,15 +77,7 @@ export default {
             }
             this.$router.push({ name: "SelfCalenadar" });
         },
-    // async handleUpdate(id) {
-    //   // console.log();
-    //   console.log(this.prescription)
-    //         // if (confirm("Bạn có cập nhật đơn thuốc này ?")) {
-    //          await PrescriptionService.update(id,this.prescription);
-               
-    //         // }
-    //         // this.$router.push({ name: "SelfCalenadar" });
-    //     },
+ 
        
     async retrieveList() {
       this.listMedicalSupplies = await MedicalSuppliesService.getAll();

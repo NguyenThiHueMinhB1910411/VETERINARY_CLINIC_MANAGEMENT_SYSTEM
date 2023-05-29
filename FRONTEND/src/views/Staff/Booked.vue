@@ -55,19 +55,6 @@ export default {
             this.retrieveRequire();
         },
 
-        // async retrieveStatus() {
-        //     try {
-        //         this.listRegistrationInformation = await registrationInformationService.getAll();
-        //         this.filtered = this.listRegistrationInformation;
-        //         this.statistical.all = this.listRegistrationInformation.length;
-        //         this.statistical.daDuyet = this.listRegistrationInformation.filter(e => e.TrangThaiPheDuyet == 'Đã duyệt').length;
-        //         this.statistical.daHuy = this.listRegistrationInformation.filter(e => e.TrangThaiPheDuyet == 'Đã hủy').length;
-        //         this.statistical.choXacNhan = this.listRegistrationInformation.filter(e => e.TrangThaiPheDuyet == 'Chờ xác nhận').length;
-        //         console.log(this.listRegistrationInformation);
-        //     } catch (error) {
-        //         console.log(error);
-        //     }
-        // },
         async retrieveRequire() {
             try {
 
@@ -111,9 +98,7 @@ export default {
     },
     mounted() {
 
-        // this.getDoctor(this.$route.params.id);
-        // this.getStaff(this.$route.params.id);
-
+      
         this.retrieveRequire();
         this.retrieveService();
         this.retrieveDoctors();
@@ -211,13 +196,7 @@ export default {
                                                                 <td> <input class="form-check-input" :value="doctor.TenBacSi" type="radio" name="flexRadioDefault" id="flexRadioDefault2" v-model="this.select.TenBacSi"></td>
 
                                                             </tr>
-                                                            <!-- <tr v-for="(staff, index) in this.listStaff">
-                                                                    <td>{{ staff.TenNhanVien }}</td>
-                                                                    <td>{{ staff.ChucVu }}</td>
-                                                                    <td> <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked :value="staff.TenNhanVien"></td>
-
-                                                                </tr> -->
-
+                                                       
                                                         </tbody>
                                                     </table>
                                                 </div>

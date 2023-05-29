@@ -24,13 +24,7 @@ async get(id) {
 async getMedical(data){
   return (await this.api.post("/findMedical",data)).data;
 }
-// async update(id, data) {
-//   return (await this.api.put(`/${id}`, data)).data;
-// }
-// async delete(id) {
-//   console.log(id)
-//   return (await this.api.delete(`/${id}`)).data;
-// }
+
 async delete(id) {
   console.log(id)
   return (await this.api.delete(`/${id}`)).data

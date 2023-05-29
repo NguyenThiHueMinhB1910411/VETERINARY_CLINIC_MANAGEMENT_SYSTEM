@@ -1,0 +1,58 @@
+[
+  {
+    "TenAccount": "staff",
+    "Password": "$2b$07$NTxU0Sec.wYxHHjmJ/RJLOkBJLr/c5vT7NnU1iL/bEbWp4HxYB21.",
+    "Gmail": "staff@gmail.com"
+  },
+  {
+    "TenAccount": "admin",
+    "Password": "$2b$07$YpYOw0xfisiNnC4IQPCJJ.nuxL2kV8bcuzKk.GGuxV9gdFSUrR5RK",
+    "Gmail": "admin@gmail.com"
+  },
+  {
+    "TenAccount": "hueminh",
+    "Password": "$2b$07$VOOzR4zh1qKedor70NohCeOh3d5WD0.3iWkNp32gxRsNvMbHYp03i",
+    "Gmail": "hueminh@gmail.com"
+  },
+  {
+    "TenAccount": "doctor",
+    "Password": "$2b$07$Eo.Uja45msjbBxO54sCHC.s.0bI.81gMTqw3EQSK2WZQuhJy70uoS",
+    "Gmail": "doctor@gmail.com"
+  },
+  {
+    "TenAccount": "xuanduyen",
+    "Password": "$2b$07$Tgpjqte80hFY67GVtuTapeTPCE14X7tl5Nvc1B4sTu8tiB.dY3AfC",
+    "Gmail": "xuanduyen@gmail.com",
+    "SoDienThoai": "0389943550"
+  },
+  {
+    "TenAccount": "kimngoc",
+    "Password": "$2b$07$NxqIYvXXN89dHCvHvfQPiOIM0SLoJboJEo/Klibv45m4GubW9OfMy",
+    "Gmail": "kimngoc@gmail.com",
+    "SoDienThoai": "0389943551"
+  },
+  {
+    "TenAccount": "quocdat",
+    "Password": "$2b$07$E11Snwkf13MFbi/BcVUETOscWq1zE5qV9YvoOshcagOhMzhje1cau",
+    "Gmail": "quocdat@gmail.com",
+    "SoDienThoai": "0389943552"
+  },
+  {
+    "TenAccount": "quocdung",
+    "Password": "$2b$07$Sh8UYnPvD76sx4KlmR1/lOupc78hO3FJ6sDfkeyRP8kQeO2k8NOei",
+    "Gmail": "quocdung@gmail.com",
+    "SoDienThoai": "0389943553"
+  },
+  {
+    "TenAccount": "vannam",
+    "Password": "$2b$07$GG2zSaAdKGQo.L6JleT5MuKXEfIyWwQVAMiemMl1FKhB6s7iwZvJq",
+    "Gmail": "vannam@gmail.com",
+    "SoDienThoai": "0384443551"
+  },
+  {
+    "TenAccount": "ngocnhi",
+    "Password": "$2b$07$0KgVVws6BP24EDYEYhg09OUBUZPKdlxF1Lbak0y9PfAU9U5s/UQ.W",
+    "Gmail": "ngoccnhi@gmail.com",
+    "SoDienThoai": "0384443552"
+  }
+]

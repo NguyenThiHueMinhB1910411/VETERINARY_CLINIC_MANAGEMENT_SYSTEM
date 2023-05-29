@@ -65,16 +65,7 @@
   .aboutus-detail{
     font-size: 1.2rem;
   }
-  /* .caption-img{
-    font-size: 1.2rem;
-    color: #000000;
-    position: absolute;
-    top: 8%;
-    left: 16%;
-} */
-/* .about-content{
-  padding: 20px 60px;
-} */
+
 .pet:hover{
   opacity: 0.9;
 }

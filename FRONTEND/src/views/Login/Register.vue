@@ -16,14 +16,7 @@ export default {
         }
     },
     methods: {
-        // async retrieveService() {
-        //     try {
-        //         this.account = await accountService.getAll();
-
-        //     } catch (error) {
-        //         console.log(error);
-        //     }
-        // },
+    
         async handleSubmit() {
 
             const rs = await accountService.register(this.data);
@@ -69,18 +62,12 @@ export default {
                                 <label for="pwd">Mật khẩu:</label>
                                 <input type="password" class="form-control" id="pwd" placeholder="Nhập vào mật khẩu!" required v-model="this.data.Password" />
                             </div>
-                            <!-- <p class="text-danger">
-                                Tên tài khoản hoặc mật khẩu không đúng
-                            </p> -->
+                            
                             <div class="checkbox">
                                 <label><input type="checkbox" class="fw-bolder remember" /> Nhớ
                                     tài khoản này</label>
                             </div>
                             <div>
-                                <!-- <button class="btn btn-primary text-light btn-submit border border-white " @click="handleSubmit">
-                                    Đăng ký
-                                </button> -->
-                                <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary text-light btn-submit border border-white" data-bs-toggle="modal" data-bs-target="#exampleModal"  @click="handleSubmit">
                                     Đăng ký
                                 </button>
@@ -114,10 +101,7 @@ export default {
                                     </span>
                                 </router-link>
                             </div>
-                            <!--                    
-                        <button @click="login(this.taikhoan)"
-                        class="btn btn-primary text-light  btn-submit border border-white ">Đăng
-                        nhập</button> -->
+                         
                         </div>
                     </div>
                 </div>

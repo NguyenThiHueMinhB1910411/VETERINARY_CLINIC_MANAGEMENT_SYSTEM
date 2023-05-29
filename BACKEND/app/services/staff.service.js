@@ -26,13 +26,7 @@ class StaffService {
     const curson = await this.staff.find();
     return await curson.toArray();
   }
-  // async create(payload) {
-  //   console.log(payload);
-  //   const data = this.extractStaffData(payload);
-  //   console.log(data);
-  //   const result = await this.staff.insertOne(data);
-  //   return result.value;
-  // }
+ 
   async create(file, payload) {
     console.log(file);
     const data = this.extractStaffData({...payload, HinhAnh: file.name});

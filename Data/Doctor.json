@@ -1,0 +1,49 @@
+[
+
+  {
+    "MaBacSi": "BS01",
+    "TenBacSi": "Đặng Thị Xuân",
+    "SoDienThoai": "0389943550",
+    "GioiTinh": "Nữ",
+    "DiaChi": "Cần Thơ",
+    "ChucVu": "Bác sĩ ngoại khoa",
+    "Gmail": "xuanduyen@gmail.com",
+    "HinhAnh": "avatar_doctor_female1.png",
+    "TenAccount": "xuanduyen"
+  },
+  {
+    "MaBacSi": "BS02",
+    "TenBacSi": "Nguyễn Thị My",
+    "SoDienThoai": "0389943551",
+    "GioiTinh": "Nữ",
+    "DiaChi": "An Giang",
+    "ChucVu": "Bác sĩ nội khoa",
+    "Gmail": "kimngoc@gmail.com",
+    "HinhAnh": "avatar_doctor_female2.png",
+    "TenAccount": "kimngoc"
+
+  },
+  {
+    "MaBacSi": "BS03",
+    "TenBacSi": "Nguyễn Quốc Anh",
+    "SoDienThoai": "0389943552",
+    "GioiTinh": "Nam",
+    "DiaChi": "Hậu Giang",
+    "ChucVu": "Bác sĩ",
+    "Gmail": "quocdat@gmail.com",
+    "HinhAnh": "avatar_doctor_male1.png",
+    "TenAccount": "quocdat"
+
+  },
+  {
+    "MaBacSi": "BS04",
+    "TenBacSi": "Trần Hồng Phúc",
+    "SoDienThoai": "0389943553",
+    "GioiTinh": "Nam",
+    "DiaChi": "Tiền Giang",
+    "ChucVu": "Bác sĩ",
+    "Gmail": "quocdung@gmail.com",
+    "HinhAnh": "avatar_doctor_male2.png",
+    "TenAccount": "quocdung"
+  }
+]

@@ -180,15 +180,7 @@ export default {
               </div>
               <br />
             </div>
-            <!-- <div class="row">
-              <div class="text-center">Chữ ký:</div>
-              <div
-                class="fw-bold text-center"
-                v-if="this.data.info1 !== undefined"
-              >
-                {{ this.data.info1.TenBacSi }}
-              </div>
-            </div> -->
+          
           </div>
         </div>
       </div>

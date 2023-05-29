@@ -274,10 +274,7 @@ export default {
                           })
                         "
                       />
-                      <!-- <router-link :to="{ name: 'PreDetail', params: { id: prescription._id } }">
-                                                <font-awesome-icon icon="fa-solid fa-pen-to-square" class="text-dark" />
-                                            </router-link> -->
-
+                
                       <font-awesome-icon
                         icon="fa-solid fa-circle-info"
                         data-bs-toggle="modal"

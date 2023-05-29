@@ -49,14 +49,7 @@ class FeedbackService {
     const result = await this.feedback.insertOne(data);
     return result.value;
   }
-  // async delete(id) {
-  //   console.log(id);
-  //   const result = await this.Account.findOneAndDelete({
-  //     //  TenKhachHang :id
-  //     _id: ObjectId.isValid(id) ? new ObjectId(id) : null,
-  //   })
-  //   return result;
-  // }
+
   async delete(id) {
     console.log(id);
     const result = await this.Account.findOneAndDelete({

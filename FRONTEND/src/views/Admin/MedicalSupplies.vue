@@ -1,7 +1,5 @@
 <script>
-// import {
-//     userAccStore
-// } from "@/Store/userStore";
+
 import {
     library
 } from "@fortawesome/fontawesome-svg-core";
@@ -44,7 +42,7 @@ library.add(
     faRotateRight,
 );
 
-// import medicalSupplies from "../../services/medicalSupplies.service";
+
 import MedicalSuppliesService from "../../services/medicalSupplies.service";
 
 export default {
@@ -71,15 +69,6 @@ export default {
                 formData.append(parentKey, value);
             }
         },
-
-        // async getMedicalSupplies(id) {
-        //     try {
-        //         this.medicalSupplies = await MedicalSuppliesService.get(id);
-
-        //     } catch (error) {
-        //         console.log(error);
-        //     }
-        // },
 
         async retrieveMedical() {
             try {

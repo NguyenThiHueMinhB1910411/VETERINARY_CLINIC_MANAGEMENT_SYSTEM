@@ -111,37 +111,7 @@ export default {
                             </tr>
                         </tbody>
                     </table>
-                    <!-- <table class="table table-hover text-center table-bordered table table-bordered" style=" font-size: 15px; background-color: white;padding-bottom: 80%; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);">
-                        <thead class="">
-                            <tr class="" style="color: #063555">
-                                <th>STT</th>
-                                <th>Tên khách hàng</th>
-                                <th>Tên vật nuôi</th>
-                               
-                                <th>Số điện thoại</th>
-                                <th></th>
-
-                            </tr>
-                        </thead>
-                        <tbody class="text-left">
-                            <tr v-for="(medicalRecord, index) in this
-                      .listMedicalRecord">
-                                <th scope="row m-0">{{ index + 1 }}</th>
-                                <td>{{ medicalRecord.info2.TenKhachHang }}</td>
-                                <td>{{ medicalRecord.info2.UsernameVatNuoi }}</td>
-                                <td>{{ medicalRecord.SoDienThoai }}</td>
-                                <td>
-                                     <router-link :to="{ name: 'InfoMedicalRecord', params: { id: medicalRecord._id } }">
-                                                <font-awesome-icon icon="fa-solid fa-notes-medical" class="px-2 text-success" />
-                                            </router-link>
-                                </td>
-                          
-                            
-
-                            </tr>
-                        </tbody>
-                    </table> -->
-                </div>
+               </div>
             </div>
         </div>
     </div>

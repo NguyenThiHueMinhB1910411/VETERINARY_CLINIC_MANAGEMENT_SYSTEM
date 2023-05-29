@@ -73,25 +73,8 @@ library.add(
 
     </div>
 
-<!-- 
-    <div class=" ms-4 pb-4">
-        <a class="" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
-            <font-awesome-icon icon="fa-solid fa-comment"  class="px-2"/>
-            <span class="px-2">Quản feedback</span>
-
-        </a>
-    </div> -->
-    <!-- <div class=" ms-4 pb-4">
-        <a class="" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
-
-            <font-awesome-icon icon="fa-solid fa-syringe" class="px-2" />
-            <span class="px-2">Quản lý dịch vụ</span>
-
-        </a>
-    </div> -->
     <hr class="text-dark">
     <div class=" ms-4">
-        <!-- <a href="#"><i class="fas fa-cog fs-5 me-3"></i>Cài Đặt</a> -->
         <a class="" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
             <font-awesome-icon icon="fa-solid fa-gear" class="px-2" />
             Cài đặt
@@ -101,21 +84,7 @@ library.add(
 </template>
 
 <style>
-/* .sidebars {
-    position: sticky;
-    background-color: rgb(25, 36, 66);
-    height: 1800px;
-} */
-/* .sidebars {
-    position: sticky;
-    background-color: rgb(25, 36, 66);
-    height: 1800px;
-} */
 
-/* .sidebars a {
-    text-decoration: none;
-    color: white;
-} */
 a{
   color: rgb(6, 20, 53);
   text-decoration: none;

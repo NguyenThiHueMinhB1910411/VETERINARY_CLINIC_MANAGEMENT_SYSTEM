@@ -7,18 +7,14 @@ import About from "@/views/About/About.vue";
 import FeverInDog from "@/views/About/FeverInDog.vue";
 import StressCat from "@/views/About/StressCat.vue";
 
-import Booking from '@/views/Booking/Booking.vue';
+// import Booking from '@/views/Booking/Booking.vue';
 import Service from '@/views/Service/Service.vue';
 import SpaRoom from '@/views/Service/SpaRoom/SpaRoom.vue';
 import HotelRoom from '@/views/Service/HotelRoom/HotelRoom.vue';
 import PhysicalExamination from '@/views/Service/PhysicalExamination/PhysicalExamination.vue';
 // admin
 import Admin from '@/views/Admin/Admin.vue';
-// import DashBoard from '@/views/Admin/DashBoard.vue';
-// import HRM from '@/views/Admin/HRM.vue';
-// import AccountManager from '@/views/Admin/AccountManager.vue';
-// import FeedBack from '@/views/Admin/FeedBack.vue';
-//STAFF
+
 import Staff from '@/views/Staff/Staff.vue';
 
 //DOCTOR
@@ -61,11 +57,11 @@ const routes = [
     name: "StressCat",
     component: StressCat,
   },
-  {
-    path:'/booking',
-    name:'Booking',
-    component: Booking,
-  },
+  // {
+  //   path:'/booking',
+  //   name:'Booking',
+  //   component: Booking,
+  // },
   {
     path: '/Service',
     name: 'Service',
@@ -87,28 +83,6 @@ const routes = [
     component: PhysicalExamination,
   },
 
-
-  // ADMIN
-  // {
-  //   path: '/dashboard',
-  //   name: 'DashBoard',
-  //   component: DashBoard,
-  // },
-  // {
-  //   path: '/hrm',
-  //   name: 'HRM',
-  //   component: HRM,
-  // },
-  // {
-  //   path: '/accountManager',
-  //   name: 'AccountManager',
-  //   component: AccountManager,
-  // },
-  // {
-  //   path: 'FeedBack',
-  //   name: 'FeedBack',
-  //   component: FeedBack,
-  //  },
 
 
   {

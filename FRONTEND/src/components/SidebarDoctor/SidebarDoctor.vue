@@ -40,15 +40,6 @@ library.add(
     </div>
     <hr class="text-dark">
   
-    <!-- <div class=" ms-4 pb-4 decorate">
-        <router-link :to="{ name: '' }">
-        <font-awesome-icon icon="fa-solid fa-user" class="px-2" />
-        Quản lý tài khoản</router-link
-      >
-        
-
-    </div> -->
-
 
     <div class=" ms-4 pb-4 decorate">
         <router-link :to="{ name: 'SelfCalenadar' }">

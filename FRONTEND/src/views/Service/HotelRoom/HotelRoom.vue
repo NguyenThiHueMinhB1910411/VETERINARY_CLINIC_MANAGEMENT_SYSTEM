@@ -42,8 +42,7 @@ export default {
         async retrieveServices() {
             try {
 
-                //this.categoryService = await CategoryService.getAll();
-                //this.ListInfoService = await InfoService.getAll();
+                
                 this.ListService = await ServiceService.getAll();
                 this.ListService = this.ListService.filter((e) => e.MaLoaiDichVu == "DV1")
             } catch (error) {
@@ -60,7 +59,7 @@ export default {
                 });
 
             const rs = await RegistrationInformationService.create(this.data);
-            // this.$router.push("/Confirm");
+           
 
         },
 
@@ -69,10 +68,7 @@ export default {
         this.retrieveServices();
         this.retriveStaff();
     }
-    // mounted() {
-    //     this.retrieveServices();
-    //     this.retrieveInfoServices();
-    // },
+  
 };
 </script>
 
@@ -80,11 +76,7 @@ export default {
 <HeaderPublic />
 <main class="">
     <div class="price-list ">
-        <!-- <h3 class="text-uppercase text-center mb-4 title-hotel">Hotel</h3> -->
-
-        <!-- <div class="d-flex justify-content-center">
-            <img src="../../../assets/images/status-hotel.png" class="img-fluid status-hotel" alt="" />
-        </div> -->
+       
         <div class="m-5 pb-5">
             <table class="table table-hover text-center table-bordered table table-bordered ">
                 <tr class="text-light  tablet set-bg fw-normal">
@@ -110,9 +102,7 @@ export default {
                     <td>{{service.TenDichVu}}</td>
                     <td colspan="" class=" px-5 py-1 "> {{ new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format(service.GiaCoVua).replace("VND", "") }}</td>
                     <td colspan="" class=" px-5 py-1 "> {{ new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format(service.GiaCoLon).replace("VND", "") }}</td>
-                    <!-- <td colspan="" class=" px-5 py-1 ">{{service.GiaCoVua}} </td>
-                    <td colspan="" class=" px-5 py-1">{{service.GiaCoLon}} </td>
-                -->
+                  
                 </tr>
 
             </table>
@@ -206,18 +196,7 @@ export default {
                                         </div>
                                     </td>
                                 </tr>
-                                <!-- <tr class="create-space">
-                                            <td>
-                                                Cân nặng:
-                                                <span class="text-danger fw-bold">*</span>
-                                            </td>
-                                            <td>
-                                                <select id="" name="" v-model="this.data.CanNang">
-                                                    <option>0-7 kg</option>
-                                                    <option>7kg trở lên</option>
-                                                </select>
-                                            </td>
-                                        </tr> -->
+                             
                                 <tr class="">
                                     <td class="title-info">
                                         Cân nặng :
@@ -255,12 +234,7 @@ export default {
                                                 </td>
                                             </tr>
                                 <div>
-                                    <!-- <tr>
-                                        <td color="2">Số ngày gửi:</td>
-                                        <td>
-                                            <input type="number" id="quantity" name="quantity" min="1" max="7" v-model="this.data.SoNgay" />
-                                        </td>
-                                    </tr> -->
+                                  
 
                                 </div>
 

@@ -54,14 +54,7 @@ export default {
         }
     },
     methods: {
-        // async getFeedback(id) {
-        //     try {
-        //         this.feedback = await feedbackservice.get(id);
-
-        //     } catch (error) {
-        //         console.log(error);
-        //     }
-        // },
+ 
         async handleDelete(ngayFeedback) {
             if (window.confirm("Bạn có muốn xóa phản hồi này?")) {
                 FeedbackService.delete(ngayFeedback)
@@ -197,20 +190,6 @@ export default {
 
                                 <font-awesome-icon icon="fa-solid fa-trash" class=" text-danger px-4" @click="handleDelete(feedback.NgayFeedback)" />
 
-                                <!-- <button
-                        type="button"
-                        :class="`text-light ${registrationInformation.TrangThaiKhamBenh== 'Đã khám'?'disable':'active'}` "
-
-                        :disabled="registrationInformation.TrangThaiKhamBenh== 'Đã khám'"
-                        @click="
-                          handleStatus({
-                            ...registrationInformation,
-                            TrangThaiKhamBenh: 'Đã khám',
-                          })
-                        "
-                      >
-                        Kê đơn thuốc
-                      </button> -->
 
                             </td>
 
